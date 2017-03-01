@@ -15,20 +15,24 @@ import namer
 import mongo as mng
 import lw_calendar as cal #custom calendar widget to choose dates
 import sys
-from PyQt4 import QtGui #for calling QApplication in main (necessary to prevent multiple calls in fxns)
+from PyQt5 import QtGui, QtWidgets #for calling QApplication in main (necessary to prevent multiple calls in fxns)
 
 def main():
-    app = QtGui.QApplication.instance()
+    app = QtWidgets.QApplication.instance()
     # checks if QApplication already exists
     if not app: # create QApplication if it doesnt exist 
-        app = QtGui.QApplication(sys.argv)    
+        app = QtWidgets.QApplication(sys.argv)
     pathName = fg.get_dir()
     file_list = fg.recur_find(pathName, 'xlsx')
     patientNumber = namer.parsePatient(file_list[1])
     filterNumber = namer.parseFilter(file_list[1])
     time_point = namer.time_pointer(file_list[1])
+    print("Patient Number: %s Filter Number: %s Time Point: %s" %(patientNumber, filterNumber, time_point))
     #retrieve mongodb patient doc    
     patientDoc = mng.retrieveDoc(patientNumber)
+    if patientDoc == None:
+        pass
+        # This will create a new filter.
     newFilt = flz.Filter(filterNumber, time_point)
     newFilt.DateRec = patientDoc['Filter_' + filterNumber]['DateRec']
     newFilt.DatePro = str(cal.getDate('Select date sample was processed.'))
@@ -48,7 +52,3 @@ def main():
 if __name__ == '__main__':
     main()
     sys.exit()
-    
-        
-
-    
