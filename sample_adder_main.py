@@ -15,13 +15,13 @@ import namer #custom regex functions
 import lw_calendar as cal #custom calendar widget to choose dates
 import lw_textinput as txti #custom text input widget
 import sys
-from PyQt4 import QtGui #for calling QApplication in main (necessary to prevent multiple calls in fxns)
+from PyQt5 import QtGui, QtWidgets #for calling QApplication in main (necessary to prevent multiple calls in fxns)
 
 def main():
-    app = QtGui.QApplication.instance()
+    app = QtWidgets.QApplication.instance()
     # checks if QApplication already exists
     if not app: # create QApplication if it doesnt exist 
-        app = QtGui.QApplication(sys.argv)
+        app = QtWidgets.QApplication(sys.argv)
     patientNumber = namer.parsePatient(txti.getText('Insert patient number.')) #gui ask for patient and parse
     filterNumber = namer.parseFilter(txti.getText('Insert filter number')) #gui ask for filter and parse
     #check if patient already exists

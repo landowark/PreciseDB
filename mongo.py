@@ -2,7 +2,7 @@
 """
 Created on Thu Nov 19 10:35:06 2015
 
-This will hold all of the MongoDB functions for this projecct.
+This will hold all of the MongoDB functions for this project.
 
 @author: landon
 """

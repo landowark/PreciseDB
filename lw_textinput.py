@@ -6,36 +6,40 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt4 import QtCore, QtGui
-#import sys
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 class textBox(object):
-    def setupUi(self, Dialog, title):
+    def setupUi(self, Dialog, title="Dialog"):
         Dialog.setObjectName("Dialog")
         Dialog.resize(560, 85)
-        Dialog.setWindowTitle(title)
-        self.plainTextEdit = QtGui.QPlainTextEdit(Dialog)
+        self.plainTextEdit = QtWidgets.QPlainTextEdit(Dialog)
         self.plainTextEdit.setGeometry(QtCore.QRect(10, 10, 541, 31))
         self.plainTextEdit.setObjectName("plainTextEdit")
-        self.buttonBox = QtGui.QDialogButtonBox(Dialog)
+        self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
         self.buttonBox.setGeometry(QtCore.QRect(360, 50, 176, 27))
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
-        
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("accepted()"), Dialog.accept)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("rejected()"), Dialog.reject)
-        if Dialog.exec_():
-            self.userInput = self.plainTextEdit.toPlainText()
-        else:
-            self.userInput = ''
-            
-def getText(title='no prompt passed to widget'):
-#    app = QtGui.QApplication.instance() # checks if QApplication already exists 
-#    if not app: # create QApplication if it doesnt exist 
-#        app = QtGui.QApplication(sys.argv)
+
+        self.retranslateUi(Dialog, title)
+        self.buttonBox.accepted.connect(Dialog.accept)
+        self.buttonBox.rejected.connect(Dialog.reject)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog, title):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate(title, title))
+
+def getText(title):
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Dialog = QtWidgets.QDialog()
     ui = textBox()
-    ui.setupUi(QtGui.QDialog(), title)
+    ui.setupUi(Dialog, title)
+    if Dialog.exec_():
+        ui.userInput = ui.plainTextEdit.toPlainText()
+    else:
+        ui.userInput = ''
     return(ui.userInput)
-    
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     print(getText())

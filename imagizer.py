@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Sep 24 14:33:31 2015
-This module will take the input from an xl file and convert it to a 
+This module will take the input from a teloview xl file and convert it to a
 new image in the patient json structure.
 @author: Landon
 """
