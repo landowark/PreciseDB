@@ -11,7 +11,7 @@ def main():
     for patient in patients:
         frame = samples.loc[samples['PatientID'] == patient].sort_values("DateReceived")
         for index, row in frame.iterrows():
-            print(datetime.datetime.strftime(row['DateReceived'].to_pydatetime(), "%Y-%m-%d"))
+            #print(datetime.datetime.strftime(row['DateReceived'].to_pydatetime(), "%Y-%m-%d"))
             add_scrape(row['PatientID'], row['FilterID'], datetime.datetime.strftime(row['DateReceived'].to_pydatetime(), "%Y-%m-%d"))
 
 if __name__ == "__main__":

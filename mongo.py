@@ -32,14 +32,15 @@ def getFirstSampleDate(input_pat):
     db = mng.MongoClient().prostate_actual.patient
     nb_patient = db.find_one({'_id':input_pat})
     filters = nb_patient['filters']
-    date = min([datetime.datetime.strptime(item['DateRec'], "%Y-%m-%d").date() for item in filters])
+    date = min([datetime.datetime.strptime(filters[item]['DateRec'], "%Y-%m-%d").date() for item in filters])
+    print(date)
     return(date)
 
 def filterExists(patientNumber, filterNumber):
     db = mng.MongoClient().prostate_actual.patient
     docu = db.find_one({'_id':patientNumber})
     for item in docu['filters']:
-        if item['_id'] == filterNumber:
+        if item == filterNumber:
             return(True)
         else:
             continue

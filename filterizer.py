@@ -10,11 +10,9 @@ import datetime
 
 class Filter():
     
-    def __init__(self, filtNum='0', tPoint='+00m'):
+    def __init__(self, tPoint='+00m'):
         
         format = '%Y-%m-%d'
-        
-        self._id = filtNum
         self.tPoint = tPoint
         self.images = {}
         self.CTCNum = 0
@@ -58,8 +56,9 @@ class Filter():
             Vol_list.append(self.images[item]['nucVol'])
             sigPerVol_list.append(self.images[item]['sigPerVol'])
             dia_list.append(self.images[item]['nucDia'])
-            for telo in self.images[item]['teloInt']:
-                int_list.append(telo)
+            for thing in self.images[item]['telomeres']:
+                #print(self.images[item]['telomeres'][thing])
+                int_list.append(self.images[item]['telomeres'][thing]['int'])
         '''Calculate values based on lists'''
         self.numSig = float(np.mean(sig_list))
         self.peakNumSig = int(np.max(sig_list))

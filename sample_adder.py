@@ -71,10 +71,10 @@ def add_scrape(input_patient, input_filter, input_received):
             firstDate = mng.getFirstSampleDate(patientNumber)
             delta = round(int((dateReceived - firstDate).days)/30)
         timePoint = "+%sm" % str(delta).zfill(2)
-        newFilt = fltz.Filter(filtNum=filterNumber, tPoint=timePoint)
+        newFilt = fltz.Filter(tPoint=timePoint)
         newFilt.DateRec = input_received
         dicto = mng.retrieveDoc(patientNumber)
-        dicto['filters'].append(newFilt)
+        dicto['filters'][filterNumber] = newFilt
         mng.shoveDoc(dicto)
     else:
         print('Previously seen filter.')

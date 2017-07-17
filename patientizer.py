@@ -13,7 +13,7 @@ class Patient(object):
         self._id = patNum
         self.Gleason = 0
         self.tScore = ''
-        self.filters = []
+        self.filters = {}
         self.trxs = []
         
     def jsonable(self):

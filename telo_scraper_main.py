@@ -21,13 +21,13 @@ from PyQt5 import QtWidgets #for calling QApplication in main (necessary to prev
 def main():
     # With the addition of my Access scraper, this is kind of defunct
     # I just need to point the excel files to the proper filter
-    app = QtWidgets.QApplication.instance()
+    #app = QtWidgets.QApplication.instance()
     # checks if QApplication already exists
-    if not app: # create QApplication if it doesnt exist
-        app = QtWidgets.QApplication(sys.argv)
-    ex = fg.getDir()
-    pathName = ex.text
-    #pathName = "C:\\Users\\Landon\\Documents\\Student Work\\Data\\MB0389PR\\MB0389 +0m 13AA8592" #placeholder for testing.
+    #if not app: # create QApplication if it doesnt exist
+    #    app = QtWidgets.QApplication(sys.argv)
+    #ex = fg.getDir()
+    #pathName = ex.text
+    pathName = "C:\\Users\\Landon\\Documents\\Student Work\\Data\\MB0389PR\\MB0389 +0m 13AA8592" #placeholder for testing.
     file_list = fg.recur_find(pathName, 'xlsx')
     file_list = [item for item in file_list if 'deconvolution' in item and 'lymp' not in item]
     patientNumber = namer.parsePatient(file_list[1])
@@ -41,10 +41,11 @@ def main():
         # This will create a new filter based on info scraped from filepath.
     # retrieve mongodb patient doc
     patientDoc = mng.retrieveDoc(patientNumber)
-    newFilt = flz.Filter(filterNumber)
+    newFilt = flz.Filter()
     try:
     #     # Attempt to get filter received date from record
-        newFilt.DateRec = [item['DateRec'] for item in patientDoc['filters'] if item['_id'] == filterNumber][0]
+        newFilt.DateRec = [patientDoc['filters'][item]['DateRec'] for item in patientDoc['filters'] if item == filterNumber][0]
+        #print([patientDoc['filters'][item] for item in patientDoc['filters'] if item == filterNumber][0])
     except KeyError:
     #     # If no record ask for date.
          #newFilt.DateRec = str(cal.getDate('Select date sample was received.'))
@@ -60,10 +61,10 @@ def main():
         dict_images[name] = new_image
     newFilt.images = dict_images
     newFilt.data_calc()
-    for iii,item in enumerate(patientDoc['filters']):
-        if item['_id'] == filterNumber:
+    for item in patientDoc['filters']:
+        if item == filterNumber:
             print("Hit " + filterNumber)
-            patientDoc['filters'][iii] = newFilt.jsonable()
+            patientDoc['filters'][item] = newFilt.jsonable()
     print(patientDoc)
     mng.shoveDoc(patientDoc)
     sys.exit()
