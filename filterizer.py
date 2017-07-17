@@ -10,9 +10,9 @@ import datetime
 
 class Filter():
     
-    def __init__(self, filtNum='0', tPoint='+0m'):
+    def __init__(self, filtNum='0', tPoint='+00m'):
         
-        format = '%b %d, %Y'
+        format = '%Y-%m-%d'
         
         self._id = filtNum
         self.tPoint = tPoint
@@ -34,8 +34,8 @@ class Filter():
         self.maxInt = 0
         self.PSA = 0
         self.DateRec = str(datetime.date(2014,1,1).strftime(format))
-        self.DatePro = str(datetime.date(2014,1,1).strftime(format))
-        self.DateIm = str(datetime.date(2014,1,1).strftime(format))
+        #self.DatePro = str(datetime.date(2014,1,1).strftime(format))
+        #self.DateIm = str(datetime.date(2014,1,1).strftime(format))
         
     def data_calc(self):
         import numpy as np

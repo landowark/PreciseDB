@@ -46,7 +46,7 @@ class Image():
         self.nucX = nucData[4]
         self.nucY = nucData[5]
         self.nucZ = nucData[6]
-        self.nucVol = nucData[7] * 0.002081
+        self.nucVol = nucData[7] * 0.002081 #presumably this is waht Julius and Sabine hashed out -LW
         self.sigPerVol = self.sigNum/self.nucVol
         self.nucDia = float(6 * (self.nucVol / np.pi)) ** (1/3)
         return(self.jsonable())

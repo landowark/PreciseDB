@@ -27,13 +27,23 @@ def addPatient(newPat):
     doc = jsonpickle.encode(newPat)
     db.insert_one(loads(doc))
 
-def findFilter(patientNumber, filterNumber):
+def getFirstSampleDate(input_pat):
+    import datetime
+    db = mng.MongoClient().prostate_actual.patient
+    nb_patient = db.find_one({'_id':input_pat})
+    filters = nb_patient['filters']
+    date = min([datetime.datetime.strptime(item['DateRec'], "%Y-%m-%d").date() for item in filters])
+    return(date)
+
+def filterExists(patientNumber, filterNumber):
     db = mng.MongoClient().prostate_actual.patient
     docu = db.find_one({'_id':patientNumber})
-    if 'Filter_' + filterNumber in docu.keys():
-        return(True)
-    else:
-        return(False)
+    for item in docu['filters']:
+        if item['_id'] == filterNumber:
+            return(True)
+        else:
+            continue
+    return(False)
         
 def retrieveDoc(patientNumber):
     db = mng.MongoClient().prostate_actual.patient
@@ -44,3 +54,23 @@ def shoveDoc(dicto):
     db = mng.MongoClient().prostate_actual.patient
     doc = jsonpickle.encode(dicto)
     db.find_one_and_replace({'_id':dicto['_id']}, loads(doc))
+
+def updateDateProcessed(patientNumber, filterNumber, input_processed):
+    db = mng.MongoClient().prostate_actual.patient
+    docu = db.find_one({'_id': patientNumber})
+    for idx, filt in enumerate(docu['filters']):
+        if filterNumber in filt['_id']:
+            filt['DatePro'] = input_processed
+            docu['filters'][idx] = filt
+    doc = jsonpickle.encode(docu)
+    db.find_one_and_replace({'_id': patientNumber}, loads(doc))
+
+def updateDateImageed(patientNumber, filterNumber, input_imaged):
+    db = mng.MongoClient().prostate_actual.patient
+    docu = db.find_one({'_id': patientNumber})
+    for idx, filt in enumerate(docu['filters']):
+        if filterNumber in filt['_id']:
+            filt['DateIm'] = input_imaged
+            docu['filters'][idx] = filt
+    doc = jsonpickle.encode(docu)
+    db.find_one_and_replace({'_id': patientNumber}, loads(doc))

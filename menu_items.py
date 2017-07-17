@@ -7,32 +7,32 @@ This Modules contains input/output functions for reading/writing files.
 @author: Landon
 """
 
-from tkinter import filedialog
+import sys
+from PyQt5.QtWidgets import (QMainWindow, QTextEdit,
+    QAction, QFileDialog, QApplication)
+from PyQt5.QtGui import QIcon
 
 ## INPUT MENUS##
-    
-def startup():
-#    from os import chdir
-#    from os.path import expanduser
-    import tkinter
-    root = tkinter.Tk()
-    root.withdraw()
-    #chdir(expanduser('C:\\Users'))
 
-def get_file(): 
-    startup()
-    in_path = filedialog.askopenfilename() #Ask user for file
-    return(in_path)
-    
-def get_dir():
-    startup()
-    in_path = filedialog.askdirectory() #Ask user for directory
-    return(in_path)
-    
-def get_files():
-    startup()
-    in_path = filedialog.askopenfilenames() #Ask user for files
-    return(in_path)
+class getFile(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.text = self.showDialog()
+
+    def showDialog(self):
+        fname = QFileDialog.getOpenFileName(self, 'Open file')
+        if fname[0]:
+            return fname[0]
+
+class getDir(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.text = self.showDialog()
+
+    def showDialog(self):
+        dname = QFileDialog.getExistingDirectory(self, caption="Select Directory")
+        if dname:
+            return dname
 
 def recur_find(path, f_type): #finds all files of type(f_type) in directory tree.
     import fnmatch
@@ -56,7 +56,8 @@ def make_dir(obtain):
         
 def excel_write(data_out):
     import pandas as pd
-    path = get_dir() + '/'
+    app = QApplication(sys.argv)
+    path = getDir() + '/'
     writer = pd.ExcelWriter(path + 'data_dump.xlsx')
     print("Writing to Excel file...", path + 'data_dump.xlsx')
     data_out.to_excel(writer)

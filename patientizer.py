@@ -13,15 +13,8 @@ class Patient(object):
         self._id = patNum
         self.Gleason = 0
         self.tScore = ''
+        self.filters = []
+        self.trxs = []
         
     def jsonable(self):
         return self.__dict__
-                
-#def main():
-#    jeff = Patient()
-#    jeff.filt = jeff.Filter()
-#    jeff.filt.image = jeff.Filter.Image()
-#    print(jsonpickle.encode(jeff))
-#    
-#if __name__ == '__main__':
-#    main()
