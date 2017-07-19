@@ -21,13 +21,13 @@ from PyQt5 import QtWidgets #for calling QApplication in main (necessary to prev
 def main():
     # With the addition of my Access scraper, this is kind of defunct
     # I just need to point the excel files to the proper filter
-    #app = QtWidgets.QApplication.instance()
+    app = QtWidgets.QApplication.instance()
     # checks if QApplication already exists
-    #if not app: # create QApplication if it doesnt exist
-    #    app = QtWidgets.QApplication(sys.argv)
-    #ex = fg.getDir()
-    #pathName = ex.text
-    pathName = "C:\\Users\\Landon\\Documents\\Student Work\\Data\\MB0389PR\\MB0389 +0m 13AA8592" #placeholder for testing.
+    if not app: # create QApplication if it doesnt exist
+        app = QtWidgets.QApplication(sys.argv)
+    ex = fg.getDir()
+    pathName = ex.text
+    #pathName = "C:\\Users\\Landon\\Documents\\Student Work\\Data\\MB0389PR\\MB0389 +0m 13AA8592" #placeholder for testing.
     file_list = fg.recur_find(pathName, 'xlsx')
     file_list = [item for item in file_list if 'deconvolution' in item and 'lymp' not in item]
     patientNumber = namer.parsePatient(file_list[1])
@@ -65,7 +65,7 @@ def main():
         if item == filterNumber:
             print("Hit " + filterNumber)
             patientDoc['filters'][item] = newFilt.jsonable()
-    print(patientDoc)
+    #print(patientDoc)
     mng.shoveDoc(patientDoc)
     sys.exit()
 

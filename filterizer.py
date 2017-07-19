@@ -30,7 +30,6 @@ class Filter():
         self.p4qrt = 0
         self.sigPerVol = 0
         self.maxInt = 0
-        self.PSA = 0
         self.DateRec = str(datetime.date(2014,1,1).strftime(format))
         #self.DatePro = str(datetime.date(2014,1,1).strftime(format))
         #self.DateIm = str(datetime.date(2014,1,1).strftime(format))
