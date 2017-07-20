@@ -33,7 +33,6 @@ def getFirstSampleDate(input_pat):
     nb_patient = db.find_one({'_id':input_pat})
     filters = nb_patient['filters']
     date = min([datetime.datetime.strptime(filters[item]['DateRec'], "%Y-%m-%d").date() for item in filters])
-    print(date)
     return(date)
 
 def filterExists(patientNumber, filterNumber):
@@ -53,7 +52,8 @@ def retrieveDoc(patientNumber):
     
 def shoveDoc(dicto):
     db = mng.MongoClient().prostate_actual.patient
-    doc = jsonpickle.encode(dicto)
+    doc = jsonpickle.encode(dicto, unpicklable=False)
+    #doc = dicto
     db.find_one_and_replace({'_id':dicto['_id']}, loads(doc))
 
 def updateDateProcessed(patientNumber, filterNumber, input_processed):

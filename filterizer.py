@@ -33,6 +33,7 @@ class Filter():
         self.DateRec = str(datetime.date(2014,1,1).strftime(format))
         #self.DatePro = str(datetime.date(2014,1,1).strftime(format))
         #self.DateIm = str(datetime.date(2014,1,1).strftime(format))
+
         
     def data_calc(self):
         import numpy as np
@@ -91,4 +92,5 @@ class Filter():
         
         
     def jsonable(self):
+        self.__delattr__("py/object")
         return self.__dict__

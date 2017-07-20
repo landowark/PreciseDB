@@ -71,7 +71,6 @@ def main():
         patientDoc['PSAs'] = PSA
         patientDoc['treatments'] = treatments
         mng.shoveDoc(patientDoc)
-        print('NEXT!')
 
 if __name__ == '__main__':
     main()
