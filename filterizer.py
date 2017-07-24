@@ -92,5 +92,4 @@ class Filter():
         
         
     def jsonable(self):
-        self.__delattr__("py/object")
         return self.__dict__

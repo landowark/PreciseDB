@@ -41,7 +41,7 @@ def main():
         # This will create a new filter based on info scraped from filepath.
     # retrieve mongodb patient doc
     patientDoc = mng.retrieveDoc(patientNumber)
-    newFilt = flz.Filter()
+    newFilt = flz.Filter(tPoint=patientDoc['filters'][filterNumber]['tPoint'])
     try:
     #     # Attempt to get filter received date from record
         newFilt.DateRec = [patientDoc['filters'][item]['DateRec'] for item in patientDoc['filters'] if item == filterNumber][0]
