@@ -30,8 +30,12 @@ class Image():
         inNucleus = set(data.index[data['spots number'].notnull()]).difference(inSignals)
         inSignals = list(inSignals)
         inNucleus = list(inNucleus)
+        inNucleus = sorted(inNucleus)
+        #assert inNucleus[0] < inNucleus[1]
+        #print(inNucleus)
         inNucleus = [inNucleus[1], inNucleus[3], inNucleus[5], inNucleus[7], inNucleus[9], inNucleus[10], inNucleus[11], inNucleus[13]]
         nucData = list(data['spots number'].iloc[inNucleus])
+
         spotnum = [int(iii) for iii in list(data['spots number'].iloc[inSignals].values)]
         isAgg = [int(iii) for iii in list(data['Aggregates'].iloc[inSignals].values)]
         teloDist = [float(iii) for iii in list(data['Distance from nucl. center [%]'].iloc[inSignals].values)]

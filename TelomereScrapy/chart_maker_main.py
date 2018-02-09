@@ -1,5 +1,6 @@
-import mongo as mng
-import chart_maker as chm
+from MongoInterface import mongo as mng
+from TelomereScrapy import chart_maker as chm
+
 
 def main():
 
@@ -26,6 +27,7 @@ def main():
                     continue
         except IndexError:
             continue
+
 
 if __name__ == "__main__":
     main()

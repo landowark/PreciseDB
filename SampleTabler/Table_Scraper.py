@@ -5,7 +5,7 @@ For pulling sample info out of excel file exported from my Access Database.
 
 import pandas as pd
 import numpy as np
-from sample_adder import add_scrape
+from .sample_adder import add_scrape
 import datetime
 
 def main():

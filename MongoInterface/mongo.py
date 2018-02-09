@@ -9,20 +9,25 @@ This will hold all of the MongoDB functions for this project.
 
 import pymongo as mng
 import jsonpickle
-import bson
 from bson.json_util import loads
 
-def findPatient(input_string):
+def getPatientList():
+    # Get list of all patients in mongoDB
     db = mng.MongoClient().prostate_actual
-    patient_list = []
-    for doc in db.patient.find():
-        patient_list.append(doc['_id'])
+    patient_list = [doc['_id'] for doc in db.patient.find()]
+    return patient_list
+
+def patientExists(input_string):
+    # Returns True if patient exists
+    db = mng.MongoClient().prostate_actual
+    patient_list = getPatientList()
     if input_string in patient_list:
         return(True)
     else:
         return(False)
         
 def addPatient(newPat):
+    # Takes patient class and inserts into prostate_actual
     db = mng.MongoClient().prostate_actual.patient
     doc = jsonpickle.encode(newPat)
     db.insert_one(loads(doc))
@@ -30,8 +35,9 @@ def addPatient(newPat):
 def getFirstSampleDate(input_pat):
     import datetime
     db = mng.MongoClient().prostate_actual.patient
-    nb_patient = db.find_one({'_id':input_pat})
+    nb_patient = db.find_one({"_id":input_pat})
     filters = nb_patient['filters']
+    print(filters)
     date = min([datetime.datetime.strptime(filters[item]['DateRec'], "%Y-%m-%d").date() for item in filters])
     return(date)
 
@@ -47,7 +53,7 @@ def filterExists(patientNumber, filterNumber):
         
 def retrieveDoc(patientNumber):
     db = mng.MongoClient().prostate_actual.patient
-    doc = db.find_one({'_id':patientNumber})
+    doc = db.find_one({"_id":patientNumber})
     return(doc)
     
 def shoveDoc(dicto):
@@ -66,7 +72,7 @@ def updateDateProcessed(patientNumber, filterNumber, input_processed):
     doc = jsonpickle.encode(docu)
     db.find_one_and_replace({'_id': patientNumber}, loads(doc))
 
-def updateDateImageed(patientNumber, filterNumber, input_imaged):
+def updateDateImaged(patientNumber, filterNumber, input_imaged):
     db = mng.MongoClient().prostate_actual.patient
     docu = db.find_one({'_id': patientNumber})
     for idx, filt in enumerate(docu['filters']):
@@ -75,3 +81,20 @@ def updateDateImageed(patientNumber, filterNumber, input_imaged):
             docu['filters'][idx] = filt
     doc = jsonpickle.encode(docu)
     db.find_one_and_replace({'_id': patientNumber}, loads(doc))
+
+def get_timepoints(patientNumber):
+    # Get timepoints obtained for patient
+    db = mng.MongoClient().prostate_actual.patient
+    doc = db.find_one({"_id": patientNumber})
+    return sorted([doc['filters'][xx]['tPoint'] for xx in [yy for yy in doc['filters'].keys()]])
+
+def get_filter_by_tPoint(patientNumber, tPoint):
+    # Get filter by timepoint
+    db = mng.MongoClient().prostate_actual.patient
+    doc = db.find_one({"_id": patientNumber})
+    filtDict = {}
+    for filter in list(doc['filters'].keys()):
+        if doc['filters'][filter]['tPoint'] == tPoint:
+            filtDict[filter] = doc['filters'][filter]
+    #filt = [doc['filters'][filter] for filter in list(doc['filters'].keys()) if doc['filters'][filter]['tPoint'] == tPoint][0]
+    return(filtDict)

@@ -8,17 +8,16 @@ exist and then add a filter to the specified patient
 @author: Landon
 """
 
-import mongo as mng  #custom mongo database read/write funtions
-import patientizer as ptz #custom patient class
-import filterizer as fltz #custom filter class
+from MongoInterface import mongo as mng
+from Classes import filterizer as fltz, patientizer as ptz
 import namer #custom regex functions
 import sys
 import datetime
 
 def main():
-    from PyQt5 import QtGui, QtWidgets  # for calling QApplication in main (necessary to prevent multiple calls in fxns)
-    import lw_calendar as cal  # custom calendar widget to choose dates
-    import lw_textinput as txti  # custom text input widget
+    from PyQt5 import QtWidgets  # for calling QApplication in main (necessary to prevent multiple calls in fxns)
+    from UI import lw_calendar as cal
+    from UI import lw_textinput as txti
     app = QtWidgets.QApplication.instance()
     # checks if QApplication already exists
     if not app: # create QApplication if it doesnt exist
@@ -26,7 +25,7 @@ def main():
     patientNumber = namer.parsePatient(txti.getText('Insert patient number.')) #gui ask for patient and parse
     filterNumber = namer.parseFilter(txti.getText('Insert filter number')) #gui ask for filter and parse
     #check if patient already exists
-    patient_exists = mng.findPatient(patientNumber)
+    patient_exists = mng.patientExists(patientNumber)
     if patient_exists == False:
         print('Previously unseen patient. Adding to database.')
         newPat = ptz.Patient(patNum=patientNumber)
@@ -52,7 +51,7 @@ def add_scrape(input_patient, input_filter, input_received):
     patientNumber = namer.parsePatient(input_patient)
     filterNumber = namer.parseFilter(input_filter)
     # check if patient already exists
-    patient_exists = mng.findPatient(patientNumber)
+    patient_exists = mng.patientExists(patientNumber)
     if patient_exists == False:
         print('Previously unseen patient. Adding to database.')
         newPat = ptz.Patient(patNum=patientNumber)
