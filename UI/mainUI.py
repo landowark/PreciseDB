@@ -80,6 +80,8 @@ class Ui_MainWindow(object):
 
         # Generate patient list
         self.createDataTree()
+        # Sort items.. works pretty good
+        self.treeWidget.sortItems(0, 0)
 
         # Connect buttons
         self.teloButton.clicked.connect(self.teloButtonClicked)
@@ -103,7 +105,7 @@ class Ui_MainWindow(object):
             parent.setText(0, patient['_id'])
             parent.setFlags(parent.flags() | Qt.ItemIsTristate | Qt.ItemIsUserCheckable)
             for filter in sorted(patient['filters'].keys()):
-                filt_TP = filter + " " + patient['filters'][filter]['tPoint']
+                filt_TP = patient['filters'][filter]['tPoint'] + " " + filter
                 child = QTreeWidgetItem(parent)
                 child.setFlags(child.flags() | Qt.ItemIsUserCheckable)
                 child.setText(0, filt_TP)
