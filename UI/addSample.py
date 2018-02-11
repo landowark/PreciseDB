@@ -8,18 +8,19 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QDialog
+from PyQt5.QtCore import pyqtSignal
 
 class Ui_Dialog(QDialog):
 
     def setupUi(self, Dialog):
 
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(678, 560)
+        self.thisDialog = Dialog
+        self.thisDialog.setObjectName("Dialog")
+        self.thisDialog.resize(678, 560)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../UI/icons/logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        Dialog.setWindowIcon(icon)
+        self.thisDialog.setWindowIcon(icon)
 
-        print(type(self))
         self.gridLayoutWidget = QtWidgets.QWidget(Dialog)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(13, 19, 651, 520))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
@@ -64,10 +65,12 @@ class Ui_Dialog(QDialog):
         patNum = self.Patient_Number.text()
         samNum = self.Sample_Number.text()
         dateRec = self.calendarWidget.selectedDate().toPyDate()
-        Dialog.close()
+        print(dateRec)
+        self.thisDialog.close()
 
     def Reject(self):
-        Dialog.close()
+        self.thisDialog.close()
+        #pass
 
 
 if __name__ == "__main__":

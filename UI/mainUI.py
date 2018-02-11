@@ -138,6 +138,10 @@ class Ui_MainWindow(object):
         self.ui = addSample.Ui_Dialog()
         self.ui.setupUi(self.sampleDialog)
         self.sampleDialog.exec_()
+        #self.ui.exec_()
+
+    def reporter(self):
+        print("This is the reporter function.")
 
 if __name__ == "__main__":
     import sys
