@@ -76,8 +76,9 @@ def telomgraph(filter, filePath):
             logging.warning("{f} not found, attempting to create.".format(f=filePath))
             os.makedirs(os.path.dirname(filePath))
             writer.save()
-    except ValueError:
+    except ValueError as e:
         logging.error("Warning value error for: " + os.path.basename(filePath))
+        print(e)
 
 if __name__ == "__main__":
 

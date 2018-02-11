@@ -1,5 +1,5 @@
 from MongoInterface import mongo as mng
-from TelomereScrapy import chart_maker as chm
+from ScrapeTeloView import chart_maker as chm
 
 
 def main():

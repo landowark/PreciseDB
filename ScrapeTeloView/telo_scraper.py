@@ -8,11 +8,10 @@ Created on Thu Sep 24 14:33:31 2015
 ''' TODO: has to find the appropriate filter and 
             return as a dict{}, then pop in the scraped values'''
 
-from Classes import filterizer as flz, patientizer as ptz, imagizer as imz
+from Classes import filterizer as flz, patientizer as ptz, imagizer as imz, namer
 from UI import menu_items as fg
-import namer
 from MongoInterface import mongo as mng
-from TelomereScrapy import chart_maker_main as chm, telomgraph_emulator as te
+from ScrapeTeloView import chart_maker_main as chm, telomgraph_emulator as te
 import sys
 import os
 from glob import glob

@@ -9,8 +9,7 @@ exist and then add a filter to the specified patient
 """
 
 from MongoInterface import mongo as mng
-from Classes import filterizer as fltz, patientizer as ptz
-import namer #custom regex functions
+from Classes import filterizer as fltz, patientizer as ptz, namer
 import sys
 import datetime
 

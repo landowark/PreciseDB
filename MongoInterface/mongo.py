@@ -96,5 +96,12 @@ def get_filter_by_tPoint(patientNumber, tPoint):
     for filter in list(doc['filters'].keys()):
         if doc['filters'][filter]['tPoint'] == tPoint:
             filtDict[filter] = doc['filters'][filter]
-    #filt = [doc['filters'][filter] for filter in list(doc['filters'].keys()) if doc['filters'][filter]['tPoint'] == tPoint][0]
+    return(filtDict)
+
+def get_filter_by_number(patientNumber, filterNumber):
+    # Get filter by filter number
+    db = mng.MongoClient().prostate_actual.patient
+    doc = db.find_one({"_id": patientNumber})
+    filtDict = {}
+    filtDict[filterNumber] = doc['filters'][filterNumber]
     return(filtDict)

@@ -8,29 +8,19 @@ This Modules contains input/output functions for reading/writing files.
 """
 
 import sys
-from PyQt5.QtWidgets import (QMainWindow, QFileDialog, QApplication)
+from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction, QFileDialog, QApplication, QProgressBar)
 
 ## INPUT MENUS##
 
-class getFile(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.text = self.showDialog()
+def getFile():
+    app = QApplication(sys.argv)
+    src_file = QFileDialog.getOpenFileName(None, 'Open working directory', "P:\\Quon Prostate")[0]
+    return src_file
 
-    def showDialog(self):
-        fname = QFileDialog.getOpenFileName(self, 'Open file')
-        if fname[0]:
-            return fname[0]
-
-class getDir(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.text = self.showDialog()
-
-    def showDialog(self):
-        dname = QFileDialog.getExistingDirectory(self, caption="Select Directory")
-        if dname:
-            return dname
+def getDir():
+    app = QApplication(sys.argv)
+    src_dir = QFileDialog.getExistingDirectory(None, 'Open working directory', "P:\\Quon Prostate", QFileDialog.ShowDirsOnly)
+    return src_dir
 
 def recur_find(path, f_type): #finds all files of type(f_type) in directory tree.
     import fnmatch

@@ -3,17 +3,17 @@ For pulling clinical info out of excel files sent from Jean
 '''
 
 import pandas as pd
-import namer
+from Classes import namer
 from MongoInterface import mongo as mng
 import datetime
 
-def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\CTC_RT_14Feb17_Completed.xlsx",
-         filepath_PSA="C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\psa_aug182017.xls"):
-
+def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\CTC_RT_14Feb17_Completed.xlsx", filepath_PSA="C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\psa_aug182017.xls"):
+    # read into dataframes
     df_clinical = pd.read_excel(filepath_clinical, sheet_name="Clinical Data")
     df_PSA = pd.read_excel(filepath_PSA)
     # Get indexes of patient numbers
     patidx_clinical = list(set(df_clinical.index[df_clinical['MB'].notnull()]))
+    # Not sure why the below line is there.
     patidx_clinical.append(df_clinical.index[-1])
     patidx_clinical.sort()
     patidx_PSA = list(set(df_PSA.index[df_PSA['MBTB#'].notnull()]))

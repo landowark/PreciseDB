@@ -42,4 +42,4 @@ def getText(title):
     return(ui.userInput)
 
 if __name__ == "__main__":
-    print(getText())
+    print(getText("Hello"))
