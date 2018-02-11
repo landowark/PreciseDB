@@ -102,6 +102,5 @@ def get_filter_by_number(patientNumber, filterNumber):
     # Get filter by filter number
     db = mng.MongoClient().prostate_actual.patient
     doc = db.find_one({"_id": patientNumber})
-    filtDict = {}
-    filtDict[filterNumber] = doc['filters'][filterNumber]
+    filtDict = doc['filters'][filterNumber]
     return(filtDict)

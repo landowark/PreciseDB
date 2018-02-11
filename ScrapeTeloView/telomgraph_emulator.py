@@ -47,7 +47,7 @@ def misc_from_filter(filter_dict):
     return misc_data
 
 def get_original_timepoint(patientNumber, filterNumber):
-    direc = "C:\\Users\\Landon\\ownCloud\\Documents\\Student Work\\Data\\" + patientNumber
+    direc = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\" + patientNumber
     thing = [x for x in os.listdir(direc) if filterNumber in x]
     print(thing)
     try:
