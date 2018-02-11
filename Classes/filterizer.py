@@ -10,7 +10,7 @@ import datetime
 
 class Filter():
     
-    def __init__(self, tPoint='+00m'):
+    def __init__(self, filtNum="14AA0000", tPoint='+00m'):
         
         format = '%Y-%m-%d'
         self.tPoint = tPoint

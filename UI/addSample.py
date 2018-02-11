@@ -8,7 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QDialog
-from PyQt5.QtCore import pyqtSignal
+from AddSamples import sample_adder as samad
 
 class Ui_Dialog(QDialog):
 
@@ -57,15 +57,15 @@ class Ui_Dialog(QDialog):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Add Sample"))
+        self.thisDialog.setWindowTitle(_translate("Dialog", "Add Sample"))
         self.Sample_Number.setPlaceholderText(_translate("Dialog", "Sample Number"))
         self.Patient_Number.setPlaceholderText(_translate("Dialog", "Patient Number"))
 
     def Accept(self):
-        patNum = self.Patient_Number.text()
-        samNum = self.Sample_Number.text()
-        dateRec = self.calendarWidget.selectedDate().toPyDate()
-        print(dateRec)
+        patNum = str(self.Patient_Number.text())
+        samNum = str(self.Sample_Number.text())
+        dateRec = str(self.calendarWidget.selectedDate().toPyDate())
+        samad.add_from_UI(patNum, samNum, dateRec)
         self.thisDialog.close()
 
     def Reject(self):

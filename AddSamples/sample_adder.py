@@ -13,16 +13,9 @@ from Classes import filterizer as fltz, patientizer as ptz, namer
 import sys
 import datetime
 
-def main():
-    from PyQt5 import QtWidgets  # for calling QApplication in main (necessary to prevent multiple calls in fxns)
-    from UI import lw_calendar as cal
-    from UI import lw_textinput as txti
-    app = QtWidgets.QApplication.instance()
-    # checks if QApplication already exists
-    if not app: # create QApplication if it doesnt exist
-        app = QtWidgets.QApplication(sys.argv)
-    patientNumber = namer.parsePatient(txti.getText('Insert patient number.')) #gui ask for patient and parse
-    filterNumber = namer.parseFilter(txti.getText('Insert filter number')) #gui ask for filter and parse
+def add_from_UI(patientNumber, filterNumber, dateRec):
+    patientNumber = namer.parsePatient(patientNumber) #gui ask for patient and parse
+    filterNumber = namer.parseFilter(filterNumber) #gui ask for filter and parse
     #check if patient already exists
     patient_exists = mng.patientExists(patientNumber)
     if patient_exists == False:
@@ -33,13 +26,12 @@ def main():
         print('Previously seen patient.')
     #check if filter already exists for this patient
     if mng.filterExists(patientNumber, filterNumber) == False:
-        print('Previously unseen filter. Adding to database.')
         #create new filter with default values
         newFilt = fltz.Filter(filtNum=filterNumber)
-        newFilt.DateRec = str(cal.getDate('Select date sample was received'))
+        newFilt.DateRec = dateRec
         # retrieve existing patient and update filters
         dicto = mng.retrieveDoc(patientNumber)
-        dicto['filters'].append(newFilt)
+        dicto['filters'][filterNumber] = newFilt
         #save
         mng.shoveDoc(dicto)
     else:
