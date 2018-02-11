@@ -71,8 +71,20 @@
      <height>38</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuSamples">
+    <property name="title">
+     <string>Samples</string>
+    </property>
+    <addaction name="actionAdd_Sample"/>
+   </widget>
+   <addaction name="menuSamples"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAdd_Sample">
+   <property name="text">
+    <string>Add Sample</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
