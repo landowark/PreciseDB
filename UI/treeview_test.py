@@ -71,7 +71,7 @@ class App(QWidget):
                 filter = patient.child(jjj)
                 if filter.checkState(0) == Qt.Checked:
 
-                    checked_sweeps.append(filter.text(0))
+                    checked_sweeps.append(filter.text(0).split(" ")[0])
             checked[patient.text(0)] = checked_sweeps
         print(checked)
 
