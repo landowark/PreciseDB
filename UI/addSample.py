@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QDialog
+from PyQt5.QtCore import pyqtSignal
 from AddSamples import sample_adder as samad
 
 class Ui_Dialog(QDialog):

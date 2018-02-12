@@ -79,7 +79,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         # Generate patient list
-        self.createDataTree()
+        self.updateDataTree()
         # Sort items.. works pretty good
         self.treeWidget.sortItems(0, 0)
 
@@ -98,7 +98,7 @@ class Ui_MainWindow(object):
         self.menuSamples.setTitle(_translate("MainWindow", "Samples"))
         self.actionAdd_Sample.setText(_translate("MainWindow", "Add Sample"))
 
-    def createDataTree(self):
+    def updateDataTree(self):
         db = mng.MongoClient().prostate_actual.patient
         for patient in db.find():
             parent = QTreeWidgetItem(self.treeWidget)
