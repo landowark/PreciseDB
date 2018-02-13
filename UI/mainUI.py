@@ -15,13 +15,27 @@ from ScrapeTeloView import telomgraph_emulator as te
 import os
 from PyQt5.QtGui import QIcon
 from UI import addSample
+import logging
+from logging.handlers import RotatingFileHandler
 
-# icon_location = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'icons', "logo.png")
+
+
+#set up logging.
+logger = logging.getLogger("mainUI")
+logger.setLevel(logging.DEBUG)
+#fh = RotatingFileHandler('/home/landon/Logs/torrentbot.log', maxBytes=50000, backupCount=3)
+fh = RotatingFileHandler('C:\\Users\\Landon\\Desktop\\QP.log', maxBytes=50000, backupCount=3)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+fh.setFormatter(formatter)
+logger.addHandler(fh)
 
 class Ui_MainWindow(object):
 
 
     def setupUi(self, MainWindow):
+
+        self.logger = logging.getLogger("mainUI.UI")
+        self.logger.debug("Starting up UI.")
 
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1064, 606)
@@ -85,7 +99,7 @@ class Ui_MainWindow(object):
 
         # Connect buttons
         self.teloButton.clicked.connect(self.teloButtonClicked)
-        self.actionAdd_Sample.triggered.connect(self.showDialog)
+        self.actionAdd_Sample.triggered.connect(self.addSampleDialog)
 
 
     def retranslateUi(self, MainWindow):
@@ -100,19 +114,22 @@ class Ui_MainWindow(object):
 
     def updateDataTree(self):
         db = mng.MongoClient().prostate_actual.patient
+        self.logger.info("Checking MongoDB for patients.")
         for patient in db.find():
             parent = QTreeWidgetItem(self.treeWidget)
-            parent.setText(0, patient['_id'])
+            self.logger.debug("Adding %s to patients." % patient['_id'])
+            patient_id = patient['_id']
+            parent.setText(0, patient_id)
             parent.setFlags(parent.flags() | Qt.ItemIsTristate | Qt.ItemIsUserCheckable)
             for filter in sorted(patient['filters'].keys()):
                 filt_TP = patient['filters'][filter]['tPoint'] + " " + filter
                 child = QTreeWidgetItem(parent)
                 child.setFlags(child.flags() | Qt.ItemIsUserCheckable)
+                self.logger.debug("Adding %s to %s." % (filt_TP, patient_id))
                 child.setText(0, filt_TP)
                 child.setCheckState(0, Qt.Unchecked)
 
     def teloButtonClicked(self):
-        self.statusbar.showMessage("Telo Button Clicked!")
         root = self.treeWidget.invisibleRootItem()
         # Count number of patients
         patient_count = root.childCount()
@@ -128,18 +145,21 @@ class Ui_MainWindow(object):
                 # check filter item status checked/unchecked
                 if filter.checkState(0) == Qt.Checked:
                     # add checked item to sample list for telomgraph
-                    samples_list.append((patient.text(0), filter.text(0).split(" ")[0]))
+                    samples_list.append((patient.text(0), filter.text(0).split(" ")[1]))
         for sample in samples_list:
             dicto = mongo.get_filter_by_number(sample[0], sample[1])
             timePoint = dicto['tPoint']
             sample_title = sample[0] + " " + timePoint + " " + sample[1] + ".xlsx"
+            #self.statusbar.showMessage("Exporting %s" % sample_title)
             te.telomgraph(dicto, os.path.join("C:\\Users\\Landon\\Desktop", sample_title))
+        self.statusbar.showMessage("Export done!")
 
-    def showDialog(self):
+    def addSampleDialog(self):
         self.sampleDialog = QtWidgets.QDialog()
         self.ui = addSample.Ui_Dialog()
         self.ui.setupUi(self.sampleDialog)
         self.sampleDialog.exec_()
+        self.updateDataTree()
         #self.ui.exec_()
 
     def reporter(self):

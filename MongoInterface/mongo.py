@@ -88,6 +88,15 @@ def get_timepoints(patientNumber):
     doc = db.find_one({"_id": patientNumber})
     return sorted([doc['filters'][xx]['tPoint'] for xx in [yy for yy in doc['filters'].keys()]])
 
+def timePointExists(patientNumber, tPoint):
+    db = mng.MongoClient().prostate_actual.patient
+    doc = db.find_one({"_id": patientNumber})
+    tList = sorted([doc['filters'][xx]['tPoint'] for xx in [yy for yy in doc['filters'].keys()]])
+    if tPoint in tList:
+        return True
+    else:
+        return False
+
 def get_filter_by_tPoint(patientNumber, tPoint):
     # Get filter by timepoint
     db = mng.MongoClient().prostate_actual.patient

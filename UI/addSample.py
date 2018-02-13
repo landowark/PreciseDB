@@ -66,7 +66,7 @@ class Ui_Dialog(QDialog):
         patNum = str(self.Patient_Number.text())
         samNum = str(self.Sample_Number.text())
         dateRec = str(self.calendarWidget.selectedDate().toPyDate())
-        samad.add_from_UI(patNum, samNum, dateRec)
+        samad.add(patNum, samNum, dateRec)
         self.thisDialog.close()
 
     def Reject(self):
