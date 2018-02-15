@@ -10,11 +10,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QDialog
 from PyQt5.QtCore import pyqtSignal
 from AddSamples import sample_adder as samad
+import logging
 
 class Ui_Dialog(QDialog):
 
     def setupUi(self, Dialog):
-
+        self.logger = logging.getLogger("mainUI.AddSample")
         self.thisDialog = Dialog
         self.thisDialog.setObjectName("Dialog")
         self.thisDialog.resize(678, 560)

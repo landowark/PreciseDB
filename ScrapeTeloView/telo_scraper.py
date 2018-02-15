@@ -17,7 +17,7 @@ import os
 from glob import glob
 import logging
 
-logging.basicConfig(filename="C:\\Users\\Landon\\Desktop\\telolog.log", format='%(asctime)s %(message)s', level=logging.INFO)
+logger = logging.getLogger("mainUI.teloscrape")
 
 
 def main():

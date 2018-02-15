@@ -112,7 +112,7 @@ def telomgraph(patient_number, filter_number, filePath):
         try:
             intChartMaker(bins_data, workbook, sampleName)
         except Exception as e:
-            print("Problem with chart maker: %s" % e)
+            logger.warning("Problem with chart maker: %s" % e)
         logger.debug("Attempting to save telomgraph to " + filePath)
         try:
             writer.save()
@@ -125,20 +125,3 @@ def telomgraph(patient_number, filter_number, filePath):
 
 if __name__ == "__main__":
     telomgraph("MB0393PR", "13AA8517", "C:\\Users\\Landon\\\Desktop\\test.xlsx")
-
-
-    # for patient in mng.getPatientList():
-    #     patient_doc = mng.retrieveDoc(patient)
-    #     patientNumber = patient_doc['_id']
-    #     for filterNumber in [filter for filter in patient_doc['filters'].keys()]:
-    #         print(patientNumber, filterNumber)
-    #         filter = patient_doc['filters'][filterNumber]
-    #         dirpath = os.path.join("C:\\Users\\Landon\\Desktop\\Quon Prostate", patientNumber)
-    #         try:
-    #             oTime = get_original_timepoint(patientNumber, filterNumber)
-    #         except FileNotFoundError:
-    #             continue
-    #         filePath = dirpath + "\\{p} {t} {f}".format(p=patientNumber, f=filterNumber, t=oTime) + '.xlsx'
-    #         print(filePath)
-    #         if not os.path.isfile(filePath):
-    #             telomgraph(filter, filePath)
