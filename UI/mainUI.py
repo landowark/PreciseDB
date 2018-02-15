@@ -131,6 +131,7 @@ class Ui_MainWindow(object):
 
     def teloButtonClicked(self):
         root = self.treeWidget.invisibleRootItem()
+        self.logger.info("Started export of telomgraphs.")
         # Count number of patients
         patient_count = root.childCount()
         samples_list = []
@@ -147,11 +148,12 @@ class Ui_MainWindow(object):
                     # add checked item to sample list for telomgraph
                     samples_list.append((patient.text(0), filter.text(0).split(" ")[1]))
         for sample in samples_list:
-            dicto = mongo.get_filter_by_number(sample[0], sample[1])
-            timePoint = dicto['tPoint']
+            patient_number = sample[0]
+            filter_number = sample[1]
+            timePoint = mongo.get_filter_by_number(patient_number, filter_number)['tPoint']
             sample_title = sample[0] + " " + timePoint + " " + sample[1] + ".xlsx"
             #self.statusbar.showMessage("Exporting %s" % sample_title)
-            te.telomgraph(dicto, os.path.join("C:\\Users\\Landon\\Desktop", sample_title))
+            te.telomgraph(patient_number, filter_number, os.path.join("C:\\Users\\Landon\\Desktop", sample_title))
         self.statusbar.showMessage("Export done!")
 
     def addSampleDialog(self):
