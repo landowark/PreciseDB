@@ -109,11 +109,10 @@ def telomgraph(patient_number, filter_number, filePath):
         int_single_data.to_excel(writer, 'Intensities Single', header=False, index=False)
         ac_data.to_excel(writer, 'a2c-ratio', header=False, index=False)
         bins_data.to_excel(writer, 'bins')
-        # TODO insert charts into workbook. See scrapeexcel in Inspiration
-        # try:
-        intChartMaker(bins_data, workbook, sampleName)
-        # except Exception as e:
-        #     print("Problem with chart maker: %s" % e)
+        try:
+            intChartMaker(bins_data, workbook, sampleName)
+        except Exception as e:
+            print("Problem with chart maker: %s" % e)
         logger.debug("Attempting to save telomgraph to " + filePath)
         try:
             writer.save()
