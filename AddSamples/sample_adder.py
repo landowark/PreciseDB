@@ -15,7 +15,7 @@ import datetime
 import logging
 from PyQt5.QtWidgets import QFileDialog, QApplication
 
-logging.basicConfig(filename="C:\\Users\\Landon\\Desktop\\telolog.log", format='%(asctime)s %(name)s %(message)s', level=logging.INFO)
+logger = logging.getLogger("mainUI.sample_adder")
 
 def add(patientNumber, filterNumber, dateRec):
     patientNumber = namer.parsePatient(patientNumber)

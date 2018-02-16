@@ -7,6 +7,9 @@ import pandas as pd
 import numpy as np
 from .sample_adder import add
 import datetime
+import logging
+
+logger = logging.getLogger("mainUI.table_scraper")
 
 def main():
     samples = pd.read_excel("C:\\Users\\Landon\\Desktop\\Database_Oct292014.xlsx")

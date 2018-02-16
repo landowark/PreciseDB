@@ -1,6 +1,8 @@
 from MongoInterface import mongo as mng
 from ScrapeTeloView import chart_maker as chm
+import logging
 
+logger = logging.getLogger("mainUI.cmMain")
 
 def main():
 

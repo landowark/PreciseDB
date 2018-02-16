@@ -5,6 +5,9 @@ This module will be used to scrape patient, filter and
 timepoint info from the filepath selected by the user.
 @author: Landon
 """
+import logging
+
+logger = logging.getLogger("mainUI.namer")
 
 def parsePatient(input_string):
     import re

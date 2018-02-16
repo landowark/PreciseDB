@@ -8,8 +8,11 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.figure import Figure
 import numpy as np
+import logging
 import os
 import shutil
+
+logger = logging.getLogger("mainUI.chart_maker")
 
 def createTextBox(patient_number):
     doc = mongo.retrieveDoc(patient_number)
@@ -39,7 +42,6 @@ def getTreatments(patient_number):
 def getFigure(patientnumber="MB0389PR", parametername='meanInt', figPath="C:\\Users\\Landon\\Desktop\\"):
     #try:
         psaDates, psaLevels, parameterDates, parameterLevels, fullDates = calculate_axes(patientnumber, parametername)
-        for item in psaDates: print(type(item))
         fig, ax1 = plt.subplots()
         fig.set_size_inches(24,12)
         ax1.plot(psaDates, psaLevels, 'r', marker='.')
@@ -48,7 +50,6 @@ def getFigure(patientnumber="MB0389PR", parametername='meanInt', figPath="C:\\Us
         # Make the y-axis label, ticks and tick labels match the line color.
         ax1.set_ylabel('PSA level', color='r', fontdict={'fontsize':18})
         ax1.tick_params('y', colors='r')
-        #for x in fullDates: print(type(x))
         plt.xticks(fullDates, [mdates.num2date(x).strftime('%Y-%m-%d') for x in fullDates], rotation=45)
 
         ax2 = ax1.twinx()
@@ -78,7 +79,14 @@ def getFigure(patientnumber="MB0389PR", parametername='meanInt', figPath="C:\\Us
                 continue
 
         for label in (ax1.get_xticklabels() + ax1.get_yticklabels()): label.set_fontsize(13)
-        return fig
+
+        # fullPath = os.path.join(figPath, patientnumber + " " + parametername + ".jpg")
+        # split_dir = figPath.split("\\")
+        # desktop_path = os.path.join("C:\\Users\\Landon\\Desktop\\Quon Prostate", split_dir[-1])
+        # fig.tight_layout()
+        # fig.savefig(fullPath)
+        # shutil.copy(fullPath, desktop_path)
+        # plt.close('all')
     # except Exception as e:
     #     print(e)
 

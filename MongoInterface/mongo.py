@@ -2,7 +2,7 @@
 """
 Created on Thu Nov 19 10:35:06 2015
 
-This will hold all of the MongoDB functions for this project.
+This will hold all of the MongoDB convenience functions for this project.
 
 @author: landon
 """
@@ -10,6 +10,9 @@ This will hold all of the MongoDB functions for this project.
 import pymongo as mng
 import jsonpickle
 from bson.json_util import loads
+import logging
+
+logger = logging.getLogger("mainUI.mongo")
 
 def getPatientList():
     # Get list of all patients in mongoDB
