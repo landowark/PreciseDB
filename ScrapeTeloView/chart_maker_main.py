@@ -21,7 +21,7 @@ def main():
                 print(len(patientDoc['filters']))
                 try:
                     print("Making chart for %s, patient number: %s" % (parameter, patientNumber))
-                    chm.vsPSA(patientNumber, parameter, "C:\\Users\\Landon\\ownCloud\\Documents\\Student Work\\Data\\" + patientNumber)
+                    chm.getFigure(patientNumber, parameter, "C:\\Users\\Landon\\ownCloud\\Documents\\Student Work\\Data\\" + patientNumber)
                 except FileNotFoundError:
                     print("Couldn't find directory for %s" %  patientNumber)
                     continue

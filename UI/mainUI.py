@@ -12,11 +12,19 @@ from PyQt5.QtWidgets import QTreeWidget, QTreeWidgetItem, QGraphicsView, QMenuBa
 import pymongo as mng
 from MongoInterface import mongo
 from ScrapeTeloView import telomgraph_emulator as te
+
 import os
 from PyQt5.QtGui import QIcon
 from UI import addSample
 import logging
 from logging.handlers import RotatingFileHandler
+# from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+# from matplotlib.figure import Figure
+# import matplotlib.pyplot as plt
+# import matplotlib.dates as mdates
+# import numpy as np
+from UI.Figure import MyMplCanvas
+
 
 
 
@@ -37,6 +45,7 @@ class Ui_MainWindow(object):
         self.logger = logging.getLogger("mainUI.UI")
         self.logger.debug("Starting up UI.")
 
+
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1064, 606)
         # set layout to grid
@@ -51,14 +60,25 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.centralwidget.setLayout(grid)
 
+
+
+
         # View of Patient list
         self.treeWidget = QTreeWidget(self.centralwidget)
         self.treeWidget.setGeometry(QtCore.QRect(10, 10, 291, 511))
         self.treeWidget.setObjectName("treeWidget")
-        # View of Matplotlib... when I get it working
-        self.graphicsView = QGraphicsView(self.centralwidget)
-        self.graphicsView.setGeometry(QtCore.QRect(330, 10, 711, 281))
-        self.graphicsView.setObjectName("graphicsView")
+        # TODO View of Matplotlib... when I get it working
+        self.matplot = MyMplCanvas(self.centralwidget, width=5, height=4, dpi=100)
+        # self.graphicsView = QGraphicsView(self.centralwidget)
+        # self.graphicsView.setGeometry(QtCore.QRect(330, 10, 711, 281))
+        # self.graphicsView.setObjectName("graphicsView")
+
+        # self.matplot = QtWidgets.QWidget(self.centralwidget)
+        # self.matplot.setGeometry(QtCore.QRect(320, 10, 721, 451))
+        # self.matplot.setObjectName("matplot")
+
+
+
         # Generate button
         self.teloButton = QPushButton(self.centralwidget)
         self.teloButton.setGeometry(QtCore.QRect(330, 480, 150, 46))
@@ -86,7 +106,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         # Add widgets to grid
         grid.addWidget(self.treeWidget, 0, 1)
-        grid.addWidget(self.graphicsView, 0, 2)
+        grid.addWidget(self.matplot, 0, 2)
         grid.addWidget(self.teloButton, 1, 2)
 
         self.retranslateUi(MainWindow)
@@ -100,6 +120,7 @@ class Ui_MainWindow(object):
         # Connect buttons
         self.teloButton.clicked.connect(self.teloButtonClicked)
         self.actionAdd_Sample.triggered.connect(self.addSampleDialog)
+        self.treeWidget.currentItemChanged.connect(self.activePatientChart)
 
 
     def retranslateUi(self, MainWindow):
@@ -164,8 +185,12 @@ class Ui_MainWindow(object):
         self.updateDataTree()
         #self.ui.exec_()
 
-    def reporter(self):
-        print("This is the reporter function.")
+    def activePatientChart(self):
+        patient_number = self.treeWidget.currentItem().text(0)
+        if patient_number == "MB0000PR":
+            pass
+        else:
+            self.matplot.update_figure(patient_number)
 
 if __name__ == "__main__":
     import sys
