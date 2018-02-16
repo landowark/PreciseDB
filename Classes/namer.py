@@ -27,6 +27,12 @@ def parseFilter(input_string):
     if len(filterNumber) == 5:
         filterNumber = '15AA' + filterNumber[1:]
     return(filterNumber)
+
+def parseImage(file_path):
+    import re
+    imageNumRegex = re.compile(r'Image\d{4}')
+    imageName = imageNumRegex.search(file_path)
+    return(imageName.group())
     
 def time_pointer(file_path):
     import re

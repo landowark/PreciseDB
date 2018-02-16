@@ -59,7 +59,7 @@ class Filter():
             for thing in self.images[item]['telomeres']:
                 #print(self.images[item]['telomeres'][thing])
                 int_list.append(self.images[item]['telomeres'][thing]['int'])
-        '''Calculate values based on lists'''
+        '''Calculate mean values based on lists'''
         self.numSig = float(np.mean(sig_list))
         self.peakNumSig = int(np.max(sig_list))
         self.meanInt = float(np.mean(meanInt_list))

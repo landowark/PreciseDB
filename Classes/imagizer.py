@@ -76,11 +76,7 @@ class Image():
         #print(self.telomeres)
         return(self.jsonable())
     
-    def name_scrape(self, file_path):
-        import re   
-        imageNumRegex = re.compile(r'Image\d{4}')
-        imageName = imageNumRegex.search(file_path)
-        return(imageName.group())
+
     
     def jsonable(self):
         return self.__dict__
