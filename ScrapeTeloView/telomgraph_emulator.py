@@ -11,7 +11,6 @@ Take a mongo entry for a filter and return a pandas dataframe representing a sum
 
 logger = logging.getLogger("mainUI.telomgraph")
 
-
 def ints_from_filter(filter_dict):
     # gets intensity data.
     images = filter_dict['images']
@@ -70,9 +69,7 @@ def get_original_timepoint(patientNumber, filterNumber):
 def intChartMaker(data, workbook, sampleName):
     bin_values = pd.DataFrame(data.index.values, columns=['bins'])
     bin250labels = bin_values['bins']
-
     bin250max = bin250labels[pd.notnull(bin250labels)].idxmax()
-    print(bin250max)
     bin250chart = workbook.add_chart({'type': 'scatter', 'subtype': 'straight_with_markers'})
     bin250chart.add_series({
         'categories': ['bins', 1, 0, bin250max, 0],

@@ -39,13 +39,37 @@ class MyMplCanvas(FigureCanvas):
 
     def update_figure(self, patient_number):
         try:
-            # Build a list of 4 random integers between 0 and 10 (both inclusive)
-            # l = [random.randint(0, 10) for i in range(4)]
+            # get axis values
             psaDates, psaLevels, parameterDates, parameterLevels, fullDates = cm.calculate_axes(patient_number, "meanInt")
+            text_box = cm.createTextBox(patient_number)
+            props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+            treatments = cm.getTreatments(patient_number)
+            # reporter of treatment names.
+            #print([xxx['name'] for xxx in treatments])
             self.axes.cla()
             self.axes.set_xticks(fullDates)
             self.axes.set_xticklabels([mdates.num2date(x).strftime('%Y-%m-%d') for x in fullDates], rotation=90)
+            for trx in treatments:
+                try:
+                    if "Bical" in trx['name']:
+                        facecolor = 'blue'
+                    elif "RT" in trx['name']:
+                        facecolor = 'orange'
+                    elif "Leu" in trx['name']:
+                        facecolor = 'red'
+                    else:
+                        facecolor = 'gray'
+                    bbox_props = dict(boxstyle="square,pad=0.3", fc=facecolor, ec="b", lw=2, alpha=0.7)
+                    self.axes.axvspan(trx['start'], trx['end'], facecolor=facecolor, alpha=0.25)
+                    self.axes.text(((trx['start'] + trx['end']) / 2), 1, trx['name'], color='white', va="bottom", ha='center',
+                             size=15, rotation=90, bbox=bbox_props)
+                except ValueError as e:
+                    print(e)
+                    continue
 
+
+            self.axes.text(0.75, 0.55, text_box, transform=self.axes.transAxes, fontsize=14,
+                     verticalalignment='top', bbox=props)
             self.axes.plot(psaDates, psaLevels, 'r')
             self.draw()
         except Exception as e:

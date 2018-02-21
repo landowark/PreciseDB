@@ -15,6 +15,7 @@ import shutil
 logger = logging.getLogger("mainUI.chart_maker")
 
 def createTextBox(patient_number):
+    # Makes a string to display patient values.
     doc = mongo.retrieveDoc(patient_number)
     pDRE = doc['DRE']
     pGleason = doc['procedures'][list(doc['procedures'].keys())[0]]['Gleason']

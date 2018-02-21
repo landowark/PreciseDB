@@ -79,6 +79,7 @@ def main():
         for item in file_list:
             # Parse image name using Classes.namer
             name = namer.parseImage(item)
+            # Create new image object, filling in with scraped data and adding to dictionary
             new_image = imz.Image()
             new_image.data_scrape(item)
             new_image = new_image.jsonable()
@@ -88,15 +89,20 @@ def main():
             # except FileNotFoundError:
             #     os.makedirs(desktop_dir)
             #     shutil.copy(item, os.path.join(desktop_dir, os.path.basename(item)))
+        # Set this filter's images to dictionary
         newFilt.images = dict_images
+        # Calculate means, percentages, etc. in filter
         newFilt.data_calc()
         this_filter = newFilt.jsonable()
         desktop_dir = os.path.join("C:\\Users\\Landon\\Desktop\\Quon Prostate", patientNumber + "PR", split_dir[-2])
+        # ensure filter number matches filter in patient before assigning.
         for item in patientDoc['filters']:
             if item == filterNumber:
                 logging.debug("Hit " + filterNumber)
                 patientDoc['filters'][item] = this_filter
+        # run telomgraph emulator on filter
         te.telomgraph(dict(newFilt.jsonable()), desktop_dir + '.xlsx')
+        # update patient
         mng.shoveDoc(patientDoc)
     #use chartmaker main to remake charts automatically
     chm.main()
