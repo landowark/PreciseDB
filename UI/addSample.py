@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QDialog
 from PyQt5.QtCore import pyqtSignal
-from AddSamples import sample_adder as samad
+from AddData import sample_adder as samad
 import logging
 
 class Ui_Dialog(QDialog):
@@ -67,7 +67,7 @@ class Ui_Dialog(QDialog):
         patNum = str(self.Patient_Number.text())
         samNum = str(self.Sample_Number.text())
         dateRec = str(self.calendarWidget.selectedDate().toPyDate())
-        samad.add(patNum, samNum, dateRec)
+        samad.add_from_UI(patNum, samNum, dateRec)
         self.thisDialog.close()
 
     def Reject(self):

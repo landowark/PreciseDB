@@ -6,8 +6,11 @@ import pandas as pd
 from Classes import namer
 from MongoInterface import mongo as mng
 import datetime
+import logging
 
-def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\CTC_RT_14Feb17_Completed.xlsx", filepath_PSA="C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\psa_aug182017.xls"):
+logger = logging.getLogger("mainUI.ClinicalScraper")
+
+def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\CTC_RT_14Feb17 updated Thursday - February 15, 2018.xlsx", filepath_PSA="C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\psa_aug182017.xls"):
     # read into dataframes
     df_clinical = pd.read_excel(filepath_clinical, sheet_name="Clinical Data")
     df_PSA = pd.read_excel(filepath_PSA)
@@ -23,7 +26,7 @@ def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Wor
     patients = list(df_clinical['MB'].iloc[patidx_clinical[:-1]])
     # iterate through each patient
     for iii, patientNumber in enumerate(patients):
-        print(patientNumber)
+        logger.info("Running clinical scrape of %s" % patientNumber)
         patientNumber = namer.parsePatient(patientNumber)
         # slice df_clinical, remembering to make new df_clinical start at 0.
         new_df_clinical = df_clinical.iloc[patidx_clinical[iii]:patidx_clinical[iii + 1] - 1].reset_index()
@@ -47,12 +50,19 @@ def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Wor
         procidx = list(set(new_df_clinical.index[new_df_clinical['Procedure'].notnull()]))
         procedures = {}
         for item in procidx:
+            # scrape procedure date
             procDate = new_df_clinical['Procedure date'].iloc[item].date()
             procDate = datetime.date.strftime(procDate, '%Y-%m-%d')
+            # scrape procedure
             proc = new_df_clinical['Procedure'].iloc[item]
+            # scrape Gleason Score
             Gleason = new_df_clinical['Gleason Score'].iloc[item]
             PriSec = str(new_df_clinical['Primary/Secondary'].iloc[item]).replace('.0', '')
-            numcores = int(new_df_clinical['Number of Cores'].iloc[item])
+            # scrape number of cores
+            try:
+                numcores = int(new_df_clinical['Number of Cores'].iloc[item])
+            except ValueError:
+                numcores = str(new_df_clinical['Number of Cores'].iloc[item])
             try:
                 poscores = int(new_df_clinical['Number of Cores Pos'].iloc[item])
             except:
@@ -62,6 +72,7 @@ def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Wor
         trxidx = list(set(new_df_clinical.index[new_df_clinical['Treatment'].notnull()]))
         treatments = {}
         for item in trxidx:
+            # try converting treatment dates to python datetime object, if fails make string
             try:
                 trxDate = new_df_clinical['Treatment date'].iloc[item].date()
                 trxDate = datetime.date.strftime(trxDate, '%Y-%m-%d')
@@ -74,6 +85,7 @@ def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Wor
             except ValueError:
                 endDate = "N/A"
             treatments[trxDate] = {'Treatment':trx, 'End Date':endDate}
+        # retrieve and update patient doc from Mongo
         patientDoc = mng.retrieveDoc(patientNumber)
         patientDoc['status'] = status
         patientDoc['tScore'] = tScore

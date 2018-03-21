@@ -8,7 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QTreeWidget, QTreeWidgetItem, QGraphicsView, QMenuBar, QPushButton, QStatusBar, QGridLayout
+from PyQt5.QtWidgets import QTreeWidget, QTreeWidgetItem, QGraphicsView, QMenuBar, QPushButton, QStatusBar, QGridLayout, QTreeWidgetItemIterator
 import pymongo as mng
 from MongoInterface import mongo
 from ScrapeTeloView import telomgraph_emulator as te
@@ -94,7 +94,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         # Generate patient list
-        self.updateDataTree()
+        self.createDataTree()
         # Sort items... works pretty good
         self.treeWidget.sortItems(0, 0)
 
@@ -102,6 +102,12 @@ class Ui_MainWindow(object):
         self.teloButton.clicked.connect(self.teloButtonClicked)
         self.actionAdd_Sample.triggered.connect(self.addSampleDialog)
         self.treeWidget.currentItemChanged.connect(self.activePatientChart)
+        # Quick iterator check
+        # iterator = QTreeWidgetItemIterator(self.treeWidget, QTreeWidgetItemIterator.HasChildren)
+        # while iterator.value():
+        #     item = iterator.value().text(0)
+        #     print(iterator.value())
+        #     iterator += 1
 
 
     def retranslateUi(self, MainWindow):
@@ -114,22 +120,53 @@ class Ui_MainWindow(object):
         self.menuSamples.setTitle(_translate("MainWindow", "Samples"))
         self.actionAdd_Sample.setText(_translate("MainWindow", "Add Sample"))
 
-    def updateDataTree(self):
+    # TODO split into create and update data tree
+    def createDataTree(self):
         db = mng.MongoClient().prostate_actual.patient
         self.logger.info("Checking MongoDB for patients.")
+        TreeWidgetItems = QTreeWidgetItem(self.treeWidget)
+        print(TreeWidgetItems)
         for patient in db.find():
-            parent = QTreeWidgetItem(self.treeWidget)
-            self.logger.debug("Adding %s to patients." % patient['_id'])
-            patient_id = patient['_id']
-            parent.setText(0, patient_id)
-            parent.setFlags(parent.flags() | Qt.ItemIsTristate | Qt.ItemIsUserCheckable)
-            for filter in sorted(patient['filters'].keys()):
-                filt_TP = patient['filters'][filter]['tPoint'] + " " + filter
-                child = QTreeWidgetItem(parent)
-                child.setFlags(child.flags() | Qt.ItemIsUserCheckable)
-                self.logger.debug("Adding %s to %s." % (filt_TP, patient_id))
-                child.setText(0, filt_TP)
-                child.setCheckState(0, Qt.Unchecked)
+            self.shove_doc_to_tree(patient)
+
+
+    def updatePatient(self, patientNum, filterNum):
+        db = mng.MongoClient().prostate_actual.patient
+        # Use iterator to go through all items in tree
+        if mongo.patientExists(patientNum):
+            try:
+                iterator = QTreeWidgetItemIterator(self.treeWidget, QTreeWidgetItemIterator.HasChildren)
+                while iterator.value():
+                    item = iterator.value().text(0)
+                    if item == patientNum:
+                        print("Attempting to update %s with %s." % (patientNum, filterNum))
+                        parent = iterator.value()
+                        patient = mongo.retrieveDoc(patientNum)
+                        self.shove_filter_to_tree(filterNum, parent, patient, patientNum)
+                    iterator += 1
+            except Exception as e:
+                self.logger.debug(e)
+        else:
+            self.shove_doc_to_tree(patientNum)
+        self.treeWidget.sortItems(0, 0)
+
+
+    def shove_doc_to_tree(self, patient):
+        self.logger.debug("Adding %s to patients." % patient['_id'])
+        parent = QTreeWidgetItem(self.treeWidget)
+        patient_id = patient['_id']
+        parent.setText(0, patient_id)
+        parent.setFlags(parent.flags() | Qt.ItemIsTristate | Qt.ItemIsUserCheckable)
+        for filter in sorted(patient['filters'].keys()):
+            self.shove_filter_to_tree(filter, parent, patient, patient_id)
+
+    def shove_filter_to_tree(self, filter, parent, patient, patient_id):
+        filt_TP = patient['filters'][filter]['tPoint'] + " " + filter
+        child = QTreeWidgetItem(parent)
+        child.setFlags(child.flags() | Qt.ItemIsUserCheckable)
+        self.logger.debug("Adding %s to %s." % (filt_TP, patient_id))
+        child.setText(0, filt_TP)
+        child.setCheckState(0, Qt.Unchecked)
 
     def teloButtonClicked(self):
         root = self.treeWidget.invisibleRootItem()
@@ -159,12 +196,17 @@ class Ui_MainWindow(object):
         self.statusbar.showMessage("Export done!")
 
     def addSampleDialog(self):
-        self.sampleDialog = QtWidgets.QDialog()
-        self.ui = addSample.Ui_Dialog()
-        self.ui.setupUi(self.sampleDialog)
-        self.sampleDialog.exec_()
-        self.updateDataTree()
-        #self.ui.exec_()
+        try:
+            self.sampleDialog = QtWidgets.QDialog()
+            self.ui = addSample.Ui_Dialog()
+            self.ui.setupUi(self.sampleDialog)
+            self.sampleDialog.exec_()
+            # TODO make new function updateDataTree
+            print("Reached end of addSampleDialog")
+            self.updatePatient(self.ui.Patient_Number.text(), self.ui.Sample_Number.text())
+        except Exception as e:
+            self.logger.debug(e)
+
 
     def activePatientChart(self):
         # Updates matplotlib widget based on current patient selection.
