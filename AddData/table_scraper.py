@@ -5,7 +5,7 @@ For pulling sample info out of excel file exported from my Access Database.
 
 import pandas as pd
 import numpy as np
-import sample_adder as sa
+from AddData import sample_adder as sa
 import datetime
 import logging
 
@@ -22,7 +22,7 @@ def main():
         frame = samples.loc[samples['PatientID'] == patient].sort_values("DateReceived")
         for index, row in frame.iterrows():
             #print(datetime.datetime.strftime(row['DateReceived'].to_pydatetime(), "%Y-%m-%d"))
-            sa.add(patient, row['FilterID'], datetime.datetime.strftime(row['DateReceived'].to_pydatetime(), "%Y-%m-%d"))
+            sa.add_scrape(patient, row['FilterID'], datetime.datetime.strftime(row['DateReceived'].to_pydatetime(), "%Y-%m-%d"))
 
 if __name__ == "__main__":
     main()

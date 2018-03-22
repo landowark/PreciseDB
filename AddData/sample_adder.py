@@ -26,8 +26,19 @@ def add_from_UI(patientNumber, filterNumber, dateRec):
         print('Previously seen patient.')
     #check if filter already exists for this patient
     if mng.filterExists(patientNumber, filterNumber) == False:
+        print('Previously unseen filter. Adding to database.')
+        dateReceived = datetime.datetime.strptime(dateRec, '%Y-%m-%d').date()
+        # scrape time point
+        if patient_exists == False:
+            print("First time point for this patient. Using +00m")
+            delta = 0
+        else:
+            firstDate = mng.getFirstSampleDate(patientNumber)
+            delta = round(int((dateReceived - firstDate).days) / 30)
+        timePoint = "+%sm" % str(delta).zfill(2)
+        print(timePoint)
         #create new filter with default values
-        newFilt = fltz.Filter(filtNum=filterNumber)
+        newFilt = fltz.Filter(filtNum=filterNumber, tPoint=timePoint)
         newFilt.DateRec = dateRec
         # retrieve existing patient and update filters
         dicto = mng.retrieveDoc(patientNumber)
