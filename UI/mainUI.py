@@ -103,12 +103,6 @@ class Ui_MainWindow(object):
         self.actionAdd_Sample.triggered.connect(self.addSampleDialog)
         self.treeWidget.currentItemChanged.connect(self.activePatientChart)
         # Quick iterator check
-        # iterator = QTreeWidgetItemIterator(self.treeWidget, QTreeWidgetItemIterator.HasChildren)
-        # while iterator.value():
-        #     item = iterator.value().text(0)
-        #     print(iterator.value())
-        #     iterator += 1
-
 
     def retranslateUi(self, MainWindow):
 
@@ -120,7 +114,6 @@ class Ui_MainWindow(object):
         self.menuSamples.setTitle(_translate("MainWindow", "Samples"))
         self.actionAdd_Sample.setText(_translate("MainWindow", "Add Sample"))
 
-    # TODO split into create and update data tree
     def createDataTree(self):
         db = mng.MongoClient().prostate_actual.patient
         self.logger.info("Checking MongoDB for patients.")
@@ -129,28 +122,35 @@ class Ui_MainWindow(object):
         for patient in db.find():
             self.shove_doc_to_tree(patient)
 
-
     def updatePatient(self, patientNum, filterNum):
-        db = mng.MongoClient().prostate_actual.patient
-        # Use iterator to go through all items in tree
-        if mongo.patientExists(patientNum):
-            try:
-                iterator = QTreeWidgetItemIterator(self.treeWidget, QTreeWidgetItemIterator.HasChildren)
-                while iterator.value():
-                    item = iterator.value().text(0)
-                    if item == patientNum:
-                        print("Attempting to update %s with %s." % (patientNum, filterNum))
-                        parent = iterator.value()
-                        patient = mongo.retrieveDoc(patientNum)
-                        self.shove_filter_to_tree(filterNum, parent, patient, patientNum)
-                    iterator += 1
-            except Exception as e:
-                self.logger.debug(e)
-        else:
-            self.shove_doc_to_tree(patientNum)
+        patient = mongo.retrieveDoc(patientNum)
+        try:
+            # Use iterator to go through all items in tree
+            iterator = QTreeWidgetItemIterator(self.treeWidget, QTreeWidgetItemIterator.HasChildren)
+            # Set patient does not exist in tree
+            exists_trigger = False
+            while iterator.value():
+                # if tree item text = patient number
+                if iterator.value().text(0) == patientNum:
+                    print("Attempting to update %s with %s." % (patientNum, filterNum))
+                    # set parent for addition of filter
+                    parent = iterator.value()
+                    # insert filter into parent
+                    self.shove_filter_to_tree(filterNum, parent, patient, patientNum)
+                    # set patient does exist in tree
+                    exists_trigger = True
+                    # exit loop
+                    break
+                iterator += 1
+        except Exception as e:
+            self.logger.debug(e)
+        # if patient doesn't exist in tree add in new patient
+        if exists_trigger == False:
+            self.shove_doc_to_tree(patient)
         self.treeWidget.sortItems(0, 0)
 
 
+    # def to add patient to treeview
     def shove_doc_to_tree(self, patient):
         self.logger.debug("Adding %s to patients." % patient['_id'])
         parent = QTreeWidgetItem(self.treeWidget)
@@ -160,6 +160,7 @@ class Ui_MainWindow(object):
         for filter in sorted(patient['filters'].keys()):
             self.shove_filter_to_tree(filter, parent, patient, patient_id)
 
+    # def to add filter to patient in treeview
     def shove_filter_to_tree(self, filter, parent, patient, patient_id):
         filt_TP = patient['filters'][filter]['tPoint'] + " " + filter
         child = QTreeWidgetItem(parent)
@@ -202,7 +203,6 @@ class Ui_MainWindow(object):
             self.ui.setupUi(self.sampleDialog)
             self.sampleDialog.exec_()
             # TODO make new function updateDataTree
-            print("Reached end of addSampleDialog")
             self.updatePatient(self.ui.Patient_Number.text(), self.ui.Sample_Number.text())
         except Exception as e:
             self.logger.debug(e)
