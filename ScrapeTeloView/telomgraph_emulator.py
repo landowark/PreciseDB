@@ -15,16 +15,21 @@ def ints_from_filter(filter_dict):
     # gets intensity data.
     images = filter_dict['images']
     intensities_all = [[images[image]['telomeres'][telo]['int'] for telo in images[image]['telomeres'].keys()] for image in
-                   images.keys()]
+                       images.keys()]
     intensities_single = list(itertools.chain.from_iterable(intensities_all))
+    #print("All", intensities_all)
+    #print("Single", intensities_single)
     max_bin = round(np.max(intensities_single), -3)
-    bins = np.arange(0, max_bin+1000, 1000)
-    intensity_bins = np.histogram(intensities_single, bins)
-    bins_data = pd.DataFrame(intensity_bins[0], bins[:-1], columns=['Number of Telomeres'])
-    int_single_data = pd.DataFrame(intensities_single)
-    int_all_data = pd.DataFrame([np.asarray(item).transpose() for item in intensities_all]).transpose()
-    #int_all_data = int_all_data.transpose
-    return(bins_data, int_single_data, int_all_data)
+    try:
+        bins = np.arange(0, max_bin+1000, 1000)
+        intensity_bins = np.histogram(intensities_single, bins)
+        bins_data = pd.DataFrame(intensity_bins[0], bins[:-1], columns=['Number of Telomeres'])
+        int_single_data = pd.DataFrame(intensities_single)
+        int_all_data = pd.DataFrame([np.asarray(item).transpose() for item in intensities_all]).transpose()
+        #int_all_data = int_all_data.transpose
+        return(bins_data, int_single_data, int_all_data)
+    except Exception as e:
+        logger.debug(e)
 
 def ac_from_filter(filter_dict):
     images = filter_dict['images']
@@ -66,7 +71,7 @@ def get_original_timepoint(patientNumber, filterNumber):
     original_timepoint = rel_directory.split(" ")[1]
     return original_timepoint
 
-def intChartMaker(data, workbook, sampleName):
+def teloChartMaker(data, workbook, sampleName):
     bin_values = pd.DataFrame(data.index.values, columns=['bins'])
     bin250labels = bin_values['bins']
     bin250max = bin250labels[pd.notnull(bin250labels)].idxmax()
@@ -90,6 +95,40 @@ def intChartMaker(data, workbook, sampleName):
     bin250chartsheet = workbook.add_chartsheet()
     bin250chartsheet.set_chart(bin250chart)
 
+def combChartMaker(data, workbook, patientName):
+    try:
+        bin_values = pd.DataFrame(data.index.values, columns=['bins'])
+        bin250labels = bin_values['bins']
+        bin250max = bin250labels[pd.notnull(bin250labels)].idxmax()
+        colors = ['red', 'blue', 'green', 'orange', 'magenta', 'grey']
+        bin250chart = workbook.add_chart({'type': 'scatter', 'subtype': 'straight_with_markers'})
+        # Create a series for each column in dataframe
+        for xxx, col in enumerate(data):
+            sample = data[col].name
+            print(xxx)
+            bin250chart.add_series({
+                'name': sample,
+                'categories': ['Sheet1', 1, 0, bin250max, 0],
+                'values': ['Sheet1', 0, xxx+1, bin250max, xxx+1],
+                'line': {'color': colors[xxx]},
+                'marker': {'type': 'diamond', 'border': {'color': colors[xxx]}, 'fill': {'color': colors[xxx]}, }
+            })
+        bin250chart.set_x_axis({
+            'name': 'Intensity[a.u.]',
+            'name_font': {'size': 14, 'bold': True},
+        })
+        bin250chart.set_y_axis({
+            'name': 'Number of Telomeres',
+            'name_font': {'size': 14, 'bold': True},
+        })
+        bin250chart.set_title({'name': patientName})
+        bin250chart.set_legend({'position': 'bottom'})
+
+        bin250chartsheet = workbook.add_chartsheet(name='COMPARISON')
+        bin250chartsheet.set_chart(bin250chart)
+    except Exception as e:
+        logger.debug("Make combgraph " + str(e))
+
 def telomgraph(patient_number, filter_number, filePath):
     filter = mng.get_filter_by_number(patient_number, filter_number)
     sampleName = os.path.basename(filePath)
@@ -107,7 +146,7 @@ def telomgraph(patient_number, filter_number, filePath):
         ac_data.to_excel(writer, 'a2c-ratio', header=False, index=False)
         bins_data.to_excel(writer, 'bins')
         try:
-            intChartMaker(bins_data, workbook, sampleName)
+            teloChartMaker(bins_data, workbook, sampleName)
         except Exception as e:
             logger.warning("Problem with chart maker: %s" % e)
         logger.debug("Attempting to save telomgraph to " + filePath)
@@ -119,6 +158,41 @@ def telomgraph(patient_number, filter_number, filePath):
             writer.save()
     except ValueError as e:
         logger.error("Warning value error for: %s %s" % (os.path.basename(filePath), e))
+
+
+def combgraph(sample_list):
+    # step 1 get patient and filter info
+
+    patient_number = list(set([item[0] for item in sample_list]))[0]
+    filePath = os.path.join("C:\\Users\\Landon\\Desktop", patient_number + "_combgraph.xlsx")
+    all_int_data = pd.DataFrame()
+    all_bin_data = pd.DataFrame()
+    for sample in sample_list:
+        filter_number = sample[1]
+        filter = mng.get_filter_by_number(patient_number, filter_number)
+        timePoint = filter['tPoint']
+        header = patient_number + " " + timePoint + " " + filter_number
+        if len(list(filter['images'].keys())) >= 30:
+            bins_data, int_single_data, int_all_data = ints_from_filter(filter)
+            bins_data.rename(columns={'Number of Telomeres':header}, inplace=True)
+            all_bin_data = pd.concat([all_bin_data, bins_data], axis=1)
+            # axis=1 to concatenate columns
+            all_int_data = pd.concat([all_int_data, int_single_data], axis=1)
+        else:
+            continue
+    writer = pd.ExcelWriter(filePath)
+    workbook = writer.book
+    all_bin_data.index.name = "bins"
+    combChartMaker(all_bin_data, workbook, patient_number)
+    all_bin_data.to_excel(writer, 'Sheet1')
+    all_int_data.to_excel(writer, 'All Intensities', header=False, index=False)
+    print(all_bin_data.keys())
+    try:
+        writer.save()
+    except FileNotFoundError:
+        logger.warning("{f} not found, attempting to create.".format(f=filePath))
+        os.makedirs(os.path.dirname(filePath))
+        writer.save()
 
 if __name__ == "__main__":
     telomgraph("MB0393PR", "13AA8517", "C:\\Users\\Landon\\\Desktop\\test.xlsx")

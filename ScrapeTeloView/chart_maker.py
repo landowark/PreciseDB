@@ -43,6 +43,7 @@ def getTreatments(patient_number):
 def getFigure(patientnumber="MB0389PR", parametername='meanInt', figPath="C:\\Users\\Landon\\Desktop\\"):
     #try:
         psaDates, psaLevels, parameterDates, parameterLevels, fullDates = calculate_axes(patientnumber, parametername)
+        print(psaLevels)
         fig, ax1 = plt.subplots()
         fig.set_size_inches(24,12)
         ax1.plot(psaDates, psaLevels, 'r', marker='.')

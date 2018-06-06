@@ -33,7 +33,10 @@ def parseImage(file_path):
     import re
     imageNumRegex = re.compile(r'Image\d{4}')
     imageName = imageNumRegex.search(file_path)
-    return(imageName.group())
+    try:
+        return(imageName.group())
+    except AttributeError as e:
+        print(file_path, e)
     
 def time_pointer(file_path):
     import re

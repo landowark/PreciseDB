@@ -28,6 +28,7 @@ class MyMplCanvas(FigureCanvas):
     def __init__(self, parent=None, width=5, height=4, dpi=100):
         self.fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = self.fig.add_subplot(111)
+        self.axes.set_ylabel("PSA level")
 
         FigureCanvas.__init__(self, self.fig)
         self.setParent(parent)
@@ -49,6 +50,7 @@ class MyMplCanvas(FigureCanvas):
             self.axes.cla()
             self.axes.set_xticks(fullDates)
             self.axes.set_xticklabels([mdates.num2date(x).strftime('%Y-%m-%d') for x in fullDates], rotation=90)
+            self.axes.set_ylabel("PSA level")
             for trx in treatments:
                 try:
                     if "Bical" in trx['name']:

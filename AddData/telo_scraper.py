@@ -20,9 +20,15 @@ import sys
 import os
 from glob import glob
 import logging
+from logging.handlers import RotatingFileHandler
 
-logger = logging.getLogger("mainUI.teloscrape")
-
+#set up logging.
+logger = logging.getLogger("teloscrape")
+logger.setLevel(logging.DEBUG)
+fh = RotatingFileHandler('C:\\Users\\Landon\\Desktop\\Debugging\\QP.log', maxBytes=50000, backupCount=3)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+fh.setFormatter(formatter)
+logger.addHandler(fh)
 
 def main():
     # set path
@@ -101,11 +107,11 @@ def main():
                 logging.debug("Hit " + filterNumber)
                 patientDoc['filters'][item] = this_filter
         # run telomgraph emulator on filter
-        te.telomgraph(dict(newFilt.jsonable()), desktop_dir + '.xlsx')
+        #te.telomgraph(dict(newFilt.jsonable()), desktop_dir + '.xlsx')
         # update patient
         mng.shoveDoc(patientDoc)
     #use chartmaker main to remake charts automatically
-    chm.main()
+    #chm.main()
     sys.exit()
 
 if __name__ == '__main__':

@@ -17,7 +17,7 @@ logger = logging.getLogger("mainUI.mongo")
 def getPatientList():
     # Get list of all patients in mongoDB
     db = mng.MongoClient().prostate_actual
-    patient_list = [doc['_id'] for doc in db.patient.find()]
+    patient_list = [doc['_id'] for doc in db.patient.find().batch_size(10)]
     return patient_list
 
 def patientExists(input_string):

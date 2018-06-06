@@ -26,7 +26,10 @@ class Image():
         import pandas as pd
         import numpy as np
         data = pd.read_excel(file_path)
-        inSignals = data.index[data['x'].notnull()]
+        try:
+            inSignals = data.index[data['x'].notnull()]
+        except KeyError as e:
+            print(file_path, e)
         inNucleus = set(data.index[data['spots number'].notnull()]).difference(inSignals)
         inSignals = list(inSignals)
         inNucleus = list(inNucleus)

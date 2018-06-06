@@ -23,7 +23,7 @@ from UI.Figure import MyMplCanvas
 logger = logging.getLogger("mainUI")
 logger.setLevel(logging.DEBUG)
 fh = RotatingFileHandler('C:\\Users\\Landon\\Desktop\\Debugging\\QP.log', maxBytes=50000, backupCount=3)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(module)s - %(lineno)d - %(message)s')
 fh.setFormatter(formatter)
 logger.addHandler(fh)
 
@@ -60,23 +60,41 @@ class Ui_MainWindow(object):
         # matplotlib widget
         self.matplot = MyMplCanvas(self.centralwidget, width=5, height=4, dpi=100)
 
-        # Generate button
-        self.teloButton = QPushButton(self.centralwidget)
-        self.teloButton.setGeometry(QtCore.QRect(330, 480, 150, 46))
-        self.teloButton.setObjectName("teloButton")
+        # TelomGraph button
+        # self.teloButton = QPushButton(self.centralwidget)
+        # self.teloButton.setGeometry(QtCore.QRect(330, 480, 75, 46))
+        # self.teloButton.setObjectName("teloButton")
+
+        # CombGraph button
+        # self.combButton = QPushButton(self.centralwidget)
+        # self.combButton.setGeometry(QtCore.QRect(405, 480, 75, 46))
+        # self.combButton.setObjectName("combButton")
 
         # Main Window config stuff
         MainWindow.setCentralWidget(self.centralwidget)
         # config menubar.
         self.menubar = QMenuBar(MainWindow)
+
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1064, 38))
         self.menubar.setObjectName("menubar")
+
+        # Samples menu item
         self.menuSamples = QtWidgets.QMenu(self.menubar)
         self.menuSamples.setObjectName("menuSamples")
         self.actionAdd_Sample = QtWidgets.QAction(MainWindow)
         self.actionAdd_Sample.setObjectName("actionAdd_Sample")
         self.menuSamples.addAction(self.actionAdd_Sample)
         self.menubar.addAction(self.menuSamples.menuAction())
+        # Graphs menu item
+        self.menuGraphs = QtWidgets.QMenu(self.menubar)
+        self.menuGraphs.setObjectName("menuGraphs")
+        self.actionTelomgraph = QtWidgets.QAction(MainWindow)
+        self.actionTelomgraph.setObjectName("actionTelomgraph")
+        self.menuGraphs.addAction(self.actionTelomgraph)
+        self.actionCombgraph = QtWidgets.QAction(MainWindow)
+        self.actionCombgraph.setObjectName("actionCombgraph")
+        self.menuGraphs.addAction(self.actionCombgraph)
+        self.menubar.addAction(self.menuGraphs.menuAction())
 
         MainWindow.setMenuBar(self.menubar)
 
@@ -88,7 +106,8 @@ class Ui_MainWindow(object):
         # Add widgets to grid
         grid.addWidget(self.treeWidget, 0, 1)
         grid.addWidget(self.matplot, 0, 2)
-        grid.addWidget(self.teloButton, 1, 2)
+        #grid.addWidget(self.teloButton, 1, 2)
+        #grid.addWidget(self.combButton, 2, 2)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -99,7 +118,8 @@ class Ui_MainWindow(object):
         self.treeWidget.sortItems(0, 0)
 
         # Connect buttons
-        self.teloButton.clicked.connect(self.teloButtonClicked)
+        self.actionTelomgraph.triggered.connect(self.teloButtonClicked)
+        self.actionCombgraph.triggered.connect(self.combButtonClicked)
         self.actionAdd_Sample.triggered.connect(self.addSampleDialog)
         self.treeWidget.currentItemChanged.connect(self.activePatientChart)
         # Quick iterator check
@@ -109,10 +129,18 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.treeWidget.headerItem().setText(0, _translate("MainWindow", "Patients"))
-        self.teloButton.setToolTip(_translate("MainWindow", "Generate Telomgraphs for selected filters."))
-        self.teloButton.setText(_translate("MainWindow", "Generate"))
+        # self.teloButton.setToolTip(_translate("MainWindow", "Generate Telomgraphs for selected filters."))
+        # self.teloButton.setText(_translate("MainWindow", "TelomGraph"))
+        # self.combButton.setToolTip(_translate("MainWindow", "Generate Combgraphs for selected filters."))
+        # self.combButton.setText(_translate("MainWindow", "CombGraph"))
         self.menuSamples.setTitle(_translate("MainWindow", "Samples"))
         self.actionAdd_Sample.setText(_translate("MainWindow", "Add Sample"))
+        self.actionAdd_Sample.setStatusTip("Add newly received filter/sample.")
+        self.menuGraphs.setTitle(_translate("MainWindow", "Graphs"))
+        self.actionTelomgraph.setText(_translate("MainWindow", "Create TelomGraph"))
+        self.actionTelomgraph.setStatusTip("Generate Telomgraphs for selected filters.")
+        self.actionCombgraph.setText(_translate("MainWindow", "Create CombGraph"))
+        self.actionCombgraph.setStatusTip("Generate Combgraph for selected filters.")
 
     def createDataTree(self):
         db = mng.MongoClient().prostate_actual.patient
@@ -195,6 +223,33 @@ class Ui_MainWindow(object):
             #self.statusbar.showMessage("Exporting %s" % sample_title)
             te.telomgraph(patient_number, filter_number, os.path.join("C:\\Users\\Landon\\Desktop", sample_title))
         self.statusbar.showMessage("Export done!")
+
+    def combButtonClicked(self):
+        root = self.treeWidget.invisibleRootItem()
+        self.logger.info("Started export of combgraphs.")
+        # Count number of patients
+        patient_count = root.childCount()
+        try:
+            # iterate through patients
+            for iii in range(patient_count):
+                samples_list = []
+                patient = root.child(iii)
+                # count number of filters per patient
+                filter_count = patient.childCount()
+                # iterate through filters
+                for jjj in range(filter_count):
+                    filter = patient.child(jjj)
+                    # check filter item status checked/unchecked
+                    if filter.checkState(0) == Qt.Checked:
+                        # add checked item to sample list for telomgraph
+                        samples_list.append((patient.text(0), filter.text(0).split(" ")[1]))
+                if samples_list != []:
+                    te.combgraph(samples_list)
+                    patient_number = set([item[0] for item in samples_list])
+                    print(patient_number)
+            self.statusbar.showMessage("Export done!")
+        except Exception as e:
+            self.logger.debug(e)
 
     def addSampleDialog(self):
         try:
