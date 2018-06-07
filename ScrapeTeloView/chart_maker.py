@@ -9,7 +9,7 @@ import matplotlib.dates as mdates
 from matplotlib.figure import Figure
 import numpy as np
 import logging
-import os
+import sys
 import shutil
 
 logger = logging.getLogger("mainUI.chart_maker")
@@ -41,9 +41,9 @@ def getTreatments(patient_number):
 
 
 def getFigure(patientnumber="MB0389PR", parametername='meanInt', figPath="C:\\Users\\Landon\\Desktop\\"):
-    #try:
+    try:
         psaDates, psaLevels, parameterDates, parameterLevels, fullDates = calculate_axes(patientnumber, parametername)
-        print(psaLevels)
+        print(patientnumber)
         fig, ax1 = plt.subplots()
         fig.set_size_inches(24,12)
         ax1.plot(psaDates, psaLevels, 'r', marker='.')
@@ -89,28 +89,35 @@ def getFigure(patientnumber="MB0389PR", parametername='meanInt', figPath="C:\\Us
         # fig.savefig(fullPath)
         # shutil.copy(fullPath, desktop_path)
         # plt.close('all')
-    # except Exception as e:
-    #     print(e)
+    except Exception as e:
+        print("Exception in get_figure " + e)
 
 
-def calculate_axes(patientnumber, parametername):
-    doc = mongo.retrieveDoc(patientnumber)
-    psa = list(zip([mdates.datestr2num(item) for item in doc['PSAs'].keys()], [item for item in doc['PSAs'].values()]))
-    psa = sorted(psa, key=lambda x: x[0])
-    # get data from document
-    filters = [item for item in list(doc['filters'].keys())]
-    data = list(zip([mdates.datestr2num(doc['filters'][filter]['DateRec']) for filter in filters],
-                    [doc['filters'][filter][parametername] for filter in filters]))
-    data = sorted(data, key=lambda x: x[0])
-    # set dates when samples were taken in
-    fullDates = sorted([x[0] for x in psa] + [x[0] for x in data])
-    fullDates = list(set(fullDates))
-    fullDates = list(np.linspace(min(fullDates), max(fullDates), num=100, endpoint=True))[0::5]
-    psaDates = [x[0] for x in psa]
-    psaLevels = [y[1] for y in psa]
-    parameterDates = [x[0] for x in data]
-    parameterLevels = [y[1] for y in data]
-    return psaDates, psaLevels, parameterDates, parameterLevels, fullDates
+def calculate_axes(patientnumber="MB0389PR", parametername="meanInt"):
+    try:
+
+        doc = mongo.retrieveDoc(patientnumber)
+        psa = list(zip([mdates.datestr2num(item) for item in doc['PSAs'].keys()], [item for item in doc['PSAs'].values()]))
+
+        psa = sorted(psa, key=lambda x: x[0])
+        # get data from document
+        filters = [item for item in list(doc['filters'].keys())]
+        data = list(zip([mdates.datestr2num(doc['filters'][filter]['DateRec']) for filter in filters],
+                        [doc['filters'][filter][parametername] for filter in filters]))
+        data = sorted(data, key=lambda x: x[0])
+
+        # set dates when samples were taken in
+        fullDates = sorted([x[0] for x in psa] + [x[0] for x in data])
+        fullDates = list(set(fullDates))
+        fullDates = list(np.linspace(min(fullDates), max(fullDates), num=100, endpoint=True))[0::5]
+        psaDates = [x[0] for x in psa]
+        psaLevels = [y[1] for y in psa]
+        parameterDates = [x[0] for x in data]
+        parameterLevels = [y[1] for y in data]
+        print(patientnumber)
+        return psaDates, psaLevels, parameterDates, parameterLevels, fullDates
+    except:
+        print("Exception in calculate axes: ")
 
 if __name__ == "__main__":
     figure = getFigure("MB0438PR", "meanInt")

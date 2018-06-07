@@ -30,16 +30,8 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 fh.setFormatter(formatter)
 logger.addHandler(fh)
 
-def main():
-    # set path
-    pathName = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data" # main dir for project data.
-    # get all dirs containing files with 'deconvolution' and 'CTC' in the path name
-    result = [y for x in os.walk(pathName) for y in glob(os.path.join(x[0], '*.xlsx')) if 'deconvolution' in y and 'CTC' in y]
-    # get unique dirs only.
-    dirs = set([os.path.dirname(filename) for filename in result])
-    sorted(dirs)
-    for directory in dirs:
-        logging.debug("Starting " + directory)
+def scrape_dir(directory):
+    try:
         split_dir = directory.split("\\")
         # recur find in UI.menu_items finds all xlsx files in directories
         file_list = fg.recur_find(directory, 'xlsx')
@@ -50,14 +42,14 @@ def main():
             assert len(file_list) >= 30
             # Crop number of files to the first 30.
             file_list = file_list[0:30]
-        except:
+        except AssertionError:
             logging.warning("{q}: Not enough cells for analysis.".format(q=directory))
-            continue
+
         # enforce patient number scheme using Classes.namer
         patientNumber = namer.parsePatient(file_list[1])
         # enforce filter number scheme using Classes.namer
         filterNumber = namer.parseFilter(file_list[1])
-        logging.debug("Patient Number: %s Filter Number: %s" %(patientNumber, filterNumber))
+        logging.debug("Patient Number: %s Filter Number: %s" % (patientNumber, filterNumber))
         # check if patient exists
         if mng.patientExists(patientNumber) == False:
             logging.debug('Previously unseen patient {s}. Adding to database.'.format(s=patientNumber))
@@ -73,13 +65,13 @@ def main():
             newFilt = flz.Filter(tPoint=patientDoc['filters'][filterNumber]['tPoint'])
         except KeyError:
             logging.warning("%s - %s Filter not found, skipping." % (patientNumber, filterNumber))
-            continue
         try:
             # Attempt to get filter received date from record
-            newFilt.DateRec = [patientDoc['filters'][item]['DateRec'] for item in patientDoc['filters'] if item == filterNumber][0]
+            newFilt.DateRec = \
+            [patientDoc['filters'][item]['DateRec'] for item in patientDoc['filters'] if item == filterNumber][0]
         except (KeyError, IndexError):
-             # If no record this will default to tPoint="+00m" as in Classes.filterizer
-             logging.warning("No date found!")
+            # If no record this will default to tPoint="+00m" as in Classes.filterizer
+            logging.warning("No date found!")
         # initialize dictionary
         dict_images = {}
         for item in file_list:
@@ -107,9 +99,24 @@ def main():
                 logging.debug("Hit " + filterNumber)
                 patientDoc['filters'][item] = this_filter
         # run telomgraph emulator on filter
-        #te.telomgraph(dict(newFilt.jsonable()), desktop_dir + '.xlsx')
+        # te.telomgraph(dict(newFilt.jsonable()), desktop_dir + '.xlsx')
         # update patient
+        print("Done!")
         mng.shoveDoc(patientDoc)
+    except Exception as e:
+        print(e)
+
+def main():
+    # set path
+    pathName = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data" # main dir for project data.
+    # get all dirs containing files with 'deconvolution' and 'CTC' in the path name
+    result = [y for x in os.walk(pathName) for y in glob(os.path.join(x[0], '*.xlsx')) if 'deconvolution' in y and 'CTC' in y]
+    # get unique dirs only.
+    dirs = set([os.path.dirname(filename) for filename in result])
+    sorted(dirs)
+    for directory in dirs:
+        logging.debug("Starting " + directory)
+        scrape_dir(directory)
     #use chartmaker main to remake charts automatically
     #chm.main()
     sys.exit()

@@ -8,7 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QTreeWidget, QTreeWidgetItem, QGraphicsView, QMenuBar, QPushButton, QStatusBar, QGridLayout, QTreeWidgetItemIterator
+from PyQt5.QtWidgets import QTreeWidget, QTreeWidgetItem, QButtonGroup, QMenuBar, QRadioButton, QStatusBar, QGridLayout, QTreeWidgetItemIterator, QPushButton, QVBoxLayout
 import pymongo as mng
 from MongoInterface import mongo
 from ScrapeTeloView import telomgraph_emulator as te
@@ -60,12 +60,46 @@ class Ui_MainWindow(object):
         # matplotlib widget
         self.matplot = MyMplCanvas(self.centralwidget, width=5, height=4, dpi=100)
 
-        # TelomGraph button
+        # Setup radio buttons for parameters
+        self.widg_layout = QVBoxLayout()  # layout for the central widget
+        self.rBox = QtWidgets.QWidget(self.centralwidget)  # central widget
+        self.rBox.setLayout(self.widg_layout)
+        self.rBox.setMaximumWidth(400)
+        self.group = QButtonGroup()
+        # meanInt button
+        self.bMeanInt = QRadioButton("meanInt")
+        self.bMeanInt.setChecked(True)
+        self.bMeanInt.clicked.connect(lambda:self.activePatientChart())
+        self.widg_layout.addWidget(self.bMeanInt)
+        self.group.addButton(self.bMeanInt)
+        # nucDia button
+        self.bNucDia = QRadioButton("nucDia")
+        self.bNucDia.clicked.connect(lambda: self.activePatientChart())
+        self.widg_layout.addWidget(self.bNucDia)
+        self.group.addButton(self.bNucDia)
+        # numSig button
+        self.bNumSig = QRadioButton("numSig")
+        self.bNumSig.clicked.connect(lambda: self.activePatientChart())
+        self.widg_layout.addWidget(self.bNumSig)
+        self.group.addButton(self.bNumSig)
+        # p1qrt button
+        self.bP1QRT = QRadioButton("p1qrt")
+        self.bP1QRT.clicked.connect(lambda: self.activePatientChart())
+        self.widg_layout.addWidget(self.bP1QRT)
+        self.group.addButton(self.bP1QRT)
+        #print(self.group.checkedButton().text())
+
+        # Export chart button
+        self.chartButton = QPushButton(self.centralwidget)
+        self.chartButton.setGeometry(QtCore.QRect(330, 480, 75, 46))
+        self.chartButton.setObjectName("Export")
+
+        # TelomGraph button -- Moved to Menu
         # self.teloButton = QPushButton(self.centralwidget)
         # self.teloButton.setGeometry(QtCore.QRect(330, 480, 75, 46))
         # self.teloButton.setObjectName("teloButton")
 
-        # CombGraph button
+        # CombGraph button -- Moved to Menu
         # self.combButton = QPushButton(self.centralwidget)
         # self.combButton.setGeometry(QtCore.QRect(405, 480, 75, 46))
         # self.combButton.setObjectName("combButton")
@@ -106,8 +140,10 @@ class Ui_MainWindow(object):
         # Add widgets to grid
         grid.addWidget(self.treeWidget, 0, 1)
         grid.addWidget(self.matplot, 0, 2)
+        grid.addWidget(self.rBox, 1, 1)
         #grid.addWidget(self.teloButton, 1, 2)
         #grid.addWidget(self.combButton, 2, 2)
+        grid.addWidget(self.chartButton, 1, 2)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -122,6 +158,8 @@ class Ui_MainWindow(object):
         self.actionCombgraph.triggered.connect(self.combButtonClicked)
         self.actionAdd_Sample.triggered.connect(self.addSampleDialog)
         self.treeWidget.currentItemChanged.connect(self.activePatientChart)
+        self.chartButton.clicked.connect(self.printChart)
+
         # Quick iterator check
 
     def retranslateUi(self, MainWindow):
@@ -133,6 +171,9 @@ class Ui_MainWindow(object):
         # self.teloButton.setText(_translate("MainWindow", "TelomGraph"))
         # self.combButton.setToolTip(_translate("MainWindow", "Generate Combgraphs for selected filters."))
         # self.combButton.setText(_translate("MainWindow", "CombGraph"))
+
+        self.chartButton.setToolTip(_translate("MainWindow", "Export graph to .png file."))
+        self.chartButton.setText(_translate("MainWindow", "Export Chart"))
         self.menuSamples.setTitle(_translate("MainWindow", "Samples"))
         self.actionAdd_Sample.setText(_translate("MainWindow", "Add Sample"))
         self.actionAdd_Sample.setStatusTip("Add newly received filter/sample.")
@@ -143,12 +184,15 @@ class Ui_MainWindow(object):
         self.actionCombgraph.setStatusTip("Generate Combgraph for selected filters.")
 
     def createDataTree(self):
-        db = mng.MongoClient().prostate_actual.patient
-        self.logger.info("Checking MongoDB for patients.")
-        TreeWidgetItems = QTreeWidgetItem(self.treeWidget)
-        print(TreeWidgetItems)
-        for patient in db.find():
-            self.shove_doc_to_tree(patient)
+        try:
+            db = mng.MongoClient().prostate_actual.patient
+            self.logger.info("Checking MongoDB for patients.")
+            TreeWidgetItems = QTreeWidgetItem(self.treeWidget)
+            #print(TreeWidgetItems)
+            for patient in db.find():
+                self.shove_doc_to_tree(patient)
+        except Exception as e:
+            logger.debug(e)
 
     def updatePatient(self, patientNum, filterNum):
         patient = mongo.retrieveDoc(patientNum)
@@ -271,7 +315,10 @@ class Ui_MainWindow(object):
             pass
         else:
             # Run update figure function of matplotlib widget in Figure.py
-            self.matplot.update_figure(patient_number)
+            self.matplot.update_figure(patient_number, self.group.checkedButton().text())
+
+    def printChart(self):
+        MyMplCanvas.print_chart(self.matplot)
 
 if __name__ == "__main__":
     import sys
