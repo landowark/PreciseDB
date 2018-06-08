@@ -1,0 +1,95 @@
+import numpy as np
+import pandas as pd
+import glob
+import os
+import sys
+from PyQt5.QtWidgets import (QMainWindow, QTextEdit, QAction, QFileDialog, QApplication, QProgressBar)
+import itertools
+
+
+def scrapeExcel(filename):
+	sampleName = os.path.basename(filename)
+	try:
+	    data = pd.read_excel(filename, sheetname="SignalTable.txt")
+	except:
+		print("Uh-oh spaghetti-ohs!")
+		data = pd.read_excel(filename, sheetname="SignalTable")
+	intensities = data['Integrated intensity']
+	cells = np.unique(data['Cell#'].as_matrix()).tolist()
+	indices = [data.index[data['Cell#'] == cell] for cell in cells]
+	mean_intensities = [np.mean(intensities.loc[index]) for index in indices]
+	sum_intensities = [np.sum(intensities.loc[index]) for index in indices]
+	new_data = pd.DataFrame({"Average Intensity": mean_intensities, "Total Intensity":sum_intensities}, index=cells)
+	#os.remove(filename)
+	if filename[-1] != 'x':
+		filename = filename + 'x'
+	writer = pd.ExcelWriter(filename, engine='xlsxwriter')
+	data.to_excel(writer, "SignalTable")
+	new_data.to_excel(writer, "AvgInt")
+	# TODO add charts to sheet1
+	workbook = writer.book
+	# chart with 250 bins
+	# Get last row with data in M
+	bin250labels = data['bin']
+	bin250max = bin250labels[pd.notnull(bin250labels)].idxmax()
+	bin250chart = workbook.add_chart({'type': 'scatter', 'subtype': 'straight_with_markers'})
+	bin250chart.add_series({
+		'categories': ['SignalTable', 1, 12, bin250max, 12],
+		'values':     ['SignalTable', 1, 18, bin250max, 18],
+		'line':       {'color': 'red'},
+		'marker':     {'type':'diamond', 'border': {'color': 'red'}, 'fill': {'color': 'red'},}
+	})
+	bin250chart.set_x_axis({
+		'name': 'Intensity[a.u.]',
+		'name_font': {'size': 14, 'bold': True},
+	})
+	bin250chart.set_y_axis({
+		'name': 'Number of Telomeres',
+		'name_font': {'size': 14, 'bold': True},
+	})
+	bin250chart.set_title({'name': sampleName})
+	bin250chart.set_legend({'none': True})
+	bin250chartsheet = workbook.add_chartsheet()
+	bin250chartsheet.set_chart(bin250chart)
+	# chart with 1000 bins
+	# Get last row with data in O
+	bin1klabels = data['bin.1']
+	bin1kmax = bin1klabels[pd.notnull(bin1klabels)].idxmax()
+	bin1kchart = workbook.add_chart({'type': 'scatter', 'subtype': 'straight_with_markers'})
+	bin1kchart.add_series({
+		'categories': ['SignalTable', 1, 14, bin1kmax, 14],
+		'values': ['SignalTable', 1, 19, bin1kmax, 19],
+		'line': {'color': 'blue'},
+		'marker': {'type': 'circle', 'border': {'color': 'blue'}, 'fill': {'color': 'blue'}, }
+	})
+	bin1kchart.set_x_axis({
+		'name': 'Intensity[a.u.]',
+		'name_font': {'size': 14, 'bold': True},
+	})
+	bin1kchart.set_y_axis({
+		'name': 'Number of Telomeres',
+		'name_font': {'size': 14, 'bold': True},
+	})
+	bin1kchart.set_title({'name': sampleName})
+	bin1kchart.set_legend({'none': True})
+	bin1kchartsheet = workbook.add_chartsheet()
+	bin1kchartsheet.set_chart(bin1kchart)
+	writer.save()
+
+if __name__ == "__main__":
+	app = QApplication(sys.argv)
+	pathname = QFileDialog.getExistingDirectory(None, 'Open working directory', "P:\\Multiple Myeloma Project\\MM-MGUS SUMMARY\\MM Teloscan data",
+											   QFileDialog.ShowDirsOnly)
+	types = ('*.xls', '*.xlsx')
+	files_grabbed = [[file for file in glob.glob(pathname + '/**/' + type, recursive=True) if "SignalTable" in file] for type in types]
+	files_grabbed = list(itertools.chain.from_iterable(files_grabbed))
+	print(files_grabbed)
+	pbar = QProgressBar()
+	pbar.setMaximum(len(files_grabbed))
+	pbar.show()
+	for iii, file in enumerate(files_grabbed):
+		print(file)
+		scrapeExcel(file)
+		pbar.setValue(iii)
+		QApplication.processEvents()
+	pbar.close()
