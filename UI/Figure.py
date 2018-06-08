@@ -56,10 +56,12 @@ class MyMplCanvas(FigureCanvas):
             self.ax2.cla()
             self.axes.set_xticks(fullDates)
             self.axes.set_xticklabels([mdates.num2date(x).strftime('%Y-%m-%d') for x in fullDates], rotation=90)
-            self.axes.set_ylabel("PSA level")
+            self.axes.set_ylabel("PSA level", color='r', fontsize='x-large')
+            #self.axes.set_yticklabels(color='r')
             self.ax2.set_xticks(fullDates)
             self.ax2.set_xticklabels([mdates.num2date(x).strftime('%Y-%m-%d') for x in fullDates], rotation=90)
-            self.ax2.set_ylabel(parameter_name)
+            self.ax2.set_ylabel(parameter_name, color='b', fontsize='x-large')
+            #self.ax2.set_yticklabels(color='b')
             for trx in treatments:
                 try:
                     if "Bical" in trx['name']:
@@ -87,5 +89,6 @@ class MyMplCanvas(FigureCanvas):
         except:
             print("Error in making chart: ")
 
-    def print_chart(self):
-        self.fig.savefig("C:\\Users\\Landon\\Desktop\\test_fig.png")
+    def print_chart(self, patient_number, parameter_name):
+        filename = os.path.join("C:\\Users\\Landon\\Desktop", patient_number + "_" + parameter_name + ".png")
+        self.fig.savefig(filename)

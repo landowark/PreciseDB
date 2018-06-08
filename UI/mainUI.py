@@ -318,7 +318,9 @@ class Ui_MainWindow(object):
             self.matplot.update_figure(patient_number, self.group.checkedButton().text())
 
     def printChart(self):
-        MyMplCanvas.print_chart(self.matplot)
+        patient_number = self.treeWidget.currentItem().text(0)
+        parameter_name = self.group.checkedButton().text()
+        self.matplot.print_chart(patient_number, parameter_name)
 
 if __name__ == "__main__":
     import sys

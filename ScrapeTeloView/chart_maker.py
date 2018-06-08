@@ -102,8 +102,9 @@ def calculate_axes(patientnumber="MB0389PR", parametername="meanInt"):
         psa = sorted(psa, key=lambda x: x[0])
         # get data from document
         filters = [item for item in list(doc['filters'].keys())]
-        data = list(zip([mdates.datestr2num(doc['filters'][filter]['DateRec']) for filter in filters],
-                        [doc['filters'][filter][parametername] for filter in filters]))
+        # added in if expression to prevent non-analyzed filter from showing up.
+        data = list(zip([mdates.datestr2num(doc['filters'][filter]['DateRec']) for filter in filters if len(doc['filters'][filter]['images']) > 0],
+                        [doc['filters'][filter][parametername] for filter in filters if len(doc['filters'][filter]['images']) > 0]))
         data = sorted(data, key=lambda x: x[0])
 
         # set dates when samples were taken in
@@ -117,7 +118,7 @@ def calculate_axes(patientnumber="MB0389PR", parametername="meanInt"):
         print(patientnumber)
         return psaDates, psaLevels, parameterDates, parameterLevels, fullDates
     except:
-        print("Exception in calculate axes: ")
+        logger.debug("Exception in calculate axes: ")
 
 if __name__ == "__main__":
     figure = getFigure("MB0438PR", "meanInt")

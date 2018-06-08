@@ -100,7 +100,7 @@ def combChartMaker(data, workbook, patientName):
         bin_values = pd.DataFrame(data.index.values, columns=['bins'])
         bin250labels = bin_values['bins']
         bin250max = bin250labels[pd.notnull(bin250labels)].idxmax()
-        colors = ['red', 'blue', 'green', 'orange', 'magenta', 'grey']
+        colors = ['red', 'blue', 'green', 'orange', 'magenta', 'yellow']
         bin250chart = workbook.add_chart({'type': 'scatter', 'subtype': 'straight_with_markers'})
         # Create a series for each column in dataframe
         for xxx, col in enumerate(data):
@@ -182,11 +182,14 @@ def combgraph(sample_list):
             continue
     writer = pd.ExcelWriter(filePath)
     workbook = writer.book
+    thingy = pd.DataFrame()
     all_bin_data.index.name = "bins"
     combChartMaker(all_bin_data, workbook, patient_number)
     all_bin_data.to_excel(writer, 'Sheet1')
+    thingy.to_excel(writer, 'Sheet2')
+    thingy.to_excel(writer, 'Sheet3')
     all_int_data.to_excel(writer, 'All Intensities', header=False, index=False)
-    print(all_bin_data.keys())
+    # print(all_bin_data.keys())
     try:
         writer.save()
     except FileNotFoundError:
