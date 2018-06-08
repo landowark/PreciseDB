@@ -6,11 +6,8 @@ I think that's a job for a new python file though.
 from MongoInterface import mongo
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from matplotlib.figure import Figure
 import numpy as np
 import logging
-import sys
-import shutil
 
 logger = logging.getLogger("mainUI.chart_maker")
 

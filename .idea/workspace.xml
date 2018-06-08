@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="" />
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrapeTeloView/chart_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/ScrapeTeloView/chart_maker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/Figure.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Figure.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Figure.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Figure.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/UI/Figure.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1173">
-              <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
+            <state relative-caret-position="1275">
+              <caret line="87" column="79" selection-start-line="87" selection-start-column="79" selection-end-line="87" selection-end-column="79" />
               <folding>
                 <element signature="e#371#410#0" expanded="true" />
               </folding>
@@ -59,14 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chart_maker.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chart_maker.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScrapeTeloView/chart_maker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="104" column="80" selection-start-line="104" selection-start-column="80" selection-end-line="104" selection-end-column="80" />
-              <folding>
-                <element signature="e#153#185#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1500">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -111,7 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/sample_adder_main.py" />
         <option value="$PROJECT_DIR$/menu_items_backup.py" />
         <option value="$PROJECT_DIR$/patientizer.py" />
         <option value="$PROJECT_DIR$/filterizer.py" />
@@ -160,8 +161,9 @@
         <option value="$PROJECT_DIR$/AddData/telo_scraper.py" />
         <option value="$PROJECT_DIR$/UI/mainUI.py" />
         <option value="$PROJECT_DIR$/ScrapeTeloView/telomgraph_emulator.py" />
-        <option value="$PROJECT_DIR$/UI/Figure.py" />
         <option value="$PROJECT_DIR$/ScrapeTeloView/chart_maker.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/UI/Figure.py" />
       </list>
     </option>
   </component>
@@ -652,7 +654,7 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49357328" weight="0.32974428" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50642675" side_tool="true" weight="0.32975152" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32971507" />
-      <window_info anchor="bottom" id="Python Console" order="8" weight="0.18817204" />
+      <window_info anchor="bottom" id="Python Console" order="8" weight="0.36962366" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4974293" visible="true" weight="0.12768817" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32971507" />
@@ -728,13 +730,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/UI/addSample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="69" column="13" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -1008,22 +1003,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UI/Figure.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
-          <folding>
-            <element signature="e#371#410#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="161">
+          <caret line="25" column="11" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ScrapeTeloView/chart_maker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="104" column="80" selection-start-line="104" selection-start-column="80" selection-end-line="104" selection-end-column="80" />
+        <state relative-caret-position="-1500">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/Figure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="87" column="79" selection-start-line="87" selection-start-column="79" selection-end-line="87" selection-end-column="79" />
           <folding>
-            <element signature="e#153#185#0" expanded="true" />
+            <element signature="e#371#410#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -57,6 +57,7 @@ class MyMplCanvas(FigureCanvas):
             self.axes.set_xticks(fullDates)
             self.axes.set_xticklabels([mdates.num2date(x).strftime('%Y-%m-%d') for x in fullDates], rotation=90)
             self.axes.set_ylabel("PSA level", color='r', fontsize='x-large')
+
             #self.axes.set_yticklabels(color='r')
             self.ax2.set_xticks(fullDates)
             self.ax2.set_xticklabels([mdates.num2date(x).strftime('%Y-%m-%d') for x in fullDates], rotation=90)
@@ -82,9 +83,9 @@ class MyMplCanvas(FigureCanvas):
 
             self.axes.text(0.75, 0.55, text_box, transform=self.axes.transAxes, fontsize=14,
                      verticalalignment='top', bbox=props)
-            self.axes.plot(psaDates, psaLevels, 'r')
+            self.axes.plot(psaDates, psaLevels, color='r', marker='^')
 
-            self.ax2.plot(parameterDates, parameterLevels, 'b')
+            self.ax2.plot(parameterDates, parameterLevels, color='b', marker='s')
             self.draw()
         except:
             print("Error in making chart: ")
