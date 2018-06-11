@@ -105,7 +105,7 @@ def combChartMaker(data, workbook, patientName):
         # Create a series for each column in dataframe
         for xxx, col in enumerate(data):
             sample = data[col].name
-            print(xxx)
+
             bin250chart.add_series({
                 'name': sample,
                 'categories': ['Sheet1', 1, 0, bin250max, 0],
@@ -156,46 +156,55 @@ def telomgraph(patient_number, filter_number, filePath):
             logger.warning("{f} not found, attempting to create.".format(f=filePath))
             os.makedirs(os.path.dirname(filePath))
             writer.save()
+        except Exception as e:
+            print(e)
     except ValueError as e:
         logger.error("Warning value error for: %s %s" % (os.path.basename(filePath), e))
 
 
 def combgraph(sample_list):
     # step 1 get patient and filter info
-
     patient_number = list(set([item[0] for item in sample_list]))[0]
-    filePath = os.path.join("C:\\Users\\Landon\\Desktop", patient_number + "_combgraph.xlsx")
+    filePath = os.path.join("C:\\Users\\Landon\\Desktop\\combgraphs", patient_number + "_combgraph.xlsx")
     all_int_data = pd.DataFrame()
     all_bin_data = pd.DataFrame()
     for sample in sample_list:
         filter_number = sample[1]
         filter = mng.get_filter_by_number(patient_number, filter_number)
+
         timePoint = filter['tPoint']
         header = patient_number + " " + timePoint + " " + filter_number
+        # only run filters with 30 or more images
         if len(list(filter['images'].keys())) >= 30:
             bins_data, int_single_data, int_all_data = ints_from_filter(filter)
+
             bins_data.rename(columns={'Number of Telomeres':header}, inplace=True)
             all_bin_data = pd.concat([all_bin_data, bins_data], axis=1)
             # axis=1 to concatenate columns
             all_int_data = pd.concat([all_int_data, int_single_data], axis=1)
         else:
             continue
-    writer = pd.ExcelWriter(filePath)
-    workbook = writer.book
-    thingy = pd.DataFrame()
-    all_bin_data.index.name = "bins"
-    combChartMaker(all_bin_data, workbook, patient_number)
-    all_bin_data.to_excel(writer, 'Sheet1')
-    thingy.to_excel(writer, 'Sheet2')
-    thingy.to_excel(writer, 'Sheet3')
-    all_int_data.to_excel(writer, 'All Intensities', header=False, index=False)
-    # print(all_bin_data.keys())
-    try:
-        writer.save()
-    except FileNotFoundError:
-        logger.warning("{f} not found, attempting to create.".format(f=filePath))
-        os.makedirs(os.path.dirname(filePath))
-        writer.save()
+    if int(all_bin_data.shape[0]) == 0:
+        print("No data found!")
+    else:
+        try:
+            writer = pd.ExcelWriter(filePath)
+            workbook = writer.book
+            thingy = pd.DataFrame()
+            all_bin_data.index.name = "bins"
+            print(patient_number, all_bin_data.shape[0])
+            combChartMaker(all_bin_data, workbook, patient_number)
+            all_bin_data.to_excel(writer, 'Sheet1')
+            thingy.to_excel(writer, 'Sheet2')
+            thingy.to_excel(writer, 'Sheet3')
+            all_int_data.to_excel(writer, 'All Intensities', header=False, index=False)
+            # print(all_bin_data.keys())
+            writer.save()
+        except FileNotFoundError:
+            logger.warning("{f} not found, attempting to create.".format(f=filePath))
+            os.makedirs(os.path.dirname(filePath))
+            writer.save()
+
 
 if __name__ == "__main__":
     telomgraph("MB0393PR", "13AA8517", "C:\\Users\\Landon\\\Desktop\\test.xlsx")

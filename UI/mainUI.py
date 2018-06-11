@@ -57,6 +57,7 @@ class Ui_MainWindow(object):
         self.treeWidget.setMaximumWidth(400)
         self.treeWidget.setObjectName("treeWidget")
 
+
         # matplotlib widget
         self.matplot = MyMplCanvas(self.centralwidget, width=5, height=4, dpi=100)
 
@@ -119,6 +120,11 @@ class Ui_MainWindow(object):
         self.actionAdd_Sample.setObjectName("actionAdd_Sample")
         self.menuSamples.addAction(self.actionAdd_Sample)
         self.menubar.addAction(self.menuSamples.menuAction())
+            # Selecting all patients
+        self.actionSelectAll = QtWidgets.QAction(MainWindow)
+        self.actionSelectAll.setObjectName("actionSelectAll")
+        self.menuSamples.addAction(self.actionSelectAll)
+
         # Graphs menu item
         self.menuGraphs = QtWidgets.QMenu(self.menubar)
         self.menuGraphs.setObjectName("menuGraphs")
@@ -157,10 +163,14 @@ class Ui_MainWindow(object):
         self.actionTelomgraph.triggered.connect(self.teloButtonClicked)
         self.actionCombgraph.triggered.connect(self.combButtonClicked)
         self.actionAdd_Sample.triggered.connect(self.addSampleDialog)
+        self.actionSelectAll.triggered.connect(self.selectAll)
         self.treeWidget.currentItemChanged.connect(self.activePatientChart)
         self.chartButton.clicked.connect(self.printChart)
 
         # Quick iterator check
+        root = self.treeWidget.invisibleRootItem()
+        patient_count = root.childCount()
+        self.statusbar.showMessage(str(patient_count) + " patients!")
 
     def retranslateUi(self, MainWindow):
 
@@ -176,6 +186,7 @@ class Ui_MainWindow(object):
         self.chartButton.setText(_translate("MainWindow", "Export Chart"))
         self.menuSamples.setTitle(_translate("MainWindow", "Samples"))
         self.actionAdd_Sample.setText(_translate("MainWindow", "Add Sample"))
+        self.actionSelectAll.setText(_translate("MainWindow", "Select All"))
         self.actionAdd_Sample.setStatusTip("Add newly received filter/sample.")
         self.menuGraphs.setTitle(_translate("MainWindow", "Graphs"))
         self.actionTelomgraph.setText(_translate("MainWindow", "Create TelomGraph"))
@@ -265,7 +276,7 @@ class Ui_MainWindow(object):
             timePoint = mongo.get_filter_by_number(patient_number, filter_number)['tPoint']
             sample_title = sample[0] + " " + timePoint + " " + sample[1] + ".xlsx"
             #self.statusbar.showMessage("Exporting %s" % sample_title)
-            te.telomgraph(patient_number, filter_number, os.path.join("C:\\Users\\Landon\\Desktop", sample_title))
+            te.telomgraph(patient_number, filter_number, os.path.join("C:\\Users\\Landon\\Desktop\\telomgraphs", sample_title))
         self.statusbar.showMessage("Export done!")
 
     def combButtonClicked(self):
@@ -287,10 +298,11 @@ class Ui_MainWindow(object):
                     if filter.checkState(0) == Qt.Checked:
                         # add checked item to sample list for telomgraph
                         samples_list.append((patient.text(0), filter.text(0).split(" ")[1]))
-                if samples_list != []:
+                # only run patients with more than 1 sample
+                if len(samples_list) > 1:
                     te.combgraph(samples_list)
-                    patient_number = set([item[0] for item in samples_list])
-                    print(patient_number)
+                    # patient_number = set([item[0] for item in samples_list])
+                    # print(patient_number)
             self.statusbar.showMessage("Export done!")
         except Exception as e:
             self.logger.debug(e)
@@ -321,6 +333,19 @@ class Ui_MainWindow(object):
         patient_number = self.treeWidget.currentItem().text(0)
         parameter_name = self.group.checkedButton().text()
         self.matplot.print_chart(patient_number, parameter_name)
+
+    def selectAll(self):
+        try:
+            root = self.treeWidget.invisibleRootItem()
+            # self.logger.info("Selecting all patients.")
+            # Count number of patients
+            patient_count = root.childCount()
+            # iterate through patients
+            for iii in range(1, patient_count - 1):
+                patient = root.child(iii)
+                patient.setCheckState(0, QtCore.Qt.Checked)
+        except Exception as e:
+            print(e)
 
 if __name__ == "__main__":
     import sys
