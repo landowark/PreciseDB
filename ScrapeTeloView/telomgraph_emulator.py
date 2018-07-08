@@ -165,7 +165,7 @@ def telomgraph(patient_number, filter_number, filePath):
 def combgraph(sample_list):
     # step 1 get patient and filter info
     patient_number = list(set([item[0] for item in sample_list]))[0]
-    filePath = os.path.join("C:\\Users\\Landon\\Desktop\\combgraphs", patient_number + "_combgraph.xlsx")
+    filePath = os.path.join("C:\\Users\\Landon\\Desktop\\Quon Prostate\\combgraphs", patient_number + "_combgraph.xlsx")
     all_int_data = pd.DataFrame()
     all_bin_data = pd.DataFrame()
     for sample in sample_list:

@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/MachineLearning/DRE_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MachineLearning/Preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Prostate_Database.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Prostate_Database.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoInterface/mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/MongoInterface/mongo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ScrapeTeloView/telomgraph_emulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/ScrapeTeloView/telomgraph_emulator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/mainUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/mainUI.py" afterDir="false" />
     </list>
@@ -21,41 +26,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="menu_items.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UI/menu_items.py">
+      <file leaf-file-name="mongo.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MongoInterface/mongo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mainUI.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UI/mainUI.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="300" column="59" selection-start-line="300" selection-start-column="59" selection-end-line="300" selection-end-column="59" />
+            <state relative-caret-position="690">
+              <caret line="124" column="28" selection-start-line="124" selection-start-column="28" selection-end-line="124" selection-end-column="28" />
               <folding>
-                <element signature="e#190#232#0" expanded="true" />
+                <element signature="e#161#182#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="telomgraph_emulator.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ScrapeTeloView/telomgraph_emulator.py">
+      <file leaf-file-name="Preprocessing.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MachineLearning/Preprocessing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="188" column="9" lean-forward="true" selection-start-line="188" selection-start-column="9" selection-end-line="188" selection-end-column="9" />
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mongo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MongoInterface/mongo.py">
+      <file leaf-file-name="DRE_test.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MachineLearning/DRE_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-694">
-              <caret line="47" column="35" lean-forward="true" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+            <state relative-caret-position="187">
+              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+              <folding>
+                <element signature="e#1#68#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,8 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/menu_items_backup.py" />
-        <option value="$PROJECT_DIR$/patientizer.py" />
         <option value="$PROJECT_DIR$/filterizer.py" />
         <option value="$PROJECT_DIR$/imagizer.py" />
         <option value="$PROJECT_DIR$/sample_adder.py" />
@@ -142,7 +139,6 @@
         <option value="$PROJECT_DIR$/AddData/clinical_scraper_main.bak" />
         <option value="$PROJECT_DIR$/AddData/clinical_scraper_main.py" />
         <option value="$PROJECT_DIR$/Classes/imagizer.py" />
-        <option value="$PROJECT_DIR$/MongoInterface/mongo.py" />
         <option value="$PROJECT_DIR$/ScrapeTeloView/chart_maker_main.py" />
         <option value="$PROJECT_DIR$/ScrapeTeloView/combgraph_emulator.py" />
         <option value="$PROJECT_DIR$/Classes/namer.py" />
@@ -152,6 +148,9 @@
         <option value="$PROJECT_DIR$/UI/Figure.py" />
         <option value="$PROJECT_DIR$/UI/mainUI.py" />
         <option value="$PROJECT_DIR$/ScrapeTeloView/telomgraph_emulator.py" />
+        <option value="$PROJECT_DIR$/MachineLearning/Preprocessing.py" />
+        <option value="$PROJECT_DIR$/MongoInterface/mongo.py" />
+        <option value="$PROJECT_DIR$/MachineLearning/DRE_test.py" />
       </list>
     </option>
   </component>
@@ -165,7 +164,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -176,33 +174,19 @@
             <path>
               <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
               <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
-              <item name="AddData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
               <item name="MongoInterface" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
-              <item name="ScrapeTeloView" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="telo&#9;null&#9;null" />
     <property name="add_unversioned_files" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/UI" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Envs/Prostate_Database" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -233,8 +217,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.mainUI">
-    <configuration name="Table_Scraper" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.DRE_test">
+    <configuration name="DRE_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Prostate_Database" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -242,11 +226,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AddData" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MachineLearning" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData\table_scraper.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MachineLearning/DRE_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -386,18 +370,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.mainUI" />
-      <item itemvalue="Python.Table_Scraper" />
       <item itemvalue="Python.clinical_scraper_main" />
       <item itemvalue="Python.table_scraper" />
       <item itemvalue="Python.telo_scraper" />
+      <item itemvalue="Python.DRE_test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.DRE_test" />
         <item itemvalue="Python.mainUI" />
         <item itemvalue="Python.telo_scraper" />
         <item itemvalue="Python.clinical_scraper_main" />
         <item itemvalue="Python.table_scraper" />
-        <item itemvalue="Python.Table_Scraper" />
       </list>
     </recent_temporary>
   </component>
@@ -646,11 +630,11 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17564997" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49357328" weight="0.32974428" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50642675" side_tool="true" weight="0.32975152" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32971507" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3293011" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.36962366" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4974293" visible="true" weight="0.12768817" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4974293" visible="true" weight="0.18951613" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32971507" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3293011" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39945835" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -666,15 +650,15 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17639594" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4974293" visible="true" weight="0.3283683" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Data View" order="3" weight="0.32969153" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49357328" weight="0.32974428" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3297224" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4974293" visible="true" weight="0.3283683" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3297224" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32974428" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50642675" side_tool="true" weight="0.32975152" />
@@ -722,28 +706,16 @@
       <option name="time" value="2" />
     </breakpoint-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="setValue">
+      <expression>
+        <expression-string>'Asymmetric'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScrapeTeloView/chart_maker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AddData/table_scraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/filterizer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -945,7 +917,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UI/menu_items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="357">
           <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
         </state>
       </provider>
@@ -962,13 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AddData/telo_scraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1361">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -990,33 +955,57 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
-          <folding>
-            <element signature="e#371#410#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AddData/telo_scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UI/mainUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="300" column="59" selection-start-line="300" selection-start-column="59" selection-end-line="300" selection-end-column="59" />
-          <folding>
-            <element signature="e#190#232#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MongoInterface/mongo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-694">
-          <caret line="47" column="35" lean-forward="true" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+        <state relative-caret-position="4556">
+          <caret line="278" column="143" selection-start-line="278" selection-start-column="143" selection-end-line="278" selection-end-column="143" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ScrapeTeloView/telomgraph_emulator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="188" column="9" lean-forward="true" selection-start-line="188" selection-start-column="9" selection-end-line="188" selection-end-column="9" />
+        <state relative-caret-position="391">
+          <caret line="155" column="24" selection-start-line="155" selection-start-column="24" selection-end-line="155" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MongoInterface/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MongoInterface/mongo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="124" column="28" selection-start-line="124" selection-start-column="28" selection-end-line="124" selection-end-column="28" />
+          <folding>
+            <element signature="e#161#182#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MachineLearning/Preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MachineLearning/DRE_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="e#1#68#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

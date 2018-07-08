@@ -276,7 +276,7 @@ class Ui_MainWindow(object):
             timePoint = mongo.get_filter_by_number(patient_number, filter_number)['tPoint']
             sample_title = sample[0] + " " + timePoint + " " + sample[1] + ".xlsx"
             #self.statusbar.showMessage("Exporting %s" % sample_title)
-            te.telomgraph(patient_number, filter_number, os.path.join("C:\\Users\\Landon\\Desktop\\telomgraphs", sample_title))
+            te.telomgraph(patient_number, filter_number, os.path.join("C:\\Users\\Landon\\Desktop\\Quon Prostate\\telomgraphs", patient_number, sample_title))
         self.statusbar.showMessage("Export done!")
 
     def combButtonClicked(self):
