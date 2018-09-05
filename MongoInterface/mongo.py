@@ -119,11 +119,10 @@ def get_filter_by_number(patientNumber, filterNumber):
 
 def get_timepoint_for_all(timepoint="+00m"):
     timepoints = {}
-    db = mng.MongoClient().prostate_actual.patient
     patients = [retrieveDoc(patient) for patient in getPatientList()]
     for patient in patients:
         filts = list(patient['filters'].keys())
         for filter in filts:
-            if patient['filters'][filter]['tPoint'] == "+00m":
+            if patient['filters'][filter]['tPoint'] == timepoint:
                 timepoints[patient['_id']] = patient['filters'][filter]
     return timepoints

@@ -32,7 +32,7 @@ def Calc_Cores(proc: dict):
 
 # for grabbing the most recent gleason score from a patient
 def Procedures_Grabber(procedures: dict, clinical_para: str):
-    import numpy as np
+
     recent = sorted(list(procedures.keys()))[-1]
     proc = procedures[recent]
     if clinical_para.lower() == "cores":
@@ -58,3 +58,16 @@ def TimePointer(point: dict, telo_para: str) -> float:
         return value
     else:
         return str(np.nan)
+
+def PCA(data: dict):
+    import pandas as pd
+    from sklearn.decomposition import PCA
+    df = pd.DataFrame(index=None)
+    paras = ['nucVol', 'numSig']
+    for para in paras:
+        df[para] = [data[blah][para] for blah in data.keys()]
+    df = df.values.tolist()
+    pca = PCA(n_components=1)
+    reduced = pca.fit_transform(df)
+    reduced = [item[0] for item in reduced]
+    return reduced

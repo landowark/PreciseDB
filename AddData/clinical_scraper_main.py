@@ -26,7 +26,9 @@ def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Wor
         logger.info("Running clinical scrape of %s" % patientNumber)
         patientNumber = namer.parsePatient(patientNumber)
         # slice df_clinical, remembering to make new df_clinical start at 0.
-        new_df_clinical = df_clinical.iloc[patidx_clinical[iii]:patidx_clinical[iii + 1] - 1].reset_index()
+        new_df_clinical = df_clinical.iloc[patidx_clinical[iii]:patidx_clinical[iii + 1] ].reset_index()
+        if patientNumber == "MB0767PR":
+            print(new_df_clinical['Date'])
         # Get PSAs
         PSAidx = list(set(new_df_clinical.index[new_df_clinical['PSA'].notnull()]))
         PSA = {}
@@ -85,14 +87,18 @@ def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Wor
         tScore = df_clinical['Stage'].iloc[patidx_clinical[iii]]
         status = df_clinical['Status'].iloc[patidx_clinical[iii]]
         # retrieve and update patient doc from Mongo
-        print("Updating MongoDB.")
+        print("Updating MongoDB with %s." % patientNumber)
         patientDoc = mng.retrieveDoc(patientNumber)
-        patientDoc['status'] = status
-        patientDoc['tScore'] = tScore
-        patientDoc['DRE'] = DRE
-        patientDoc['procedures'] = procedures
-        patientDoc['PSAs'] = PSA
-        patientDoc['treatments'] = treatments
+        try:
+            patientDoc['status'] = status
+            patientDoc['tScore'] = tScore
+            patientDoc['DRE'] = DRE
+            patientDoc['procedures'] = procedures
+            patientDoc['PSAs'] = PSA
+            patientDoc['treatments'] = treatments
+        except TypeError:
+            print("Patient %s doesn't seem to exist in the database." % patientNumber)
+            continue
         mng.shoveDoc(patientDoc)
 
 
