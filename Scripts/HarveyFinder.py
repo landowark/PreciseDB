@@ -14,7 +14,7 @@ def treatment_getter(treatment: str):
         trx_time = "end"
     else:
         trx_time = "start"
-    df1 = pd.DataFrame(columns=["Patient", treatment + " " + trx_time, "+6m Closest PSA", "Diff (days)", "PSA Level"])
+    df1 = pd.DataFrame(columns=["Patient", treatment + " " + trx_time, "Closest PSA to +6m", "Diff (days)", "PSA Level"])
     patients = mng.getPatientList()
     for patient in patients:
         try:
@@ -28,13 +28,35 @@ def treatment_getter(treatment: str):
         closest = nearest(psa_dates, six_months)
         diff = closest - six_months
         psa_level = psas[closest.strftime("%Y-%m-%d")]
-        df1 = df1.append({'Patient': patient, treatment + " " + trx_time: trx_relevant, "+6m Closest PSA": closest, "Diff (days)": diff, "PSA Level": psa_level}, ignore_index=True)
+        app_dict = {'Patient': patient, treatment + " " + trx_time: trx_relevant, "Closest PSA to +6m": closest, "Diff (days)": diff, "PSA Level": psa_level}
+        join_dict = parameter_getter(patient, closest)
+        z = dict(list(app_dict.items()) + list(join_dict.items()))
+        df1 = df1.append(z, ignore_index=True)
     return df1
+
+def parameter_getter(patient: str, psa_closest):
+    # Get closest sample to six months
+    dicto = {}
+    this_patient = mng.retrieveDoc(patient)['filters']
+    zeroMon = this_patient[[filter for filter in this_patient.keys() if this_patient[filter]['tPoint'] == "+00m"][0]]
+    dates = [dt.datetime.strptime(this_patient[item]['DateRec'], "%Y-%m-%d").date() for item in this_patient.keys()]
+    samp_closest = nearest(dates, psa_closest).strftime("%Y-%m-%d")
+    relevant = this_patient[[filter for filter in this_patient.keys() if this_patient[filter]['DateRec'] == samp_closest][0]]
+    dicto['Closest Sample Date to psa Date'] = samp_closest
+    for item in relevant.keys():
+        if item != "CTCNum":
+            try:
+                dicto["Diff from +00m " + item] = relevant[item] - zeroMon[item]
+            except TypeError:
+                continue
+    return dicto
 
 def main():
     df1 = treatment_getter("Bicalutamide")
+    print(df1)
     df2 = treatment_getter("RT")
-    writer = pd.ExcelWriter('C:\\Users\\Landon\\Desktop\\Quon Prostate Friday - June 15, 2018\\HarveyFinder-output.xlsx')
+    tod = dt.datetime.now().strftime("%A - %B %d, %Y")
+    writer = pd.ExcelWriter('C:\\Users\\Landon\\Desktop\\Quon Prostate Friday - June 15, 2018\\HarveyFinder-output-%s.xlsx' % tod)
     df1.to_excel(writer, "Bicalutamide")
     df2.to_excel(writer, "RT")
     writer.save()

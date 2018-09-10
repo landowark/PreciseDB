@@ -40,7 +40,7 @@ def getTreatments(patient_number):
 def getFigure(patientnumber="MB0389PR", parametername='meanInt', figPath="C:\\Users\\Landon\\Desktop\\"):
     try:
         psaDates, psaLevels, parameterDates, parameterLevels, fullDates = calculate_axes(patientnumber, parametername)
-        print(patientnumber)
+        #print(patientnumber)
         fig, ax1 = plt.subplots()
         fig.set_size_inches(24,12)
         ax1.plot(psaDates, psaLevels, 'r', marker='.')
@@ -112,7 +112,7 @@ def calculate_axes(patientnumber="MB0389PR", parametername="meanInt"):
         psaLevels = [y[1] for y in psa]
         parameterDates = [x[0] for x in data]
         parameterLevels = [y[1] for y in data]
-        print(patientnumber)
+        #print(patientnumber)
         return psaDates, psaLevels, parameterDates, parameterLevels, fullDates
     except:
         logger.debug("Exception in calculate axes: ")
