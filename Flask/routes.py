@@ -26,9 +26,5 @@ def chart(patient_number, parameter_name):
 api.add_resource(filter, "/api/<string:patient_number>/<string:filter_number>")
 
 if __name__ == "__main__":
-    # mng.store_psa_maximum()
-    # for para in mng.get_all_parameters():
-    #     print("Looking for updates to: %s" % para)
-    #     mng.store_parameter_maximum(para)
     port = int(os.environ.get('PORT', 5000))
     app.run('localhost', port=port, debug=True)

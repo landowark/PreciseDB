@@ -1,5 +1,5 @@
 import math
-from bokeh.models import (HoverTool, FactorRange, Plot, LinearAxis, Grid, Range1d, FixedTicker)
+from bokeh.models import (HoverTool, FactorRange, Plot, LinearAxis, Grid, Range1d, FixedTicker, DatetimeTickFormatter)
 from bokeh.plotting import figure
 from bokeh.models.glyphs import Line
 from bokeh.models.sources import ColumnDataSource
@@ -47,7 +47,11 @@ def create_histogram(patient_number, parameter_name, title, x_name, y_name, hove
     p.y_range = Range1d(start=0, end=max_y)
     # set extra range for psa levels
     p.extra_y_ranges = {"foo": Range1d(start=0, end=mng.get_parameter_maximum("PSA"))}
-    # p.xaxis.major_label_overrides = major_tick_labels
+    p.xaxis.formatter = DatetimeTickFormatter(
+        days=["%Y-%m-%d"],
+        months=["%Y-%m-%d"],
+        years=["%Y-%m-%d"],
+    )
     p.add_glyph(psa_source, psa_glyph, y_range_name='foo')
     p.add_glyph(para_source, para_glyph)
     p.add_layout(LinearAxis(y_range_name="foo"), 'right')
