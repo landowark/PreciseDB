@@ -3,9 +3,8 @@ from flask import Flask, make_response, request, render_template
 from flask_restful import Api
 from resources import filter
 import os
-from ScrapeTeloView.chart_maker import calculate_axes
 from Calculators.bokeh_maker import create_hover_tool, create_histogram
-
+from MongoInterface import mongo as mng
 
 app = Flask(__name__)
 api = Api(app)
@@ -13,23 +12,13 @@ api = Api(app)
 
 @app.route("/img/<string:patient_number>/<string:parameter_name>", methods=["GET"])
 def chart(patient_number, parameter_name):
-    psaDates, psaLevels, parameterDates, parameterLevels, fullDates = calculate_axes(patient_number, parameter_name)
-    data = {
-        "patient_number": patient_number,
-        "parameter_name": parameter_name,
-        "psaDates": psaDates,
-        "psaLevels": psaLevels,
-        "parameterDates": parameterDates,
-        "parameterLevels": parameterLevels,
-        "fulldates": fullDates
-    }
+
     hover = create_hover_tool()
     title_string = parameter_name + " vs. PSA for " + patient_number
-    plot = create_histogram(data, title_string, "days",
-                            "bugs", hover)
+    plot = create_histogram(patient_number, parameter_name, title_string, "Dates",
+                            parameter_name, hover)
 
     script, div = components(plot)
-    #print(script)
     return render_template("chart.html", parameter_name=parameter_name, patient_number=patient_number,
                            the_div=div, the_script=script)
 
@@ -37,5 +26,9 @@ def chart(patient_number, parameter_name):
 api.add_resource(filter, "/api/<string:patient_number>/<string:filter_number>")
 
 if __name__ == "__main__":
+    # mng.store_psa_maximum()
+    # for para in mng.get_all_parameters():
+    #     print("Looking for updates to: %s" % para)
+    #     mng.store_parameter_maximum(para)
     port = int(os.environ.get('PORT', 5000))
     app.run('localhost', port=port, debug=True)
