@@ -10,7 +10,7 @@ import logging
 
 logger = logging.getLogger("mainUI.ClinicalScraper")
 
-def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\CTC_RT_14Feb17 updating APRIL 2018 for Landon.xlsx"):#, filepath_PSA="C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\psa_aug182017.xls"):
+def scrape_clinical(filepath_clinical ="C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\CTC_RT_14Feb17 updating APRIL 2018 for Landon.xlsx"):#, filepath_PSA="C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\psa_aug182017.xls"):
     # read into dataframes
     df_clinical = pd.read_excel(filepath_clinical, sheet_name="Clinical Data")
     #df_PSA = pd.read_excel(filepath_PSA)
@@ -101,7 +101,5 @@ def main(filepath_clinical = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Wor
             continue
         mng.shoveDoc(patientDoc)
 
-
-
 if __name__ == '__main__':
-    main()
+    scrape_clinical()

@@ -8,6 +8,7 @@ filter objects.
 
 import datetime
 
+
 class Filter():
     
     def __init__(self, filtNum="14AA0000", tPoint='+00m'):
@@ -31,11 +32,9 @@ class Filter():
         self.sigPerVol = 0
         self.maxInt = 0
         self.DateRec = str(datetime.date(2014,1,1).strftime(format))
-        #self.DatePro = str(datetime.date(2014,1,1).strftime(format))
-        #self.DateIm = str(datetime.date(2014,1,1).strftime(format))
 
-        
     def data_calc(self):
+
         import numpy as np
         '''Create and append data to lists'''
         sig_list = []        
@@ -71,9 +70,7 @@ class Filter():
         self.nucDia = float(np.mean(dia_list))
         self.maxInt = int(np.max(int_list))
         self.quartiles(int_list)        
-        
-        #return(self.jsonable())
-        
+
     def quartiles(self, int_list):
         import numpy as np
         dest = np.histogram(int_list, 4)
@@ -84,12 +81,6 @@ class Filter():
         self.p2qrt = quart_list[1]
         self.p3qrt = quart_list[2]
         self.p4qrt = quart_list[3]
-        
-#    def fitDict(self, inputdict):
-#        # fits incoming dictionary variables into this filter
-#        for item in vars(self):
-#            print(item + ':', inputdict[item])
-        
-        
+
     def jsonable(self):
         return self.__dict__

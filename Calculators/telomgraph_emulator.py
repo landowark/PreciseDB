@@ -17,8 +17,6 @@ def ints_from_filter(filter_dict):
     intensities_all = [[images[image]['telomeres'][telo]['int'] for telo in images[image]['telomeres'].keys()] for image in
                        images.keys()]
     intensities_single = list(itertools.chain.from_iterable(intensities_all))
-    #print("All", intensities_all)
-    #print("Single", intensities_single)
     max_bin = round(np.max(intensities_single), -3)
     try:
         bins = np.arange(0, max_bin+1000, 1000)
@@ -198,7 +196,6 @@ def combgraph(sample_list):
             thingy.to_excel(writer, 'Sheet2')
             thingy.to_excel(writer, 'Sheet3')
             all_int_data.to_excel(writer, 'All Intensities', header=False, index=False)
-            # print(all_bin_data.keys())
             writer.save()
         except FileNotFoundError:
             logger.warning("{f} not found, attempting to create.".format(f=filePath))

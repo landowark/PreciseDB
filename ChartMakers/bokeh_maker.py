@@ -1,10 +1,10 @@
 import math
-from bokeh.models import (HoverTool, FactorRange, Plot, LinearAxis, Grid, Range1d, FixedTicker, DatetimeTickFormatter)
+from bokeh.models import (LinearAxis, Range1d, DatetimeTickFormatter)
 from bokeh.plotting import figure
 from bokeh.models.glyphs import Line
 from bokeh.models.sources import ColumnDataSource
 from MongoInterface import mongo as mng
-from ScrapeTeloView.chart_maker import calculate_axes
+from ChartMakers.chart_maker import calculate_axes
 from matplotlib.dates import num2date
 from datetime import datetime
 
@@ -27,10 +27,6 @@ def create_histogram(patient_number, parameter_name, title, x_name, y_name, hove
         "parameterLevels": parameterLevels,
         "fulldates": [datetime.strftime(num2date(date), "%Y-%m-%d") for date in fullDates]
     }
-
-    # major_tick_labels = {}
-    # for item in list(zip(fullDates, data['fulldates'])):
-    #     major_tick_labels[item[0]] = item[1]
 
     psa_data = {'psa_x':data['psaDates'], 'psa_y':data['psaLevels']}
     psa_source = ColumnDataSource(psa_data)

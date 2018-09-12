@@ -15,7 +15,6 @@ This module will scrape teloview data out of all folders in "C:\\Users\\Landon\\
 from Classes import filterizer as flz, patientizer as ptz, imagizer as imz, namer
 from UI import menu_items as fg
 from MongoInterface import mongo as mng
-from ScrapeTeloView import chart_maker_main as chm, telomgraph_emulator as te
 import sys
 import os
 from glob import glob
@@ -82,11 +81,6 @@ def scrape_dir(directory):
             new_image.data_scrape(item)
             new_image = new_image.jsonable()
             dict_images[name] = new_image
-            # try:
-            #     shutil.copy(item, os.path.join(desktop_dir, os.path.basename(item)))
-            # except FileNotFoundError:
-            #     os.makedirs(desktop_dir)
-            #     shutil.copy(item, os.path.join(desktop_dir, os.path.basename(item)))
         # Set this filter's images to dictionary
         newFilt.images = dict_images
         # Calculate means, percentages, etc. in filter
@@ -98,28 +92,24 @@ def scrape_dir(directory):
             if item == filterNumber:
                 logging.debug("Hit " + filterNumber)
                 patientDoc['filters'][item] = this_filter
-        # run telomgraph emulator on filter
-        # te.telomgraph(dict(newFilt.jsonable()), desktop_dir + '.xlsx')
         # update patient
         print("Done!")
         mng.shoveDoc(patientDoc)
     except Exception as e:
         print(e)
 
-def main():
+if __name__ == '__main__':
+    # main will scrape all existing teloview files.
     # set path
-    pathName = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data" # main dir for project data.
+    pathName = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data"  # main dir for project data.
     # get all dirs containing files with 'deconvolution' and 'CTC' in the path name
-    result = [y for x in os.walk(pathName) for y in glob(os.path.join(x[0], '*.xlsx')) if 'deconvolution' in y and 'CTC' in y]
+    result = [y for x in os.walk(pathName) for y in glob(os.path.join(x[0], '*.xlsx')) if
+              'deconvolution' in y and 'CTC' in y]
     # get unique dirs only.
     dirs = set([os.path.dirname(filename) for filename in result])
     sorted(dirs)
     for directory in dirs:
         logging.debug("Starting " + directory)
         scrape_dir(directory)
-    #use chartmaker main to remake charts automatically
-    #chm.main()
+    # use chartmaker main to remake charts automatically
     sys.exit()
-
-if __name__ == '__main__':
-    main()

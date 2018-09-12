@@ -41,9 +41,10 @@ def add(patientNumber, filterNumber, dateRec):
         newFilt.DateRec = dateRec
         # retrieve existing patient and update filters
         dicto = mng.retrieveDoc(patientNumber)
-        dicto['filters'][filterNumber] = newFilt
+        dicto['filters'][filterNumber] = newFilt.jsonable()
         #save
         mng.shoveDoc(dicto)
+        return dicto
     else:
         print('Previously seen filter.')
 
@@ -52,8 +53,3 @@ def deltaTimer(dateRec=datetime.date.today(), firstDate=datetime.date.today()):
     months = round(int((dateRec - firstDate).days) / 30)
     delta = min(options, key=lambda x:abs(x-months))
     return delta
-
-
-# if __name__ == '__main__':
-#     main()
-#     sys.exit()

@@ -14,6 +14,8 @@ import logging
 import sqlite3
 import os
 
+from matplotlib import dates as mdates
+
 logger = logging.getLogger("mainUI.mongo")
 
 def getPatientList():
@@ -190,3 +192,18 @@ def get_parameter_maximum(parameter_name):
     oldMax = cursor.fetchone()[0]
     conn.close()
     return oldMax
+
+def getTreatments(patient_number):
+    treatments = retrieveDoc(patient_number)['treatments']
+    trx_dates = []
+    for item in treatments.keys():
+        try:
+            dicto = {}
+            dicto['start'] = mdates.datestr2num(item)
+            dicto['end'] = mdates.datestr2num(treatments[item]['End Date'])
+            dicto['name'] = treatments[item]['Treatment']
+            trx_dates.append(dicto)
+        except ValueError:
+            del dicto
+            continue
+    return trx_dates
