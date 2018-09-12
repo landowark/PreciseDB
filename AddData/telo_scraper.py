@@ -7,14 +7,8 @@ This module will scrape teloview data out of all folders in "C:\\Users\\Landon\\
 @author: Landon
 """
 
-''' TODO: has to find the appropriate filter and 
-            return as a dict{}, then pop in the scraped values'''
-
-
-
 from Classes import filterizer as flz, patientizer as ptz, imagizer as imz, namer
-from UI import menu_items as fg
-from MongoInterface import mongo as mng
+from DB_DIR import menu_items as fg, mongo as mng
 import sys
 import os
 from glob import glob
@@ -86,7 +80,6 @@ def scrape_dir(directory):
         # Calculate means, percentages, etc. in filter
         newFilt.data_calc()
         this_filter = newFilt.jsonable()
-        desktop_dir = os.path.join("C:\\Users\\Landon\\Desktop\\Quon Prostate", patientNumber + "PR", split_dir[-2])
         # ensure filter number matches filter in patient before assigning.
         for item in patientDoc['filters']:
             if item == filterNumber:

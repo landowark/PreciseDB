@@ -1,5 +1,5 @@
-import MongoInterface.mongo
-from MongoInterface import mongo as mng
+import DB_DIR.mongo
+from DB_DIR import mongo as mng
 import pandas as pd
 import numpy as np
 import datetime as dt
@@ -18,7 +18,7 @@ def treatment_getter(treatment: str):
     patients = mng.getPatientList()
     for patient in patients:
         try:
-            trx_relevant = mdates.num2date([date[trx_time] for date in MongoInterface.mongo.getTreatments(patient) if treatment in date['name']][0]).date()
+            trx_relevant = mdates.num2date([date[trx_time] for date in DB_DIR.mongo.getTreatments(patient) if treatment in date['name']][0]).date()
         except IndexError as e:
             print(e)
             continue

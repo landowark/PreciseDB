@@ -3,7 +3,7 @@ I should probably create a class inheriting from the plt.
 I think that's a job for a new python file though.
 -- nope Monday - September 25, 2017
 """
-from MongoInterface import mongo
+from DB_DIR import mongo
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import numpy as np

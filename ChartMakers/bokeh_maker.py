@@ -3,7 +3,7 @@ from bokeh.models import (LinearAxis, Range1d, DatetimeTickFormatter)
 from bokeh.plotting import figure
 from bokeh.models.glyphs import Line
 from bokeh.models.sources import ColumnDataSource
-from MongoInterface import mongo as mng
+from DB_DIR import mongo as mng
 from ChartMakers.chart_maker import calculate_axes
 from matplotlib.dates import num2date
 from datetime import datetime

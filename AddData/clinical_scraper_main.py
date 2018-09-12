@@ -4,7 +4,7 @@ For pulling clinical info out of excel files sent from Jean
 
 import pandas as pd
 from Classes import namer
-from MongoInterface import mongo as mng
+from DB_DIR import mongo as mng
 import datetime
 import logging
 

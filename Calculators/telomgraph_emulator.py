@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import itertools
-from MongoInterface import mongo as mng
+from DB_DIR import mongo as mng
 import os
 import logging
 

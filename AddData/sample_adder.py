@@ -8,7 +8,7 @@ exist and then add a filter to the specified patient
 @author: Landon
 """
 
-from MongoInterface import mongo as mng
+from DB_DIR import mongo as mng
 from Classes import filterizer as fltz, patientizer as ptz, namer
 import datetime
 

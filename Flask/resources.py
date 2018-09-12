@@ -1,22 +1,22 @@
 
-from flask import request
-from flask_restful import Resource, reqparse
-
-from Classes import namer
-from Classes.patientizer import Patient
-from Classes.filterizer import Filter
-from MongoInterface import mongo as mng
+from flask_restful import Resource, reqparse, request
+from DB_DIR import mongo as mng
 from AddData.sample_adder import add
 
 
 class filter(Resource):
 
     def get(self, patient_number, filter_number):
-        self.filter = mng.get_filter_by_number(patient_number, filter_number)
+        try:
+            self.filter = mng.get_filter_by_number(patient_number, filter_number)
+            del self.filter['images']
+        except TypeError:
+            self.filter = {}
         return self.filter
 
     def put(self, patient_number, filter_number):
-        date_rec = request.form['data']
-        self.patient = add(patient_number, filter_number, date_rec)
-        print(self.patient)
+        parser = reqparse.RequestParser()
+        parser.add_argument("date", type=str, help="The date this sample was collected")
+        args = parser.parse_args()
+        self.patient = add(patient_number, filter_number, args['date'])
         return self.patient
