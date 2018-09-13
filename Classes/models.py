@@ -17,7 +17,7 @@ class User(db.Model):
         self.name = name.title()
         self.email = email.lower()
         self.set_password(password)
-        self.set_apikey(apikey)
+        self.apikey = apikey
 
     def set_password(self, password):
         self.pwdhash = generate_password_hash(password)
@@ -25,8 +25,6 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.pwdhash, password)
 
-    def set_apikey(self, apikey):
-        self.apihash = generate_password_hash(apikey)
-
-    def check_apikey(self, apikey):
-        return check_password_hash(self.apikey, apikey)
+    @classmethod
+    def find_by_email(cls, email):
+        return cls.query.filter_by(email=email).first()

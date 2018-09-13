@@ -1,8 +1,11 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from Classes.models import User
 from random import *
 import string
 import sqlite3
-import os
+
 from getpass import getpass
 
 def generate_apikey():
@@ -26,16 +29,17 @@ def input_data():
         elif password1 != password2:
             print("Passwords don't match!")
     apikey = generate_apikey()
-    print("This user's apikey is {}. Write it down because it's about to get hashed to shit.".format(apikey))
+    print("This user's apikey is {}. Write it down.".format(apikey))
     newUser = User(name=user, email=email, password=password1, apikey=apikey)
     return newUser
 
 if __name__ == "__main__":
     newUser = input_data()
-    sql = '''INSERT INTO users(name,email,password,apikey) VALUES(?,?,?,?)'''
-    databaseLoc = os.path.abspath(os.path.relpath("DB_DIR/database.sqlite", os.path.abspath(__file__)))
+    sql = '''INSERT INTO user(name,email,pwdhash,apikey) VALUES(?,?,?,?)'''
+    databaseLoc = os.path.abspath(os.path.relpath("DB_DIR/database.sqlite"))
+    print(databaseLoc)
     conn = sqlite3.connect(databaseLoc)
     cursor = conn.cursor()
-    cursor.execute(sql, (newUser.name, newUser.email, newUser.pwdhash, newUser.apihash))
+    cursor.execute(sql, (newUser.name, newUser.email, newUser.pwdhash, newUser.apikey))
     conn.commit()
     conn.close()
