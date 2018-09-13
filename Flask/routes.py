@@ -1,5 +1,6 @@
 from bokeh.embed import components
-from flask import Flask, render_template
+from flask import Flask, render_template, session, redirect, url_for
+from flask_bootstrap import Bootstrap
 from flask_restful import Api
 from Flask.resources import filter
 import os
@@ -7,6 +8,7 @@ from ChartMakers.bokeh_maker import create_hover_tool, create_histogram
 
 app = Flask(__name__)
 api = Api(app)
+Bootstrap(app)
 
 @app.route("/img/<string:patient_number>/<string:parameter_name>", methods=["GET"])
 def chart(patient_number, parameter_name):
@@ -19,7 +21,7 @@ def chart(patient_number, parameter_name):
     return render_template("chart.html", parameter_name=parameter_name, patient_number=patient_number,
                            the_div=div, the_script=script)
 
-api.add_resource(filter, "/api/<string:patient_number>/<string:filter_number>")
+api.add_resource(filter, "/api/<string:patient_number>")
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

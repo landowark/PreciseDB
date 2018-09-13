@@ -1,5 +1,5 @@
 import math
-from bokeh.models import (LinearAxis, Range1d, DatetimeTickFormatter)
+from bokeh.models import (LinearAxis, Range1d, DatetimeTickFormatter, HoverTool)
 from bokeh.plotting import figure
 from bokeh.models.glyphs import Line
 from bokeh.models.sources import ColumnDataSource
@@ -28,13 +28,13 @@ def create_histogram(patient_number, parameter_name, title, x_name, y_name, hove
         "fulldates": [datetime.strftime(num2date(date), "%Y-%m-%d") for date in fullDates]
     }
 
-    psa_data = {'psa_x':data['psaDates'], 'psa_y':data['psaLevels']}
+    psa_data = {'x':data['psaDates'], 'y':data['psaLevels'], 'labels':["PSA"] * len(data['psaDates'])}
     psa_source = ColumnDataSource(psa_data)
-    psa_glyph = Line(x="psa_x", y="psa_y", line_color="red", line_width=6, line_alpha=0.6)
+    psa_glyph = Line(x="x", y="y", line_color="red", line_width=6, line_alpha=0.6)
 
-    parameter_data = {'para_x':data['parameterDates'], 'para_y':data['parameterLevels']}
+    parameter_data = {'x':data['parameterDates'], 'y':data['parameterLevels'], 'labels':[data['parameter_name']] * len(data['parameterDates'])}
     para_source = ColumnDataSource(parameter_data)
-    para_glyph = Line(x="para_x", y='para_y', line_color="blue", line_width=6, line_alpha=0.6)
+    para_glyph = Line(x="x", y='y', line_color="blue", line_width=6, line_alpha=0.6)
 
     p = figure(plot_width=width, plot_height=height, title=title, x_axis_label=x_name, y_axis_label=y_name, x_axis_type="datetime")
 
@@ -53,4 +53,6 @@ def create_histogram(patient_number, parameter_name, title, x_name, y_name, hove
     p.add_layout(LinearAxis(y_range_name="foo"), 'right')
     p.yaxis[1].axis_label = "PSA Level"
 
+    h1 = HoverTool(tooltips=[('Parameter', '@labels'), ('Level', '@y')], line_policy='nearest')
+    p.add_tools(h1)
     return p

@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Got put method of api working.">
-      <change afterPath="$PROJECT_DIR$/DB_DIR/menu_items.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Classes/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Flask/templates/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AddData/clinical_scraper_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/AddData/clinical_scraper_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AddData/sample_adder.py" beforeDir="false" afterPath="$PROJECT_DIR$/AddData/sample_adder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AddData/telo_scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/AddData/telo_scraper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Calculators/telomgraph_emulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculators/telomgraph_emulator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChartMakers/bokeh_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChartMakers/bokeh_maker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChartMakers/chart_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChartMakers/chart_maker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB_DIR/mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/DB_DIR/mongo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Flask/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/resources.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MongoInterface/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/DB_DIR/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MongoInterface/maximums.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/DB_DIR/maximums.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MongoInterface/mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/DB_DIR/mongo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/HarveyFinder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/HarveyFinder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/chart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,9 +40,9 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Git file" value="1" />
-          <entry key="HTML" value="2" />
-          <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="59" />
+          <entry key="HTML" value="4" />
+          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="Python" value="62" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
@@ -56,24 +51,24 @@
           <entry key="Model_mockup" value="2" />
           <entry key="bak" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="2" />
-          <entry key="py" value="60" />
-          <entry key="txt" value="1" />
+          <entry key="html" value="4" />
+          <entry key="py" value="63" />
+          <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="1560" />
-          <entry key="html" value="100" />
-          <entry key="py" value="6412" />
+          <entry key="Python Console" value="1572" />
+          <entry key="html" value="260" />
+          <entry key="py" value="7198" />
           <entry key="txt" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="100" />
+          <entry key="HTML" value="260" />
           <entry key="PLAIN_TEXT" value="30" />
-          <entry key="Python" value="7972" />
+          <entry key="Python" value="8770" />
         </counts>
       </usages-collector>
     </session>
@@ -86,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="78" selection-start-line="21" selection-start-column="78" selection-end-line="21" selection-end-column="78" />
+            <state relative-caret-position="153">
+              <caret line="10" column="9" selection-start-line="10" selection-end-line="10" selection-end-column="9" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -96,10 +91,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Flask/templates/chart.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -107,26 +129,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Flask/resources.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ChartMakers/bokeh_maker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+            <state relative-caret-position="935">
+              <caret line="55" column="93" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="93" />
               <folding>
-                <element signature="e#1#54#0" expanded="true" />
-                <marker date="1536773405761" expanded="true" signature="666:667" ph="..." />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
+        <entry file="file://$PROJECT_DIR$/Classes/user.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
+            <state relative-caret-position="425">
+              <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
               <folding>
-                <element signature="e#204#243#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -137,8 +158,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -176,10 +197,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/MongoInterface/Model_mockup" />
-        <option value="$PROJECT_DIR$/UI/menu_items.py" />
-        <option value="$PROJECT_DIR$/UI/lw_filedialog.py" />
-        <option value="$PROJECT_DIR$/UI/lw_textinput.py" />
         <option value="$PROJECT_DIR$/UI/treeview_context.py" />
         <option value="$PROJECT_DIR$/UI/treeview_test.py" />
         <option value="$PROJECT_DIR$/RawUI/mainUI.py" />
@@ -205,11 +222,9 @@
         <option value="$PROJECT_DIR$/Scripts/HarveyFinder.py" />
         <option value="$PROJECT_DIR$/myFlask/static/chart.html" />
         <option value="$PROJECT_DIR$/myFlask/routes.py" />
-        <option value="$PROJECT_DIR$/Flask/templates/chart.html" />
         <option value="$PROJECT_DIR$/Calculators/bokeh_maker.py" />
         <option value="$PROJECT_DIR$/Flask/__init__.py" />
         <option value="$PROJECT_DIR$/AddData/clinical_scraper_main.py" />
-        <option value="$PROJECT_DIR$/ChartMakers/bokeh_maker.py" />
         <option value="$PROJECT_DIR$/Classes/filterizer.py" />
         <option value="$PROJECT_DIR$/Classes/imagizer.py" />
         <option value="$PROJECT_DIR$/Classes/namer.py" />
@@ -225,8 +240,14 @@
         <option value="$PROJECT_DIR$/DB_DIR/__init__.py" />
         <option value="$PROJECT_DIR$/DB_DIR/menu_items.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/Flask/routes.py" />
         <option value="$PROJECT_DIR$/Flask/resources.py" />
+        <option value="$PROJECT_DIR$/DB_DIR/mongo.py" />
+        <option value="$PROJECT_DIR$/ChartMakers/bokeh_maker.py" />
+        <option value="$PROJECT_DIR$/Classes/user.py" />
+        <option value="$PROJECT_DIR$/Flask/routes.py" />
+        <option value="$PROJECT_DIR$/Flask/static/layout.html" />
+        <option value="$PROJECT_DIR$/Flask/templates/layout.html" />
+        <option value="$PROJECT_DIR$/Flask/templates/chart.html" />
       </list>
     </option>
   </component>
@@ -253,6 +274,12 @@
               <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
               <item name="Flask" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
+              <item name="Flask" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -269,8 +296,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\ChartMakers" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\templates" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\ChartMakers" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\UI" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Classes" />
@@ -787,8 +814,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SampleTableScraper/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/SampleTableScraper/access_scraper.py" />
     <entry file="file://$PROJECT_DIR$/SampleTableScraper/sample_adder.py" />
     <entry file="file://$PROJECT_DIR$/UI/lw_filedialog.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -908,13 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UI/mainUI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3910">
@@ -943,13 +961,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="13" column="8" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/chart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1029,27 +1040,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChartMakers/bokeh_maker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2448">
-          <caret line="195" selection-start-line="195" selection-end-line="195" />
-          <folding>
-            <element signature="e#161#182#0" expanded="true" />
-            <marker date="1536763303828" expanded="true" signature="4518:4523" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ChartMakers/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1100,31 +1090,83 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/resources.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+          <folding>
+            <element signature="e#1#54#0" expanded="true" />
+            <marker date="1536782869026" expanded="true" signature="1136:1137" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="112" column="20" lean-forward="true" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
+          <folding>
+            <element signature="e#161#182#0" expanded="true" />
+            <marker date="1536782945197" expanded="true" signature="4492:4497" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChartMakers/bokeh_maker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="55" column="93" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="93" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="78" selection-start-line="21" selection-start-column="78" selection-end-line="21" selection-end-column="78" />
+        <state relative-caret-position="153">
+          <caret line="10" column="9" selection-start-line="10" selection-end-line="10" selection-end-column="9" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/resources.py">
+    <entry file="file://$PROJECT_DIR$/Flask/templates/chart.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding>
-            <element signature="e#1#54#0" expanded="true" />
-            <marker date="1536773405761" expanded="true" signature="666:667" ph="..." />
-          </folding>
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
