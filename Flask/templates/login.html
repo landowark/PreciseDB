@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <main class="container login-section">
+        <div class="section-content">
+            <h1>Welcome to the login page!</h1>
+            <form method="POST" action="/login">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.email.label }}
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label }}
+                    {{ form.password }}
+                </div>
+                {{ form.submit(class="btn-primary") }}
+            </form>
+        </div>
+    </main>
+
+
+{% endblock %}
