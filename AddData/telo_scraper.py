@@ -2,7 +2,7 @@
 """
 Created on Thu Sep 24 14:33:31 2015
 
-This module will scrape teloview data out of all folders in "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data"
+This module will scrape teloview data out of all folders in given directory"
 
 @author: Landon
 """
@@ -15,12 +15,12 @@ from glob import glob
 import logging
 from logging.handlers import RotatingFileHandler
 
-logfile = os.path.join(os.path.expanduser("~"))
+logfile = os.path.abspath(os.path.relpath("Logs"))
 
 #set up logging.
 logger = logging.getLogger("teloscrape")
 logger.setLevel(logging.DEBUG)
-fh = RotatingFileHandler('C:\\Users\\Landon\\Desktop\\Debugging\\QP.log', maxBytes=50000, backupCount=3)
+fh = RotatingFileHandler(os.path.join(logfile, 'QP.log'), maxBytes=50000, backupCount=3)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)
 logger.addHandler(fh)
@@ -96,7 +96,7 @@ def scrape_dir(directory):
 if __name__ == '__main__':
     # main will scrape all existing teloview files.
     # set path
-    pathName = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data"  # main dir for project data.
+    pathName = input("Input the main data directory: ")  # main dir for project data.
     # get all dirs containing files with 'deconvolution' and 'CTC' in the path name
     result = [y for x in os.walk(pathName) for y in glob(os.path.join(x[0], '*.xlsx')) if
               'deconvolution' in y and 'CTC' in y]

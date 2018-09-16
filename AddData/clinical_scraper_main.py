@@ -1,5 +1,5 @@
 '''
-For pulling clinical info out of excel files sent from Jean
+For pulling clinical info out of excel files
 '''
 
 import pandas as pd
@@ -10,10 +10,9 @@ import logging
 
 logger = logging.getLogger("mainUI.ClinicalScraper")
 
-def scrape_clinical(filepath_clinical ="C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\CTC_RT_14Feb17 updating APRIL 2018 for Landon.xlsx"):#, filepath_PSA="C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\psa_aug182017.xls"):
+def scrape_clinical(filepath_clinical):
     # read into dataframes
     df_clinical = pd.read_excel(filepath_clinical, sheet_name="Clinical Data")
-    #df_PSA = pd.read_excel(filepath_PSA)
     # Get indexes of patient numbers
     patidx_clinical = list(set(df_clinical.index[df_clinical['MB'].notnull()]))
     # Not sure why the below line is there.
