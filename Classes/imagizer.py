@@ -5,6 +5,8 @@ This module will take the input from a teloview xl file and convert it to a
 new image in the patient json structure.
 @author: Landon
 """
+
+
 class Image():
     
     def __init__(self):
@@ -34,11 +36,8 @@ class Image():
         inSignals = list(inSignals)
         inNucleus = list(inNucleus)
         inNucleus = sorted(inNucleus)
-        #assert inNucleus[0] < inNucleus[1]
-        #print(inNucleus)
         inNucleus = [inNucleus[1], inNucleus[3], inNucleus[5], inNucleus[7], inNucleus[9], inNucleus[10], inNucleus[11], inNucleus[13]]
         nucData = list(data['spots number'].iloc[inNucleus])
-
         spotnum = [int(iii) for iii in list(data['spots number'].iloc[inSignals].values)]
         isAgg = [int(iii) for iii in list(data['Aggregates'].iloc[inSignals].values)]
         teloDist = [float(iii) for iii in list(data['Distance from nucl. center [%]'].iloc[inSignals].values)]
@@ -50,7 +49,6 @@ class Image():
         teloY1 = [int(iii) for iii in list(data['y1'].iloc[inSignals].values)]
         teloZ1 = [int(iii) for iii in list(data['z1'].iloc[inSignals].values)]
         pretelomeres = list(zip(spotnum, teloInt, teloDist, isAgg, teloX, teloY, teloZ, teloX1, teloY1, teloZ1))
-
         for telo in pretelomeres:
             newtelo = {}
             newtelo['int'] = telo[1]
@@ -63,7 +61,6 @@ class Image():
             newtelo['y1'] = telo[8]
             newtelo['z1'] = telo[9]
             self.telomeres[str(telo[0]).zfill(3)] = newtelo
-        #print(self.telomeres)
         self.meanDist = float(np.mean(data['Distance from nucl. center [%]'].iloc[inSignals].values))
         self.sigNum = len(self.telomeres)
         self.meanIntAll = nucData[0]
@@ -76,10 +73,7 @@ class Image():
         self.nucVol = nucData[7] * 0.002081 #presumably this is what Julius and Sabine hashed out -LW
         self.sigPerVol = self.sigNum/self.nucVol
         self.nucDia = float(6 * (self.nucVol / np.pi)) ** (1/3)
-        #print(self.telomeres)
         return(self.jsonable())
-    
-
     
     def jsonable(self):
         return self.__dict__

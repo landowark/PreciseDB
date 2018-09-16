@@ -20,7 +20,7 @@ def nadir_scrape(patNum, psas):
 if __name__ == "__main__":
     db = mng.MongoClient().prostate_actual
     patients = [doc for doc in db.patient.find()]
-    filepath = "C:\\Users\\Landon\\Desktop\\nadir.txt"
+    filepath = ""
     for patient in patients:
         patNum = patient['_id']
         filterdates = [patient['filters'][thing]['DateRec'] for thing in patient['filters'].keys()]

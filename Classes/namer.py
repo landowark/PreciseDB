@@ -12,8 +12,8 @@ logger = logging.getLogger("mainUI.namer")
 def parsePatient(input_string):
     import re
     # compile regular expression to match
-    # print("Parsing input string %s" % input_string)
     patient_ex = re.compile(r'MB0\d{3}P?R?|\d{3}?')
+    # search input string for pattern
     patientNumber = patient_ex.search(input_string).group()
     if len(patientNumber) == 3:
         patientNumber = 'MB0' + patientNumber + 'PR'

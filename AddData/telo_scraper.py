@@ -2,30 +2,25 @@
 """
 Created on Thu Sep 24 14:33:31 2015
 
-This module will scrape teloview data out of all folders in "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data"
+This module will scrape teloview data out of all folders in given directory"
 
 @author: Landon
 """
 
-''' TODO: has to find the appropriate filter and 
-            return as a dict{}, then pop in the scraped values'''
-
-
-
 from Classes import filterizer as flz, patientizer as ptz, imagizer as imz, namer
-from UI import menu_items as fg
-from MongoInterface import mongo as mng
-from ScrapeTeloView import chart_maker_main as chm, telomgraph_emulator as te
+from DB_DIR import menu_items as fg, mongo as mng
 import sys
 import os
 from glob import glob
 import logging
 from logging.handlers import RotatingFileHandler
 
+logfile = os.path.abspath(os.path.relpath("Logs"))
+
 #set up logging.
 logger = logging.getLogger("teloscrape")
 logger.setLevel(logging.DEBUG)
-fh = RotatingFileHandler('C:\\Users\\Landon\\Desktop\\Debugging\\QP.log', maxBytes=50000, backupCount=3)
+fh = RotatingFileHandler(os.path.join(logfile, 'QP.log'), maxBytes=50000, backupCount=3)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)
 logger.addHandler(fh)
@@ -82,44 +77,34 @@ def scrape_dir(directory):
             new_image.data_scrape(item)
             new_image = new_image.jsonable()
             dict_images[name] = new_image
-            # try:
-            #     shutil.copy(item, os.path.join(desktop_dir, os.path.basename(item)))
-            # except FileNotFoundError:
-            #     os.makedirs(desktop_dir)
-            #     shutil.copy(item, os.path.join(desktop_dir, os.path.basename(item)))
         # Set this filter's images to dictionary
         newFilt.images = dict_images
         # Calculate means, percentages, etc. in filter
         newFilt.data_calc()
         this_filter = newFilt.jsonable()
-        desktop_dir = os.path.join("C:\\Users\\Landon\\Desktop\\Quon Prostate", patientNumber + "PR", split_dir[-2])
         # ensure filter number matches filter in patient before assigning.
         for item in patientDoc['filters']:
             if item == filterNumber:
                 logging.debug("Hit " + filterNumber)
                 patientDoc['filters'][item] = this_filter
-        # run telomgraph emulator on filter
-        # te.telomgraph(dict(newFilt.jsonable()), desktop_dir + '.xlsx')
         # update patient
         print("Done!")
         mng.shoveDoc(patientDoc)
     except Exception as e:
         print(e)
 
-def main():
+if __name__ == '__main__':
+    # main will scrape all existing teloview files.
     # set path
-    pathName = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data" # main dir for project data.
+    pathName = input("Input the main data directory: ")  # main dir for project data.
     # get all dirs containing files with 'deconvolution' and 'CTC' in the path name
-    result = [y for x in os.walk(pathName) for y in glob(os.path.join(x[0], '*.xlsx')) if 'deconvolution' in y and 'CTC' in y]
+    result = [y for x in os.walk(pathName) for y in glob(os.path.join(x[0], '*.xlsx')) if
+              'deconvolution' in y and 'CTC' in y]
     # get unique dirs only.
     dirs = set([os.path.dirname(filename) for filename in result])
     sorted(dirs)
     for directory in dirs:
         logging.debug("Starting " + directory)
         scrape_dir(directory)
-    #use chartmaker main to remake charts automatically
-    #chm.main()
+    # use chartmaker main to remake charts automatically
     sys.exit()
-
-if __name__ == '__main__':
-    main()

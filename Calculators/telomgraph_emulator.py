@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import itertools
-from MongoInterface import mongo as mng
+from DB_DIR import mongo as mng
 import os
 import logging
 
@@ -10,6 +10,7 @@ Take a mongo entry for a filter and return a pandas dataframe representing a sum
 '''
 
 logger = logging.getLogger("mainUI.telomgraph")
+main_dir = os.path.join(os.path.expanduser("~"), "Dropbox\\Documents\\Student Work\\Data\\")
 
 def ints_from_filter(filter_dict):
     # gets intensity data.
@@ -17,8 +18,6 @@ def ints_from_filter(filter_dict):
     intensities_all = [[images[image]['telomeres'][telo]['int'] for telo in images[image]['telomeres'].keys()] for image in
                        images.keys()]
     intensities_single = list(itertools.chain.from_iterable(intensities_all))
-    #print("All", intensities_all)
-    #print("Single", intensities_single)
     max_bin = round(np.max(intensities_single), -3)
     try:
         bins = np.arange(0, max_bin+1000, 1000)
@@ -60,7 +59,7 @@ def misc_from_filter(filter_dict):
     return misc_data
 
 def get_original_timepoint(patientNumber, filterNumber):
-    direc = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\" + patientNumber
+    direc = os.path.join(main_dir + patientNumber)
     thing = [x for x in os.listdir(direc) if filterNumber in x]
     print(thing)
     try:
@@ -165,7 +164,7 @@ def telomgraph(patient_number, filter_number, filePath):
 def combgraph(sample_list):
     # step 1 get patient and filter info
     patient_number = list(set([item[0] for item in sample_list]))[0]
-    filePath = os.path.join("C:\\Users\\Landon\\Desktop\\Quon Prostate\\combgraphs", patient_number + "_combgraph.xlsx")
+    filePath = os.path.join(os.path.expanduser("~"), "Desktop\\Quon Prostate\\combgraphs", patient_number + "_combgraph.xlsx")
     all_int_data = pd.DataFrame()
     all_bin_data = pd.DataFrame()
     for sample in sample_list:
@@ -177,7 +176,6 @@ def combgraph(sample_list):
         # only run filters with 30 or more images
         if len(list(filter['images'].keys())) >= 30:
             bins_data, int_single_data, int_all_data = ints_from_filter(filter)
-
             bins_data.rename(columns={'Number of Telomeres':header}, inplace=True)
             all_bin_data = pd.concat([all_bin_data, bins_data], axis=1)
             # axis=1 to concatenate columns
@@ -198,7 +196,6 @@ def combgraph(sample_list):
             thingy.to_excel(writer, 'Sheet2')
             thingy.to_excel(writer, 'Sheet3')
             all_int_data.to_excel(writer, 'All Intensities', header=False, index=False)
-            # print(all_bin_data.keys())
             writer.save()
         except FileNotFoundError:
             logger.warning("{f} not found, attempting to create.".format(f=filePath))
@@ -207,4 +204,4 @@ def combgraph(sample_list):
 
 
 if __name__ == "__main__":
-    telomgraph("MB0393PR", "13AA8517", "C:\\Users\\Landon\\\Desktop\\test.xlsx")
+    telomgraph()
