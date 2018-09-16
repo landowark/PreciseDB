@@ -27,14 +27,14 @@ db.init_app(app)
 def index():
     return redirect(url_for("login"))
 
-@app.route("/home")
+@app.route("/precise/home")
 def home():
     if 'email' in session:
         return render_template("home.html")
     else:
         return redirect(url_for('login'))
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/precise/login", methods=["GET", "POST"])
 def login():
     if 'email' not in session:
         form = LoginForm()
@@ -55,7 +55,7 @@ def login():
     else:
         return redirect(url_for('home'))
 
-@app.route("/img/<string:patient_number>/<string:parameter_name>", methods=["GET"])
+@app.route("/precise/img/<string:patient_number>/<string:parameter_name>", methods=["GET"])
 def chart(patient_number, parameter_name):
     if 'email' in session:
         hover = create_hover_tool()
@@ -68,7 +68,7 @@ def chart(patient_number, parameter_name):
     else:
         return redirect(url_for('login'))
 
-@app.route("/logout")
+@app.route("/precise/logout")
 def logout():
     if 'email' in session:
         session.pop('email', None)
@@ -76,9 +76,9 @@ def logout():
     else:
         return redirect(url_for('login'))
 
-api.add_resource(filter, "/api")
-api.add_resource(logon, "/api/login")
-api.add_resource(TokenRefresh, "/api/tokenrefresh")
+api.add_resource(filter, "/precise/api")
+api.add_resource(logon, "/precise/api/login")
+api.add_resource(TokenRefresh, "/precise/api/tokenrefresh")
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
