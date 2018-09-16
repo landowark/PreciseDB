@@ -1,3 +1,10 @@
+'''
+
+Making charts for 
+
+'''
+
+
 import math
 from bokeh.models import (LinearAxis, Range1d, DatetimeTickFormatter, HoverTool)
 from bokeh.plotting import figure
