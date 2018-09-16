@@ -1,3 +1,5 @@
+import os
+
 import DB_DIR.mongo
 from DB_DIR import mongo as mng
 import pandas as pd
@@ -56,7 +58,7 @@ def main():
     print(df1)
     df2 = treatment_getter("RT")
     tod = dt.datetime.now().strftime("%A - %B %d, %Y")
-    writer = pd.ExcelWriter('C:\\Users\\Landon\\Desktop\\Quon Prostate Friday - June 15, 2018\\HarveyFinder-output-%s.xlsx' % tod)
+    writer = pd.ExcelWriter(os.path.join(os.path.expanduser('~')), 'Desktop','HarveyFinder-output-%s.xlsx' % tod)
     df1.to_excel(writer, "Bicalutamide")
     df2.to_excel(writer, "RT")
     writer.save()

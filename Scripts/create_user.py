@@ -8,14 +8,17 @@ import sqlite3
 
 from getpass import getpass
 
+default_user = ""
+default_email = ""
+
 def generate_apikey():
     return ''.join(choice(string.hexdigits) for x in range(8))
 
 
 def input_data():
     pass_match = False
-    user = input("Input user name: [Landon] \n") or "Landon"
-    email = input("Input user's email: [lando.wark@gmail.com] \n") or "lando.wark@gmail.com"
+    user = input("Input user name: [{}] \n").format(default_user) or default_user
+    email = input("Input user's email: [{}] \n").format(default_email) or default_email
     while pass_match == False:
         password1 = getpass(prompt="Input user password [8-16 chars]: \n")
         password2 = getpass(prompt="Repeat user password: \n")

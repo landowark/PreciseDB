@@ -15,6 +15,8 @@ from glob import glob
 import logging
 from logging.handlers import RotatingFileHandler
 
+logfile = os.path.join(os.path.expanduser("~"))
+
 #set up logging.
 logger = logging.getLogger("teloscrape")
 logger.setLevel(logging.DEBUG)

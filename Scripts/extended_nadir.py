@@ -3,7 +3,7 @@ import numpy as np
 from datetime import datetime
 from Scripts.find_nadir import nadir_scrape
 
-filepath = "C:\\Users\\Landon\\Dropbox\\Documents\\Student Work\\Data\\Clinical Data\\psa_aug182017.xls"
+filepath = ""
 df = pd.read_excel(filepath)
 patients = df['MBTB#']
 np.unique(patients)
