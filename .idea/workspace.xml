@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Got put method of api working." />
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Got put method of api working.">
+      <change afterPath="$PROJECT_DIR$/precise.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +22,7 @@
           <entry key="project.closed" value="21" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="4" />
-          <entry key="project.open.time.11" value="4" />
+          <entry key="project.open.time.11" value="5" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -26,15 +30,16 @@
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Git file" value="1" />
           <entry key="HTML" value="7" />
-          <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="100" />
+          <entry key="Ini" value="1" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="Python" value="103" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
@@ -44,8 +49,9 @@
           <entry key="bak" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="7" />
-          <entry key="py" value="101" />
-          <entry key="txt" value="2" />
+          <entry key="ini" value="1" />
+          <entry key="py" value="104" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -71,17 +77,19 @@
     <favorites_list name="Prostate_Database" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ChartMakers/bokeh_maker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="-532">
               <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wsgi.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -200,11 +208,6 @@
               <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
               <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
-              <item name="ChartMakers" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -220,19 +223,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\MongoInterface" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\icons" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\templates" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\ChartMakers" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\UI" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Classes" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\MongoInterface" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\icons" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\UI" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -673,7 +676,7 @@
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17564997" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17564997" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -683,9 +686,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49357328" weight="0.32974428" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50475585" side_tool="true" weight="0.26917902" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5028535" side_tool="true" weight="0.25168237" />
       <window_info anchor="bottom" id="Messages" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" visible="true" weight="0.25168237" />
+      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.4971465" visible="true" weight="0.25168237" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49904883" weight="0.32839838" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3293011" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -762,14 +765,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/PyQt5/QtWidgets.pyi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="7318" column="45" selection-start-line="7318" selection-start-column="40" selection-end-line="7318" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/treeview_test.py" />
     <entry file="file://C:/ProgramData/Anaconda3/Lib/shutil.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1271">
@@ -822,13 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/templates/chart.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -860,16 +848,6 @@
     <entry file="file://$PROJECT_DIR$/Scripts/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AddData/clinical_scraper_main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1263">
@@ -895,9 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3349">
           <caret line="197" lean-forward="true" selection-start-line="197" selection-end-line="197" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -975,9 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-566">
           <caret line="27" column="37" lean-forward="true" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1012,13 +984,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/precise.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/ChartMakers/bokeh_maker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="-532">
           <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
