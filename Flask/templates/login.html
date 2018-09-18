@@ -4,7 +4,10 @@
     <main class="container login-section">
         <div class="section-content">
             <h1>Welcome to the login page!</h1>
-            <form method="POST" action="/login">
+            {% if error %}
+              <p><strong>Error:</strong> {{ error }}
+            {% endif %}
+            <form method="POST" action="/precise/login">
                 {{ form.hidden_tag() }}
                 <div class="form-group">
                     {{ form.email.label }}

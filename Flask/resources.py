@@ -59,6 +59,8 @@ class filter(Resource):
         parser.add_argument("patient", type=str, help="The patient you are looking for")
         parser.add_argument("date", type=str, help="The date this sample was collected")
         parser.add_argument('fNum', type=str, help="The filter number on the ring.")
+        parser.add_argument('mL', type=int, help="How much blood was received for the sample.")
+        parser.add_argument('ins', type=str, help="The institute the sample was received from.")
         args = parser.parse_args()
-        self.patient = add(args['patient'], args['fNum'], args['date'])
+        self.patient = add(args['patient'], args['fNum'], args['date'], args['mL'], args['ins'])
         return self.patient

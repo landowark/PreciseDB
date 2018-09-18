@@ -32,6 +32,7 @@ class Filter():
         self.sigPerVol = 0
         self.maxInt = 0
         self.DateRec = str(datetime.date(2014,1,1).strftime(format))
+        self.mLBlood = 0
 
     def data_calc(self):
 

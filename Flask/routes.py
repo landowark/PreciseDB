@@ -1,13 +1,15 @@
 from bokeh.embed import components
-from flask import Flask, render_template, session, redirect, url_for, request
+from flask import Flask, render_template, session, redirect, url_for, request, flash
 from flask_bootstrap import Bootstrap
 from flask_restful import Api
 from Flask.resources import filter, logon, TokenRefresh
-from Flask.forms import LoginForm
+from Flask.forms import LoginForm, AddSampleForm
 from Classes.models import User, db
+from AddData.sample_adder import add
 import os
 from ChartMakers.bokeh_maker import create_hover_tool, create_histogram
 from flask_jwt_extended import JWTManager
+import datetime
 
 app = Flask(__name__)
 api = Api(app)
@@ -23,7 +25,7 @@ jwt = JWTManager(app)
 db.init_app(app)
 
 
-@app.route("/")
+@app.route("/precise")
 def index():
     return redirect(url_for("login"))
 
@@ -49,7 +51,9 @@ def login():
                     session['email'] = email
                     return redirect(url_for("home"))
                 else:
+                    flash("Login failed.", category="error")
                     return redirect(url_for("login"))
+
         elif request.method == "GET":
             return render_template("login.html", form=form)
     else:
@@ -67,6 +71,27 @@ def chart(patient_number, parameter_name):
                                the_div=div, the_script=script)
     else:
         return redirect(url_for('login'))
+
+@app.route("/precise/addsample", methods=["GET", "POST"])
+def addsample():
+    if 'email' in session:
+        form = AddSampleForm()
+        if request.method == "POST":
+            if form.validate == False:
+                return render_template("addsample.html", form=form)
+            else:
+                patientNumber = form.patientNumber.data
+                filterNumber = form.filterNumber.data
+                dateRec = datetime.datetime.strftime(form.dateRec.data, "%Y-%m-%d")
+                mLBlood = form.mLBlood.data
+                institute = form.institute.data
+                add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, institute=institute)
+                flash("Sample {}, {} has been added".format(patientNumber, filterNumber))
+                return render_template("addsample.html", form=form)
+        elif request.method == "GET":
+            return render_template("addsample.html", form=form)
+    else:
+        return redirect(url_for("login"))
 
 @app.route("/precise/logout")
 def logout():

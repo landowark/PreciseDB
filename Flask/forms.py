@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm as Form
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, IntegerField
+from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Email, Length
 
 class LoginForm(Form):
@@ -7,3 +8,11 @@ class LoginForm(Form):
     password = PasswordField("Password",
                              validators=[DataRequired(), Length(min=8, max=16, message="Password must be 8-16 characters.")])
     submit = SubmitField("Login")
+
+class AddSampleForm(Form):
+    patientNumber = StringField("Patient Number.")
+    filterNumber = StringField("Filter Number.")
+    dateRec = DateField("Date Received.", format='%Y-%m-%d')
+    mLBlood = IntegerField("Millilitres of blood in tube.")
+    institute = StringField("Institute received from.")
+    submit = SubmitField("Submit")

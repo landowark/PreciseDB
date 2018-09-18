@@ -17,6 +17,7 @@ class Patient(object):
         self.procedures = {}
         self.filters = {}
         self.treatments = {}
+        self.institute = ''
         
     def jsonable(self):
         return self.__dict__
