@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Got put method of api working.">
-      <change afterPath="$PROJECT_DIR$/Flask/templates/addsample.html" afterDir="false" />
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added sample adder page and method.">
+      <change afterPath="$PROJECT_DIR$/Flask/static/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AddData/sample_adder.py" beforeDir="false" afterPath="$PROJECT_DIR$/AddData/sample_adder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/filterizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/filterizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/patientizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/patientizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_DIR/mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/DB_DIR/mongo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flask/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flask/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/resources.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flask/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/layout.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,9 +19,9 @@
     <session id="-2016912830">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="23" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.10" value="4" />
+          <entry key="project.open.time.10" value="5" />
           <entry key="project.open.time.11" value="6" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="1" />
@@ -37,13 +30,13 @@
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="24" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Git file" value="1" />
-          <entry key="HTML" value="9" />
+          <entry key="HTML" value="10" />
           <entry key="Ini" value="1" />
           <entry key="PLAIN_TEXT" value="7" />
           <entry key="Python" value="115" />
@@ -55,7 +48,7 @@
           <entry key="Model_mockup" value="2" />
           <entry key="bak" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="9" />
+          <entry key="html" value="10" />
           <entry key="ini" value="1" />
           <entry key="py" value="116" />
           <entry key="txt" value="4" />
@@ -65,16 +58,16 @@
         <counts>
           <entry key="Python Console" value="1836" />
           <entry key="dummy" value="10" />
-          <entry key="html" value="839" />
-          <entry key="py" value="12034" />
-          <entry key="txt" value="30" />
+          <entry key="html" value="840" />
+          <entry key="py" value="12043" />
+          <entry key="txt" value="65" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="839" />
-          <entry key="PLAIN_TEXT" value="40" />
-          <entry key="Python" value="13870" />
+          <entry key="HTML" value="840" />
+          <entry key="PLAIN_TEXT" value="75" />
+          <entry key="Python" value="13879" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -88,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="187">
               <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -110,7 +103,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/templates/addsample.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="595">
               <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#main#0;n#!!top" expanded="true" />
@@ -119,15 +112,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
+            <state relative-caret-position="84">
+              <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
-                <marker date="1537285901045" expanded="true" signature="2871:3744" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="85" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -135,7 +136,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
+            <state relative-caret-position="493">
               <caret line="31" column="25" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="25" />
               <folding>
                 <element signature="e#204#235#0" expanded="true" />
@@ -147,8 +148,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+            <state relative-caret-position="374">
+              <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -157,7 +158,7 @@
         <entry file="file://$PROJECT_DIR$/wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -238,7 +239,6 @@
         <option value="$PROJECT_DIR$/DB_DIR/menu_items.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/Flask/static/layout.html" />
-        <option value="$PROJECT_DIR$/Flask/templates/layout.html" />
         <option value="$PROJECT_DIR$/Flask/templates/chart.html" />
         <option value="$PROJECT_DIR$/Classes/user.py" />
         <option value="$PROJECT_DIR$/Flask/templates/home.html" />
@@ -261,6 +261,7 @@
         <option value="$PROJECT_DIR$/DB_DIR/mongo.py" />
         <option value="$PROJECT_DIR$/Flask/templates/addsample.html" />
         <option value="$PROJECT_DIR$/Flask/routes.py" />
+        <option value="$PROJECT_DIR$/Flask/templates/layout.html" />
       </list>
     </option>
   </component>
@@ -289,12 +290,19 @@
             <path>
               <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
               <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
-              <item name="Classes" type="462c0819:PsiDirectoryNode" />
+              <item name="Flask" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
               <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
-              <item name="DB_DIR" type="462c0819:PsiDirectoryNode" />
+              <item name="Flask" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
+              <item name="Flask" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -312,19 +320,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\MongoInterface" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\icons" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\templates" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\ChartMakers" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\UI" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Classes" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\static" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\MongoInterface" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -767,7 +775,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536159034034</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added sample adder page and method.">
+      <created>1537286150611</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1537286150611</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -786,14 +801,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17564997" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49524415" visible="true" weight="0.26917902" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49524415" weight="0.26917902" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39945835" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -835,7 +849,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Checking that filter.checkState(0) still applies." />
     <MESSAGE value="Checking that filter.checkState(0) still applies...again" />
     <MESSAGE value="mainUi from Qt Designer and connected telomgraph emulator." />
     <MESSAGE value="Added in new dialog for adding samples." />
@@ -860,7 +873,8 @@
     <MESSAGE value="Data analysis startup." />
     <MESSAGE value="Streamlining analysis workflow by channeling in data from different features." />
     <MESSAGE value="Commit before migration to flask UI." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit before migration to flask UI." />
+    <MESSAGE value="Added sample adder page and method." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sample adder page and method." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -926,13 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="24" selection-start-column="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1045,9 +1052,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1122">
           <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="e#1#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1065,17 +1069,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/namer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <marker date="1537284750089" expanded="true" signature="576:577" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1086,26 +1094,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="25" />
-          <folding>
-            <element signature="e#204#235#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/templates/addsample.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="595">
           <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#main#0;n#!!top" expanded="true" />
@@ -1113,25 +1104,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/forms.py">
+    <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+        <state relative-caret-position="493">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="25" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <marker date="1537284750089" expanded="true" signature="576:577" ph="..." />
+            <element signature="e#204#235#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Flask/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
+        <state relative-caret-position="84">
+          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
-            <marker date="1537285901045" expanded="true" signature="2871:3744" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="85" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
         </state>
       </provider>
     </entry>
