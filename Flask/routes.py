@@ -10,6 +10,7 @@ import os
 from ChartMakers.bokeh_maker import create_hover_tool, create_histogram
 from flask_jwt_extended import JWTManager
 import datetime
+import logging
 
 app = Flask(__name__)
 api = Api(app)
@@ -20,6 +21,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + os.path.join(basedir, "da
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = "development-key"
 app.config['JWT_SECRET_KEY'] = 'jwt-secret-string'
+app.logger = logging.getLogger("Flask.routers")
 
 jwt = JWTManager(app)
 db.init_app(app)
@@ -87,6 +89,7 @@ def addsample():
                 institute = form.institute.data
                 add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, institute=institute)
                 flash("Sample {}, {} has been added".format(patientNumber, filterNumber))
+                logging.info("{} has added sample {}, {}".format(session['email'], patientNumber, filterNumber))
                 return render_template("addsample.html", form=form)
         elif request.method == "GET":
             return render_template("addsample.html", form=form)
