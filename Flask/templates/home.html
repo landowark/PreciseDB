@@ -2,8 +2,14 @@
 
 {% block content %}
 
-<div class="main-content">
-    <h1>Welcome to the home page!</h1>
-</div>
+<main class="container login-section">
+    <div class="section-content">
+        <h1>Welcome to the home page!</h1>
+        <h2>What would you like to do?</h2>
+        <div style="padding:20px">
+            <li><a href="{{ url_for('addsample') }}">Add a sample?</a></li>
+        </div>
+    </div>
+</main>
 
 {% endblock %}
