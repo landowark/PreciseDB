@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added favicon.">
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added mobile support in layout.html">
+      <change afterPath="$PROJECT_DIR$/Flask/static/css/bootstrap.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Flask/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/layout.html" afterDir="false" />
     </list>
@@ -34,6 +35,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CSS" value="1" />
           <entry key="Git file" value="1" />
           <entry key="HTML" value="10" />
           <entry key="Ini" value="1" />
@@ -46,6 +48,7 @@
         <counts>
           <entry key="Model_mockup" value="2" />
           <entry key="bak" value="1" />
+          <entry key="css" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="10" />
           <entry key="ini" value="1" />
@@ -57,15 +60,15 @@
         <counts>
           <entry key="Python Console" value="1836" />
           <entry key="dummy" value="10" />
-          <entry key="html" value="842" />
+          <entry key="html" value="853" />
           <entry key="py" value="12043" />
-          <entry key="txt" value="82" />
+          <entry key="txt" value="118" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="842" />
-          <entry key="PLAIN_TEXT" value="92" />
+          <entry key="HTML" value="853" />
+          <entry key="PLAIN_TEXT" value="128" />
           <entry key="Python" value="13879" />
         </counts>
       </usages-collector>
@@ -114,7 +117,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
+            <state relative-caret-position="1275">
               <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
@@ -123,11 +126,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+            <state relative-caret-position="68">
+              <caret line="4" column="77" selection-start-line="4" selection-start-column="77" selection-end-line="4" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Flask/static/css/bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="63" column="11" selection-start-line="63" selection-start-column="2" selection-end-line="63" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -285,11 +297,6 @@
             <path>
               <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
               <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
-              <item name="AddData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
               <item name="Flask" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -297,12 +304,6 @@
               <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
               <item name="Flask" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Prostate_Database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Prostate_Database" type="462c0819:PsiDirectoryNode" />
-              <item name="Flask" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -319,19 +320,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\templates" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\ChartMakers" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\UI" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Classes" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\static" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\MongoInterface" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\static\css" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\templates" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\ChartMakers" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\UI" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -788,7 +789,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537296622378</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Added mobile support in layout.html">
+      <created>1537362775165</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1537362775166</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -807,6 +815,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17564997" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -855,7 +864,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="mainUi from Qt Designer and connected telomgraph emulator." />
     <MESSAGE value="Added in new dialog for adding samples." />
     <MESSAGE value="Got new dialog working with main... finally." />
     <MESSAGE value="Connected new dialog to sample_adder" />
@@ -880,7 +888,8 @@
     <MESSAGE value="Commit before migration to flask UI." />
     <MESSAGE value="Added sample adder page and method." />
     <MESSAGE value="Added favicon." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added favicon." />
+    <MESSAGE value="Added mobile support in layout.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added mobile support in layout.html" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -897,7 +906,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/RawUI/mainUI_2.py" />
     <entry file="file://$PROJECT_DIR$/UI/addSample.py" />
     <entry file="file://$PROJECT_DIR$/AddData/sample_adder.bak" />
     <entry file="file://$PROJECT_DIR$/ScrapeTeloView/combgraph_emulator.py" />
@@ -1110,16 +1118,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -1144,10 +1142,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        <state relative-caret-position="68">
+          <caret line="4" column="77" selection-start-line="4" selection-start-column="77" selection-end-line="4" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/static/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="63" column="11" selection-start-line="63" selection-start-column="2" selection-end-line="63" selection-end-column="11" />
         </state>
       </provider>
     </entry>
