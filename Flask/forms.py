@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm as Form
-from wtforms import StringField, PasswordField, SubmitField, IntegerField
+from wtforms import StringField, PasswordField, SubmitField, FloatField
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Email, Length
 
@@ -13,6 +13,6 @@ class AddSampleForm(Form):
     patientNumber = StringField("Patient Number.")
     filterNumber = StringField("Filter Number.")
     dateRec = DateField("Date Received.", format='%Y-%m-%d')
-    mLBlood = IntegerField("Millilitres of blood in tube.")
+    mLBlood = FloatField("Millilitres of blood in tube.")
     institute = StringField("Institute received from.")
     submit = SubmitField("Submit")

@@ -21,6 +21,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + os.path.join(basedir, "da
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = "development-key"
 app.config['JWT_SECRET_KEY'] = 'jwt-secret-string'
+#app.config['PERMANENT_SESSION_LIFETIME'] = False
 app.logger = logging.getLogger("Flask.routers")
 
 jwt = JWTManager(app)
@@ -90,7 +91,7 @@ def addsample():
                 add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, institute=institute)
                 flash("Sample {}, {} has been added".format(patientNumber, filterNumber))
                 logging.info("{} has added sample {}, {}".format(session['email'], patientNumber, filterNumber))
-                return render_template("addsample.html", form=form)
+                return redirect(url_for("addsample"))
         elif request.method == "GET":
             return render_template("addsample.html", form=form)
     else:
