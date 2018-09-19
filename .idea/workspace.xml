@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added sample adder page and method.">
-      <change afterPath="$PROJECT_DIR$/Flask/static/favicon.ico" afterDir="false" />
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added favicon.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Flask/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/layout.html" afterDir="false" />
     </list>
@@ -19,18 +18,18 @@
     <session id="-2016912830">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="25" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.10" value="5" />
+          <entry key="project.closed" value="27" />
+          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.10" value="6" />
           <entry key="project.open.time.11" value="6" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="25" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -58,15 +57,15 @@
         <counts>
           <entry key="Python Console" value="1836" />
           <entry key="dummy" value="10" />
-          <entry key="html" value="840" />
+          <entry key="html" value="842" />
           <entry key="py" value="12043" />
-          <entry key="txt" value="65" />
+          <entry key="txt" value="82" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="840" />
-          <entry key="PLAIN_TEXT" value="75" />
+          <entry key="HTML" value="842" />
+          <entry key="PLAIN_TEXT" value="92" />
           <entry key="Python" value="13879" />
         </counts>
       </usages-collector>
@@ -115,7 +114,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
+            <state relative-caret-position="1088">
               <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
@@ -128,7 +127,7 @@
         <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="85" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -275,6 +274,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -308,7 +308,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -782,7 +781,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537286150611</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Added favicon.">
+      <created>1537296622378</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1537296622378</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -802,12 +808,12 @@
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17564997" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17564997" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49524415" weight="0.26917902" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49524415" visible="true" weight="0.26917902" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39945835" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -849,7 +855,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Checking that filter.checkState(0) still applies...again" />
     <MESSAGE value="mainUi from Qt Designer and connected telomgraph emulator." />
     <MESSAGE value="Added in new dialog for adding samples." />
     <MESSAGE value="Got new dialog working with main... finally." />
@@ -874,7 +879,8 @@
     <MESSAGE value="Streamlining analysis workflow by channeling in data from different features." />
     <MESSAGE value="Commit before migration to flask UI." />
     <MESSAGE value="Added sample adder page and method." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added sample adder page and method." />
+    <MESSAGE value="Added favicon." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added favicon." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -1104,6 +1110,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -1128,20 +1144,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="85" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
         </state>
       </provider>
     </entry>
