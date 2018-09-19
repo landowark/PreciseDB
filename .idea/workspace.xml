@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added link to homepage.">
-      <change beforePath="$PROJECT_DIR$/Flask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/wsgi.py" afterDir="false" />
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Clear form after adding new sample.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +38,7 @@
           <entry key="HTML" value="12" />
           <entry key="Ini" value="1" />
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="117" />
+          <entry key="Python" value="118" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
@@ -51,7 +50,7 @@
           <entry key="gitignore" value="1" />
           <entry key="html" value="12" />
           <entry key="ini" value="1" />
-          <entry key="py" value="118" />
+          <entry key="py" value="119" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
@@ -60,15 +59,15 @@
           <entry key="Python Console" value="1836" />
           <entry key="dummy" value="10" />
           <entry key="html" value="946" />
-          <entry key="py" value="12134" />
-          <entry key="txt" value="166" />
+          <entry key="py" value="12213" />
+          <entry key="txt" value="237" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="946" />
-          <entry key="PLAIN_TEXT" value="176" />
-          <entry key="Python" value="13970" />
+          <entry key="PLAIN_TEXT" value="247" />
+          <entry key="Python" value="14049" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -79,6 +78,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Flask/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+                <marker date="1537374110135" expanded="true" signature="574:575" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -94,8 +106,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Flask/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="91" column="110" selection-start-line="91" selection-start-column="110" selection-end-line="91" selection-end-column="110" />
+            <state relative-caret-position="220">
+              <caret line="83" column="67" lean-forward="true" selection-start-line="83" selection-start-column="67" selection-end-line="83" selection-end-column="67" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -118,8 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+            <state relative-caret-position="136">
+              <caret line="8" column="55" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -219,12 +231,12 @@
         <option value="$PROJECT_DIR$/AddData/sample_adder.py" />
         <option value="$PROJECT_DIR$/Flask/resources.py" />
         <option value="$PROJECT_DIR$/Flask/templates/login.html" />
-        <option value="$PROJECT_DIR$/Flask/forms.py" />
         <option value="$PROJECT_DIR$/DB_DIR/mongo.py" />
         <option value="$PROJECT_DIR$/Flask/templates/addsample.html" />
         <option value="$PROJECT_DIR$/Flask/templates/layout.html" />
         <option value="$PROJECT_DIR$/Flask/templates/home.html" />
         <option value="$PROJECT_DIR$/wsgi.py" />
+        <option value="$PROJECT_DIR$/Flask/forms.py" />
         <option value="$PROJECT_DIR$/Flask/routes.py" />
       </list>
     </option>
@@ -757,7 +769,28 @@
       <option name="project" value="LOCAL" />
       <updated>1537367094120</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Added basic logging.">
+      <created>1537367418491</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1537367418491</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Tweaked logging.">
+      <created>1537367613173</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1537367613173</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Clear form after adding new sample.">
+      <created>1537375237651</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1537375237651</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -778,17 +811,17 @@
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17564997" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17564997" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49524415" visible="true" weight="0.26917902" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49524415" visible="true" weight="0.26917902" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39945835" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49357328" weight="0.32974428" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5028535" side_tool="true" weight="0.25168237" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50475585" side_tool="true" weight="0.26917902" />
       <window_info anchor="bottom" id="Messages" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.4971465" weight="0.25168237" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49904883" weight="0.32839838" />
@@ -825,9 +858,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Connected new dialog to sample_adder" />
-    <MESSAGE value="Added sort to treeview" />
-    <MESSAGE value="Refactored createDataTree to updateDataTree" />
     <MESSAGE value="Added logging to mainUI." />
     <MESSAGE value="Got chartmaker working for test." />
     <MESSAGE value="Got chartmaker working for MainUi" />
@@ -850,7 +880,10 @@
     <MESSAGE value="Added mobile support in layout.html" />
     <MESSAGE value="Added in bootstrap." />
     <MESSAGE value="Added link to homepage." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added link to homepage." />
+    <MESSAGE value="Added basic logging." />
+    <MESSAGE value="Tweaked logging." />
+    <MESSAGE value="Clear form after adding new sample." />
+    <option name="LAST_COMMIT_MESSAGE" value="Clear form after adding new sample." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -1044,17 +1077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <marker date="1537284750089" expanded="true" signature="576:577" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1103,6 +1125,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="55" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1113,20 +1145,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi.py">
+    <entry file="file://$PROJECT_DIR$/Flask/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+            <marker date="1537374110135" expanded="true" signature="574:575" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Flask/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="91" column="110" selection-start-line="91" selection-start-column="110" selection-end-line="91" selection-end-column="110" />
+        <state relative-caret-position="220">
+          <caret line="83" column="67" lean-forward="true" selection-start-line="83" selection-start-column="67" selection-end-line="83" selection-end-column="67" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
