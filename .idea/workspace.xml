@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added in flask-security and admin.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Attempting to get static files to cross platforms correctly - fix2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_DIR/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flask/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flask/templates/addsample.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/addsample.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flask/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/precise.ini" beforeDir="false" afterPath="$PROJECT_DIR$/precise.ini" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +38,7 @@
           <entry key="CSS" value="1" />
           <entry key="Git file" value="2" />
           <entry key="HTML" value="13" />
-          <entry key="Ini" value="1" />
+          <entry key="Ini" value="2" />
           <entry key="PLAIN_TEXT" value="9" />
           <entry key="Python" value="123" />
           <entry key="Scratch" value="1" />
@@ -56,7 +51,7 @@
           <entry key="css" value="1" />
           <entry key="gitignore" value="2" />
           <entry key="html" value="13" />
-          <entry key="ini" value="1" />
+          <entry key="ini" value="2" />
           <entry key="py" value="124" />
           <entry key="txt" value="6" />
         </counts>
@@ -66,16 +61,18 @@
           <entry key="Python Console" value="1889" />
           <entry key="dummy" value="10" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="1010" />
+          <entry key="html" value="1012" />
+          <entry key="ini" value="34" />
           <entry key="py" value="12507" />
-          <entry key="txt" value="282" />
+          <entry key="txt" value="349" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="1" />
-          <entry key="HTML" value="1010" />
-          <entry key="PLAIN_TEXT" value="292" />
+          <entry key="HTML" value="1012" />
+          <entry key="Ini" value="34" />
+          <entry key="PLAIN_TEXT" value="359" />
           <entry key="Python" value="14396" />
         </counts>
       </usages-collector>
@@ -105,18 +102,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="55" column="15" lean-forward="true" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scripts/create_user.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -163,7 +148,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/templates/addsample.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="257">
@@ -178,8 +163,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-end-line="10" />
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/precise.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -244,7 +238,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ScrapeTeloView/chart_maker_main.py" />
         <option value="$PROJECT_DIR$/ScrapeTeloView/combgraph_emulator.py" />
         <option value="$PROJECT_DIR$/UI/mainUI.py" />
         <option value="$PROJECT_DIR$/ScrapeTeloView/telomgraph_emulator.py" />
@@ -293,8 +286,9 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Flask/routes.py" />
         <option value="$PROJECT_DIR$/Flask/config.py" />
-        <option value="$PROJECT_DIR$/Flask/templates/layout.html" />
         <option value="$PROJECT_DIR$/Flask/templates/addsample.html" />
+        <option value="$PROJECT_DIR$/Flask/templates/layout.html" />
+        <option value="$PROJECT_DIR$/precise.ini" />
       </list>
     </option>
   </component>
@@ -895,7 +889,28 @@
       <option name="project" value="LOCAL" />
       <updated>1537997315282</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Attempting to get static files to cross platforms correctly.">
+      <created>1538000778208</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1538000778208</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Attempting to get static files to cross platforms correctly - fix">
+      <created>1538000864136</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1538000864136</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Attempting to get static files to cross platforms correctly - fix2">
+      <created>1538002416435</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1538002416435</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -916,12 +931,12 @@
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1274572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1274572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49524415" visible="true" weight="0.2651413" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49524415" visible="true" weight="0.2651413" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39945835" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -963,9 +978,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Got chartmaker working for MainUi" />
-    <MESSAGE value="Prepping for chartmaker in main window." />
-    <MESSAGE value="Chartmaker in main window works for psa." />
     <MESSAGE value="Set maximum treewidget width." />
     <MESSAGE value="Review of Teloscraper" />
     <MESSAGE value="Updated documentation" />
@@ -988,7 +1000,10 @@
     <MESSAGE value="Clear form after adding new sample." />
     <MESSAGE value="Clear form after adding new sample - fix" />
     <MESSAGE value="Added in flask-security and admin." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added in flask-security and admin." />
+    <MESSAGE value="Attempting to get static files to cross platforms correctly." />
+    <MESSAGE value="Attempting to get static files to cross platforms correctly - fix" />
+    <MESSAGE value="Attempting to get static files to cross platforms correctly - fix2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempting to get static files to cross platforms correctly - fix2" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -1114,9 +1129,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py" />
-    <entry file="file://$PROJECT_DIR$/precise.ini">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/filterizer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="454">
@@ -1273,13 +1285,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/templates/addsample.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
@@ -1287,6 +1292,20 @@
           <folding>
             <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#main#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/precise.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
