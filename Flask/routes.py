@@ -19,7 +19,7 @@ import logging
 
 app = Flask(__name__)
 app.config.from_object(config)
-
+print(app.config['STATIC_FOLDER'])
 api = Api(app)
 Bootstrap(app)
 # Must be done before db.init

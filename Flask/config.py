@@ -7,6 +7,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 JWT_SECRET_KEY = 'jwt-secret-string'
 UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), "uploads")
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024 # 16MB
+STATIC_FOLDER = os.path.abspath(os.path.relpath("Flask/static"))
 SECURITY_URL_PREFIX = "/precise"
 # Flask-Security URLs, overridden because they don't put a / at the end
 SECURITY_LOGIN_URL = "/login/"
