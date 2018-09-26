@@ -133,7 +133,7 @@ def store_psa_maximum():
     # A function for storing the maximum of psa which is used for set axes when plotting.
     psas = [item for patient_values in [list(retrieveDoc(patient)['PSAs'].values()) for patient in getPatientList()] for item in patient_values]
     maximum = max(psas)
-    conn = sqlite3.connect(os.path.join(os.path.dirname(os.path.abspath(__file__)), "database.sqlite"))
+    conn = sqlite3.connect(os.path.join(os.path.dirname(os.path.abspath(__file__)), "db.sqlite3"))
     cursor = conn.cursor()
 
     cursor.execute('''SELECT maximum FROM maximums WHERE para_name=?''', ("PSA"))
@@ -154,7 +154,7 @@ def store_parameter_maximum(parameter_name):
         except KeyError:
             continue
     maximum = max(para)
-    conn = sqlite3.connect(os.path.join(os.path.dirname(os.path.abspath(__file__)), "database.sqlite"))
+    conn = sqlite3.connect(os.path.join(os.path.dirname(os.path.abspath(__file__)), "db.sqlite3"))
     cursor = conn.cursor()
     cursor.execute('''SELECT maximum FROM maximums WHERE para_name=?''', (parameter_name))
     oldMax = cursor.fetchone()
@@ -177,7 +177,7 @@ def get_all_parameters():
     return para
 
 def get_parameter_maximum(parameter_name):
-    conn = sqlite3.connect(os.path.join(os.path.dirname(os.path.abspath(__file__)), "database.sqlite"))
+    conn = sqlite3.connect(os.path.join(os.path.dirname(os.path.abspath(__file__)), "db.sqlite3"))
     cursor = conn.cursor()
     cursor.execute('''SELECT maximum FROM maximums WHERE para_name=?''', (parameter_name,)) # note, the comma is necessary for the sql syntax
     oldMax = cursor.fetchone()[0]

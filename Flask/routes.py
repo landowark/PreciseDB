@@ -1,10 +1,15 @@
 from bokeh.embed import components
 from flask import Flask, render_template, session, redirect, url_for, request, flash
+from flask_admin import Admin
 from flask_bootstrap import Bootstrap
 from flask_restful import Api
+from flask_security import SQLAlchemyUserDatastore, Security, login_required
+
+from Flask.admin import AdminView
 from Flask.resources import filter, logon, TokenRefresh
 from Flask.forms import LoginForm, AddSampleForm
-from Classes.models import User, db
+from Flask import config
+from Classes.models import User, db, Role
 from AddData.sample_adder import add
 import os
 from ChartMakers.bokeh_maker import create_hover_tool, create_histogram
@@ -13,102 +18,62 @@ import datetime
 import logging
 
 app = Flask(__name__)
+app.config.from_object(config)
+
 api = Api(app)
 Bootstrap(app)
 # Must be done before db.init
-basedir = os.path.abspath(os.path.relpath("DB_DIR"))
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + os.path.join(basedir, "database.sqlite")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = "development-key"
-app.config['JWT_SECRET_KEY'] = 'jwt-secret-string'
-#app.config['PERMANENT_SESSION_LIFETIME'] = False
 app.logger = logging.getLogger("Flask.routers")
 
 jwt = JWTManager(app)
 db.init_app(app)
 
+user_datastore = SQLAlchemyUserDatastore(db, User, Role)
+security = Security(app, user_datastore)
+
+admin = Admin(app, name='Dashboard', index_view=AdminView(User, db.session, url='/precise/admin', endpoint='admin'))
+#admin.add_view(AdminView(User, db.session))
+
+@app.before_first_request
+def create():
+    db.create_all()
 
 @app.route("/precise")
 def index():
     return redirect(url_for("login"))
 
-@app.route("/precise/home")
-def home():
-    if 'email' in session:
-        return render_template("home.html")
-    else:
-        return redirect(url_for('login'))
-
-@app.route("/precise/login", methods=["GET", "POST"])
-def login():
-    if 'email' not in session:
-        form = LoginForm()
-        if request.method == "POST":
-            if form.validate == False:
-                return render_template("login.html", form=form)
-            else:
-                email = form.email.data
-                password = form.password.data
-                user = User.query.filter_by(email=email).first()
-                if user is not None and user.check_password(password):
-                    session['email'] = email
-                    return redirect(url_for("home"))
-                else:
-                    flash("Login failed.", category="error")
-                    return redirect(url_for("login"))
-
-        elif request.method == "GET":
-            return render_template("login.html", form=form)
-    else:
-        return redirect(url_for('home'))
-
 @app.route("/precise/img/<string:patient_number>/<string:parameter_name>", methods=["GET"])
+@login_required
 def chart(patient_number, parameter_name):
-    if 'email' in session:
-        hover = create_hover_tool()
-        title_string = parameter_name + " vs. PSA for " + patient_number
-        plot = create_histogram(patient_number, parameter_name, title_string, "Dates",
-                                parameter_name, hover)
-        script, div = components(plot)
-        return render_template("chart.html", parameter_name=parameter_name, patient_number=patient_number,
-                               the_div=div, the_script=script)
-    else:
-        return redirect(url_for('login'))
+    hover = create_hover_tool()
+    title_string = parameter_name + " vs. PSA for " + patient_number
+    plot = create_histogram(patient_number, parameter_name, title_string, "Dates",
+                            parameter_name, hover)
+    script, div = components(plot)
+    return render_template("chart.html", parameter_name=parameter_name, patient_number=patient_number,
+                           the_div=div, the_script=script)
 
 @app.route("/precise/addsample", methods=["GET", "POST"])
+@login_required
 def addsample():
-    if 'email' in session:
-        form = AddSampleForm()
-        if request.method == "POST":
-            if form.validate == False:
-                return render_template("addsample.html", form=form)
-            else:
-                patientNumber = form.patientNumber.data
-                filterNumber = form.filterNumber.data
-                dateRec = datetime.datetime.strftime(form.dateRec.data, "%Y-%m-%d")
-                mLBlood = form.mLBlood.data
-                institute = form.institute.data
-                add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, institute=institute)
-                flash("Sample {}, {} has been added".format(patientNumber, filterNumber))
-                logging.info("{} has added sample {}, {}".format(session['email'], patientNumber, filterNumber))
-                return redirect(url_for("addsample"))
-        elif request.method == "GET":
+    form = AddSampleForm()
+    if request.method == "POST":
+        if form.validate == False:
             return render_template("addsample.html", form=form)
-    else:
-        return redirect(url_for("login"))
+        else:
+            patientNumber = form.patientNumber.data
+            filterNumber = form.filterNumber.data
+            dateRec = datetime.datetime.strftime(form.dateRec.data, "%Y-%m-%d")
+            mLBlood = form.mLBlood.data
+            institute = form.institute.data
+            add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, institute=institute)
+            flash("Sample {}, {} has been added".format(patientNumber, filterNumber))
+            logging.info("{} has added sample {}, {}".format(session['email'], patientNumber, filterNumber))
+            return redirect(url_for("addsample"))
+    elif request.method == "GET":
+        return render_template("addsample.html", form=form)
 
-@app.route("/precise/logout")
-def logout():
-    if 'email' in session:
-        session.pop('email', None)
-        return redirect(url_for('login'))
-    else:
-        return redirect(url_for('login'))
 
 api.add_resource(filter, "/precise/api")
 api.add_resource(logon, "/precise/api/login")
 api.add_resource(TokenRefresh, "/precise/api/tokenrefresh")
-
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run('localhost', port=port, debug=True)

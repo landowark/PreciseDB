@@ -1,30 +1,24 @@
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask_security import RoleMixin, UserMixin
 
 db = SQLAlchemy()
 
+roles_users = db.Table('roles_users',
+        db.Column('user_id', db.Integer(), db.ForeignKey('user.id')),
+        db.Column('role_id', db.Integer(), db.ForeignKey('role.id')))
 
-class User(db.Model):
 
-    __tab1ename__ = 'user'
-    uid = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(100))
-    email = db.Column(db.String(120), unique=True)
-    pwdhash = db.Column(db.String(54))
-    apikey = db.Column(db.String(54))
+class Role(db.Model, RoleMixin):
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(80), unique=True)
+    description = db.Column(db.String(255))
 
-    def __init__(self, name,  email, password, apikey):
-        self.name = name.title()
-        self.email = email.lower()
-        self.set_password(password)
-        self.apikey = apikey
 
-    def set_password(self, password):
-        self.pwdhash = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.pwdhash, password)
-
-    @classmethod
-    def find_by_email(cls, email):
-        return cls.query.filter_by(email=email).first()
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(255), unique=True)
+    password = db.Column(db.String(255))
+    active = db.Column(db.Boolean())
+    confirmed_at = db.Column(db.DateTime())
+    roles = db.relationship('Role', secondary=roles_users,
+                            backref=db.backref('users', lazy='dynamic'))
