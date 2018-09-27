@@ -1,3 +1,5 @@
+#!/var/www/precise/venv/bin/python3
+
 import sys
 import os
 from flask_security import SQLAlchemyUserDatastore
