@@ -61,14 +61,15 @@ def addsample():
         if form.validate == False:
             return render_template("addsample.html", form=form)
         else:
+            user = User.query.filter_by(id=session.get('user_id')).first().email
             patientNumber = form.patientNumber.data
             filterNumber = form.filterNumber.data
             dateRec = datetime.datetime.strftime(form.dateRec.data, "%Y-%m-%d")
             mLBlood = form.mLBlood.data
-            institute = form.institute.data
-            add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, institute=institute)
+            initials = form.initials.data
+            add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, initials=initials, receiver=user)
             flash("Sample {}, {} has been added".format(patientNumber, filterNumber))
-            logging.info("{} has added sample {}, {}".format(session['email'], patientNumber, filterNumber))
+            logging.info("{} has added sample {}, {}".format(user, patientNumber, filterNumber))
             return redirect(url_for("addsample"))
     elif request.method == "GET":
         return render_template("addsample.html", form=form)

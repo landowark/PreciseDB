@@ -6,10 +6,13 @@ This holds the class info for the patient data
 
 @author: Landon
 """
+import datetime
+
 
 class Patient(object):
     
     def __init__(self, patNum='0'):
+        format = '%Y-%m-%d'
         self._id = patNum
         self.tScore = ''
         self.DRE = ''
@@ -17,7 +20,10 @@ class Patient(object):
         self.procedures = {}
         self.filters = {}
         self.treatments = {}
-        self.institute = ''
+        self.initials = ''
+        self.DateRec = str(datetime.date(2014, 1, 1).strftime(format))
+        self.mLBlood = 0
+        self.receiver = ""
         
     def jsonable(self):
         return self.__dict__

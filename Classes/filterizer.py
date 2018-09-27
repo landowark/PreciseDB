@@ -12,8 +12,7 @@ import datetime
 class Filter():
     
     def __init__(self, filtNum="14AA0000", tPoint='+00m'):
-        
-        format = '%Y-%m-%d'
+
         self.tPoint = tPoint
         self.images = {}
         self.CTCNum = 0
@@ -31,8 +30,7 @@ class Filter():
         self.p4qrt = 0
         self.sigPerVol = 0
         self.maxInt = 0
-        self.DateRec = str(datetime.date(2014,1,1).strftime(format))
-        self.mLBlood = 0
+
 
     def data_calc(self):
 

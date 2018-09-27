@@ -14,5 +14,5 @@ class AddSampleForm(Form):
     filterNumber = StringField("Filter Number.")
     dateRec = DateField("Date Received.", format='%Y-%m-%d')
     mLBlood = FloatField("Millilitres of blood in tube.")
-    institute = StringField("Institute received from.")
+    initials = StringField("Initials of sender.")
     submit = SubmitField("Submit")

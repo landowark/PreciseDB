@@ -12,13 +12,11 @@ logger = logging.getLogger("mainUI.namer")
 def parsePatient(input_string):
     import re
     # compile regular expression to match
-    patient_ex = re.compile(r'MB0\d{3}P?R?|\d{3}?')
+    patient_ex = re.compile(r'P0\d{3}|\d{3}?')
     # search input string for pattern
     patientNumber = patient_ex.search(input_string).group()
     if len(patientNumber) == 3:
-        patientNumber = 'MB0' + patientNumber + 'PR'
-    elif len(patientNumber) == 6:
-        patientNumber = patientNumber + 'PR'
+        patientNumber = 'P0' + patientNumber
     return(patientNumber)    
     
 def parseFilter(input_string):
