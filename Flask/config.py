@@ -1,7 +1,7 @@
 import os
 import json
 
-file = os.path.abspath(os.path.relpath("Scripts/keys.json"))
+file = os.path.abspath(os.path.relpath("Flask/Scripts/keys.json"))
 with open(file, 'r') as f:
     secrets = json.load(f)
 
