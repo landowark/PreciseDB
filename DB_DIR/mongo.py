@@ -8,7 +8,9 @@ This will hold all of the MongoDB convenience functions for this project.
 """
 
 import pymongo as mng
+from pymongo.errors import OperationFailure
 import jsonpickle
+import json
 from bson.json_util import loads
 import logging
 import sqlite3
@@ -18,10 +20,30 @@ from matplotlib import dates as mdates
 
 logger = logging.getLogger("mainUI.mongo")
 
+def getSecrets():
+    file = os.path.abspath(os.path.relpath("keys.json"))
+    with open(file, 'r') as f:
+        secrets = json.load(f)
+    return secrets
+
+def getPatientDB(user="", pwd=""):
+    if user == "":
+        db = mng.MongoClient().precise_actual.patient
+    else:
+        db = mng.MongoClient('mongodb://%s:%s@127.0.0.1' % (
+            user, pwd)).precise_actual.patient
+    return db
+
 def getPatientList():
     # Get list of all patients in mongoDB
-    db = mng.MongoClient().precise_actual
-    patient_list = [doc['_id'] for doc in db.patient.find().batch_size(10)]
+    secrets = getSecrets()
+    try:
+        db = mng.MongoClient('mongodb://%s:%s@127.0.0.1' % (secrets['MONGO_DB_USER'], secrets['MONGO_DB_PASSWORD'])).precise_actual
+        patient_list = [doc['_id'] for doc in db.patient.find().batch_size(10)]
+    except OperationFailure:
+        db = mng.MongoClient().precise_actual
+        patient_list = [doc['_id'] for doc in db.patient.find().batch_size(10)]
+
     return patient_list
 
 def patientExists(input_string):
@@ -34,22 +56,38 @@ def patientExists(input_string):
         
 def addPatient(newPat):
     # Takes patient class and inserts into precise_actual
-    db = mng.MongoClient().precise_actual.patient
-    doc = jsonpickle.encode(newPat)
-    db.insert_one(loads(doc))
+    secrets = getSecrets()
+    try:
+        db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
+        doc = jsonpickle.encode(newPat)
+        db.insert_one(loads(doc))
+    except OperationFailure:
+        db = getPatientDB()
+        doc = jsonpickle.encode(newPat)
+        db.insert_one(loads(doc))
 
 def getFirstSampleDate(input_pat):
     import datetime
-    db = mng.MongoClient().precise_actual.patient
-    nb_patient = db.find_one({"_id":input_pat})
+    secrets = getSecrets()
+    try:
+        db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
+        nb_patient = db.find_one({"_id":input_pat})
+    except OperationFailure:
+        db = getPatientDB()
+        nb_patient = db.find_one({"_id": input_pat})
     filters = nb_patient['filters']
     print(filters)
     date = min([datetime.datetime.strptime(filters[item]['DateRec'], "%Y-%m-%d").date() for item in filters])
     return(date)
 
 def filterExists(patientNumber, filterNumber):
-    db = mng.MongoClient().precise_actual.patient
-    docu = db.find_one({'_id':patientNumber})
+    secrets = getSecrets()
+    try:
+        db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
+        docu = db.find_one({'_id':patientNumber})
+    except OperationFailure:
+        db = getPatientDB()
+        docu = db.find_one({'_id': patientNumber})
     for item in docu['filters']:
         if item == filterNumber:
             return(True)
@@ -58,45 +96,75 @@ def filterExists(patientNumber, filterNumber):
     return(False)
         
 def retrieveDoc(patientNumber):
-    db = mng.MongoClient().precise_actual.patient
-    doc = db.find_one({"_id":patientNumber})
+    secrets = getSecrets()
+    try:
+        db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
+        doc = db.find_one({'_id': patientNumber})
+    except OperationFailure:
+        db = getPatientDB()
+        doc = db.find_one({'_id': patientNumber})
     return(doc)
     
 def shoveDoc(dicto):
-    db = mng.MongoClient().precise_actual.patient
-    doc = jsonpickle.encode(dicto, unpicklable=False)
-    #doc = dicto
-    db.find_one_and_replace({'_id':dicto['_id']}, loads(doc))
+    secrets = getSecrets()
+    try:
+        db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
+        doc = jsonpickle.encode(dicto, unpicklable=False)
+        db.find_one_and_replace({'_id': dicto['_id']}, loads(doc))
+    except OperationFailure:
+        db = getPatientDB()
+        doc = jsonpickle.encode(dicto, unpicklable=False)
+        db.find_one_and_replace({'_id':dicto['_id']}, loads(doc))
 
 def updateDateProcessed(patientNumber, filterNumber, input_processed):
-    db = mng.MongoClient().precise_actual.patient
-    docu = db.find_one({'_id': patientNumber})
-    for idx, filt in enumerate(docu['filters']):
+    secrets = getSecrets()
+    try:
+        db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
+        doc = db.find_one({'_id': patientNumber})
+    except OperationFailure:
+        db = getPatientDB()
+        doc = db.find_one({'_id': patientNumber})
+    for idx, filt in enumerate(doc['filters']):
         if filterNumber in filt['_id']:
             filt['DatePro'] = input_processed
-            docu['filters'][idx] = filt
-    doc = jsonpickle.encode(docu)
+            doc['filters'][idx] = filt
+    doc = jsonpickle.encode(doc)
     db.find_one_and_replace({'_id': patientNumber}, loads(doc))
 
 def updateDateImaged(patientNumber, filterNumber, input_imaged):
-    db = mng.MongoClient().precise_actual.patient
-    docu = db.find_one({'_id': patientNumber})
-    for idx, filt in enumerate(docu['filters']):
+    secrets = getSecrets()
+    try:
+        db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
+        doc = db.find_one({'_id': patientNumber})
+    except OperationFailure:
+        db = getPatientDB()
+        doc = db.find_one({'_id': patientNumber})
+    for idx, filt in enumerate(doc['filters']):
         if filterNumber in filt['_id']:
             filt['DateIm'] = input_imaged
-            docu['filters'][idx] = filt
-    doc = jsonpickle.encode(docu)
+            doc['filters'][idx] = filt
+    doc = jsonpickle.encode(doc)
     db.find_one_and_replace({'_id': patientNumber}, loads(doc))
 
 def get_timepoints(patientNumber):
     # Get timepoints obtained for patient
-    db = mng.MongoClient().precise_actual.patient
-    doc = db.find_one({"_id": patientNumber})
+    secrets = getSecrets()
+    try:
+        db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
+        doc = db.find_one({'_id': patientNumber})
+    except OperationFailure:
+        db = getPatientDB()
+        doc = db.find_one({'_id': patientNumber})
     return sorted([doc['filters'][xx]['tPoint'] for xx in [yy for yy in doc['filters'].keys()]])
 
 def timePointExists(patientNumber, tPoint):
-    db = mng.MongoClient().precise_actual.patient
-    doc = db.find_one({"_id": patientNumber})
+    secrets = getSecrets()
+    try:
+        db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
+        doc = db.find_one({'_id': patientNumber})
+    except OperationFailure:
+        db = getPatientDB()
+        doc = db.find_one({'_id': patientNumber})
     tList = sorted([doc['filters'][xx]['tPoint'] for xx in [yy for yy in doc['filters'].keys()]])
     if tPoint in tList:
         return True
@@ -105,8 +173,13 @@ def timePointExists(patientNumber, tPoint):
 
 def get_filter_by_tPoint(patientNumber, tPoint):
     # Get filter by timepoint
-    db = mng.MongoClient().precise_actual.patient
-    doc = db.find_one({"_id": patientNumber})
+    secrets = getSecrets()
+    try:
+        db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
+        doc = db.find_one({'_id': patientNumber})
+    except OperationFailure:
+        db = getPatientDB()
+        doc = db.find_one({'_id': patientNumber})
     for filter in list(doc['filters'].keys()):
         if doc['filters'][filter]['tPoint'] == tPoint:
             filtDict = doc['filters'][filter]
@@ -114,8 +187,13 @@ def get_filter_by_tPoint(patientNumber, tPoint):
 
 def get_filter_by_number(patientNumber, filterNumber):
     # Get filter by filter number
-    db = mng.MongoClient().precise_actual.patient
-    doc = db.find_one({"_id": patientNumber})
+    secrets = getSecrets()
+    try:
+        db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
+        doc = db.find_one({'_id': patientNumber})
+    except OperationFailure:
+        db = getPatientDB()
+        doc = db.find_one({'_id': patientNumber})
     filtDict = doc['filters'][filterNumber]
     return(filtDict)
 
