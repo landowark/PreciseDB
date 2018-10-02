@@ -76,8 +76,8 @@ def getFirstSampleDate(input_pat):
         db = getPatientDB()
         nb_patient = db.find_one({"_id": input_pat})
     filters = nb_patient['filters']
-    print(filters)
-    date = min([datetime.datetime.strptime(filters[item]['DateRec'], "%Y-%m-%d").date() for item in filters])
+    print(nb_patient)
+    date = min([datetime.datetime.strptime(nb_patient['DateRec'], "%Y-%m-%d").date() for item in filters])
     return(date)
 
 def filterExists(patientNumber, filterNumber):

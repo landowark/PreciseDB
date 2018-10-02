@@ -6,7 +6,7 @@ with open(file, 'r') as f:
     secrets = json.load(f)
 
 DB_PATH = os.path.abspath(os.path.relpath("db.sqlite3"))
-SECRET_KEY = secrets['SECRET_KEY'] # keep this key secret during production
+SECRET_KEY = secrets['SECRET_KEY']
 SQLALCHEMY_DATABASE_URI = 'sqlite:///{}'.format(DB_PATH)
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 JWT_SECRET_KEY = secrets['JWT_SECRET_KEY']

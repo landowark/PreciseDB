@@ -4,14 +4,12 @@ from flask_admin import Admin
 from flask_bootstrap import Bootstrap
 from flask_restful import Api
 from flask_security import SQLAlchemyUserDatastore, Security, login_required
-
 from Flask.admin import AdminView
 from Flask.resources import filter, logon, TokenRefresh
-from Flask.forms import LoginForm, AddSampleForm
+from Flask.forms import AddSampleForm
 from Flask import config
 from Classes.models import User, db, Role
 from AddData.sample_adder import add
-import os
 from ChartMakers.bokeh_maker import create_hover_tool, create_histogram
 from flask_jwt_extended import JWTManager
 import datetime
@@ -31,7 +29,6 @@ user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security = Security(app, user_datastore)
 
 admin = Admin(app, name='Dashboard', index_view=AdminView(User, db.session, url='/precise/admin', endpoint='admin'))
-#admin.add_view(AdminView(User, db.session))
 
 @app.before_first_request
 def create():
