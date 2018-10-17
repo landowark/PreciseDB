@@ -65,6 +65,7 @@ def addsample():
             initials = form.initials.data
             already_seen = add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, initials=initials, receiver=user)
             if already_seen == False:
+                logging.info("New sample. Sending email.")
                 email.sendemail(patientNumber, user)
             flash("Sample {}, {} has been added".format(patientNumber, filterNumber))
             logging.info("{} has added sample {}, {}".format(user, patientNumber, filterNumber))

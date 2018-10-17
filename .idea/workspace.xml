@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="reverted relpath--again">
-      <change afterPath="$PROJECT_DIR$/Flask/email.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Prostate_Database.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Prostate_Database.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added email support.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AddData/sample_adder.py" beforeDir="false" afterPath="$PROJECT_DIR$/AddData/sample_adder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_DIR/db.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Flask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,15 +111,15 @@
         <counts>
           <entry key="Python Console" value="379" />
           <entry key="json" value="169" />
-          <entry key="py" value="829" />
-          <entry key="txt" value="3" />
+          <entry key="py" value="866" />
+          <entry key="txt" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="169" />
-          <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="1208" />
+          <entry key="PLAIN_TEXT" value="23" />
+          <entry key="Python" value="1245" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -136,11 +130,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Flask/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="52" column="15" lean-forward="true" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
+            <state relative-caret-position="375">
+              <caret line="67" column="56" selection-start-line="67" selection-start-column="56" selection-end-line="67" selection-end-column="56" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -200,10 +194,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
+            <state relative-caret-position="399">
               <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
             </state>
           </provider>
@@ -335,8 +329,8 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/credentials.json" />
         <option value="$PROJECT_DIR$/Flask/email.py" />
-        <option value="$PROJECT_DIR$/Flask/routes.py" />
         <option value="$PROJECT_DIR$/AddData/sample_adder.py" />
+        <option value="$PROJECT_DIR$/Flask/routes.py" />
       </list>
     </option>
   </component>
@@ -601,13 +595,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488374743015</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Moved chartmaker to dedicated file.">
-      <created>1510246523107</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1510246523107</updated>
     </task>
     <task id="LOCAL-00007" summary="Refactor to individual packages. New DB querying functions.">
       <created>1518145251399</created>
@@ -945,7 +932,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538068594294</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Added email support.">
+      <created>1539735263868</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1539735263869</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -978,7 +972,7 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49357328" weight="0.32974428" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.504476" side_tool="true" weight="0.24972737" />
       <window_info anchor="bottom" id="Messages" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49552396" visible="true" weight="0.24972737" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="9" sideWeight="0.49552396" visible="true" weight="0.28353328" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49904883" weight="0.32715377" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3293011" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1013,7 +1007,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="General tweaking. Color of Y axes. Omitting 0 image filters." />
     <MESSAGE value="Data analysis startup." />
     <MESSAGE value="Streamlining analysis workflow by channeling in data from different features." />
     <MESSAGE value="Commit before migration to flask UI." />
@@ -1038,7 +1031,8 @@
     <MESSAGE value="updated relpath" />
     <MESSAGE value="updated relpath--again" />
     <MESSAGE value="reverted relpath--again" />
-    <option name="LAST_COMMIT_MESSAGE" value="reverted relpath--again" />
+    <MESSAGE value="Added email support." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added email support." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -1323,20 +1317,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
+    <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="52" column="15" lean-forward="true" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="399">
+          <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
+    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
+        <state relative-caret-position="375">
+          <caret line="67" column="56" selection-start-line="67" selection-start-column="56" selection-end-line="67" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
