@@ -21,6 +21,7 @@ class Patient(object):
         self.filters = {}
         self.treatments = {}
         self.initials = ''
+        self.institute = ''
         self.DateRec = str(datetime.date(2014, 1, 1).strftime(format))
         self.mLBlood = 0
         self.receiver = ""

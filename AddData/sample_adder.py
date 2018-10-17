@@ -15,7 +15,7 @@ import logging
 
 logger = logging.getLogger("Flask.addSample")
 
-def add(patientNumber, filterNumber, dateRec, mLBlood, initials, receiver):
+def add(patientNumber, filterNumber, dateRec, mLBlood, initials, institute, receiver):
     patientNumber = namer.parsePatient(patientNumber) #gui ask for patient and parse
     filterNumber = namer.parseFilter(filterNumber) #gui ask for filter and parse
     #check if patient already exists
@@ -24,6 +24,7 @@ def add(patientNumber, filterNumber, dateRec, mLBlood, initials, receiver):
         logger.info('Previously unseen patient {}. Adding to database.'.format(patientNumber))
         newPat = ptz.Patient(patNum=patientNumber)
         newPat.initials = initials
+        newPat.institute = institute
         newPat.DateRec = dateRec
         newPat.mLBlood = mLBlood
         newPat.receiver = receiver
