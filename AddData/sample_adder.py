@@ -50,9 +50,11 @@ def add(patientNumber, filterNumber, dateRec, mLBlood, initials, receiver):
         dicto['filters'][filterNumber] = newFilt.jsonable()
         #save
         mng.shoveDoc(dicto)
-        return dicto
+        #return dicto
     else:
         logger.info('Previously seen filter" {}. Exiting'.format(filterNumber))
+    # Return value to determine messaging
+    return patient_exists
 
 def deltaTimer(dateRec=datetime.date.today(), firstDate=datetime.date.today()):
     options = [0, 2, 6, 12, 18, 24, 30]

@@ -7,7 +7,7 @@ from flask_security import SQLAlchemyUserDatastore, Security, login_required
 from Flask.admin import AdminView
 from Flask.resources import filter, logon, TokenRefresh
 from Flask.forms import AddSampleForm
-from Flask import config
+from Flask import config, email
 from Classes.models import User, db, Role
 from AddData.sample_adder import add
 from ChartMakers.bokeh_maker import create_hover_tool, create_histogram
@@ -63,7 +63,9 @@ def addsample():
             dateRec = datetime.datetime.strftime(form.dateRec.data, "%Y-%m-%d")
             mLBlood = form.mLBlood.data
             initials = form.initials.data
-            add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, initials=initials, receiver=user)
+            already_seen = add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, initials=initials, receiver=user)
+            if already_seen == False:
+                email.sendemail(patientNumber, user)
             flash("Sample {}, {} has been added".format(patientNumber, filterNumber))
             logging.info("{} has added sample {}, {}".format(user, patientNumber, filterNumber))
             return redirect(url_for("addsample"))
