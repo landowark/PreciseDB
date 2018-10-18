@@ -2,8 +2,10 @@ from flask_wtf import FlaskForm as Form
 from wtforms import StringField, PasswordField, SubmitField, FloatField, SelectField
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Email, Length
+import json
 
-institutes = ["Mai Lab", "London Health Sciences Centre", "Sunnybrook", "ScreenCell", "Vancouver Prostate Centre"]
+with open("credentials.json", "r") as creds:
+    institutes = list(creds['emails'].keys())
 
 class LoginForm(Form):
     email = StringField("Email", validators=[DataRequired(), Email("Please enter a valid email address.")])
