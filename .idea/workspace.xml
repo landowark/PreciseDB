@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added in institutes seperations for email and forms.">
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added email.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Flask/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/forms.py" afterDir="false" />
     </list>
@@ -129,12 +129,13 @@
     <session id="-2022378004">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -153,19 +154,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="110" />
+          <entry key="Python Console" value="141" />
           <entry key="html" value="21" />
-          <entry key="json" value="141" />
-          <entry key="py" value="387" />
-          <entry key="txt" value="57" />
+          <entry key="json" value="147" />
+          <entry key="py" value="389" />
+          <entry key="txt" value="105" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="21" />
-          <entry key="JSON" value="141" />
-          <entry key="PLAIN_TEXT" value="57" />
-          <entry key="Python" value="497" />
+          <entry key="JSON" value="147" />
+          <entry key="PLAIN_TEXT" value="105" />
+          <entry key="Python" value="530" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -179,7 +180,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
+            <state relative-caret-position="825">
               <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
@@ -191,8 +192,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Flask/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+            <state relative-caret-position="105">
+              <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -203,8 +204,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/templates/addsample.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+            <state relative-caret-position="135">
+              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -233,8 +234,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/credentials.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="165" selection-start-line="7" selection-start-column="165" selection-end-line="7" selection-end-column="165" />
+            <state relative-caret-position="120">
+              <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -360,6 +361,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -371,11 +373,6 @@
               <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
               <item name="AddData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
-              <item name="Classes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
@@ -392,7 +389,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -627,13 +623,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488374743015</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Checking that filter.checkState(0) still applies.">
-      <created>1518327500929</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1518327500929</updated>
     </task>
     <task id="LOCAL-00010" summary="Checking that filter.checkState(0) still applies...again">
       <created>1518327585841</created>
@@ -971,7 +960,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539815728398</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Get institutes from list in creds.">
+      <created>1539873926863</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1539873926864</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1039,7 +1035,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Commit before migration to flask UI." />
     <MESSAGE value="Added sample adder page and method." />
     <MESSAGE value="Added favicon." />
     <MESSAGE value="Added mobile support in layout.html" />
@@ -1064,7 +1059,8 @@
     <MESSAGE value="Added email support." />
     <MESSAGE value="Added email support - 2." />
     <MESSAGE value="Added in institutes seperations for email and forms." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added in institutes seperations for email and forms." />
+    <MESSAGE value="Get institutes from list in creds." />
+    <option name="LAST_COMMIT_MESSAGE" value="Get institutes from list in creds." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -1301,23 +1297,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/addsample.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/patientizer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1344,15 +1323,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/credentials.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="165" selection-start-line="7" selection-start-column="165" selection-end-line="7" selection-end-column="165" />
+        <state relative-caret-position="120">
+          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/templates/addsample.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Flask/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+        <state relative-caret-position="105">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

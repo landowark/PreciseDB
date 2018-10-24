@@ -4,7 +4,8 @@ from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Email, Length
 import json
 
-with open("credentials.json", "r") as creds:
+with open("credentials.json", "r") as f:
+    creds = json.load(f)
     institutes = list(creds['emails'].keys())
 
 class LoginForm(Form):
