@@ -6,7 +6,7 @@ import json
 
 with open("credentials.json", "r") as f:
     creds = json.load(f)
-    institutes = list(creds['emails'].keys())
+    institutes = [(thing, thing) for thing in creds['emails'].keys()]
 
 class LoginForm(Form):
     email = StringField("Email", validators=[DataRequired(), Email("Please enter a valid email address.")])
@@ -20,5 +20,5 @@ class AddSampleForm(Form):
     dateRec = DateField("Date Received.", format='%Y-%m-%d')
     mLBlood = FloatField("Millilitres of blood in tube.")
     initials = StringField("Initials of sender.")
-    institute = SelectField("Institute of Origin", choices = institutes, validators = [DataRequired()])
+    institute = SelectField("Institute of Origin", choices = institutes)
     submit = SubmitField("Submit")
