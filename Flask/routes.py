@@ -64,10 +64,10 @@ def addsample():
             mLBlood = form.mLBlood.data
             initials = form.initials.data
             institute = form.institute.data
-            already_seen = add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, initials=initials, receiver=user, institute=institute)
+            already_seen, patient_num = add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, initials=initials, receiver=user, institute=institute)
             if already_seen == False:
                 logging.info("New sample. Sending email.")
-                email.sendemail(patientNumber, user, institute)
+                email.sendemail(patientNumber, user, institute, patient_num)
             flash("Sample {}, {} has been added".format(patientNumber, filterNumber))
             logging.info("{} has added sample {}, {}".format(user, patientNumber, filterNumber))
             return redirect(url_for("addsample"))

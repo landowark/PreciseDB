@@ -28,6 +28,7 @@ def add(patientNumber, filterNumber, dateRec, mLBlood, initials, institute, rece
         newPat.DateRec = dateRec
         newPat.mLBlood = mLBlood
         newPat.receiver = receiver
+        newPat.patient_num = len(mng.getPatientList()) + 1
         mng.addPatient(newPat)
     else:
         logger.info('Previously seen patient: {}.'.format(patientNumber))
@@ -55,7 +56,7 @@ def add(patientNumber, filterNumber, dateRec, mLBlood, initials, institute, rece
     else:
         logger.info('Previously seen filter" {}. Exiting'.format(filterNumber))
     # Return value to determine messaging
-    return patient_exists
+    return patient_exists, newPat.patient_num
 
 def deltaTimer(dateRec=datetime.date.today(), firstDate=datetime.date.today()):
     options = [0, 2, 6, 12, 18, 24, 30]

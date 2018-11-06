@@ -14,6 +14,7 @@ class Patient(object):
     def __init__(self, patNum='0'):
         format = '%Y-%m-%d'
         self._id = patNum
+        self.patient_num = 0
         self.tScore = ''
         self.DRE = ''
         self.PSAs = {}
