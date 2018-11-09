@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm as Form
-from wtforms import StringField, PasswordField, SubmitField, FloatField, SelectField
+from wtforms import StringField, PasswordField, SubmitField, FloatField, SelectField, FieldList
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Email, Length
 import json
@@ -16,7 +16,7 @@ class LoginForm(Form):
 
 class AddSampleForm(Form):
     patientNumber =StringField("Patient Number.")
-    filterNumber = StringField("Filter Number.")
+    filterNumber = FieldList(StringField("Filter Number."), min_entries=1)
     dateRec = DateField("Date Received.", format='%Y-%m-%d')
     mLBlood = FloatField("Millilitres of blood in tube.")
     initials = StringField("Initials of sender.")

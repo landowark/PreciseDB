@@ -12,7 +12,10 @@
                 </div>
                 <div class="form-group">
                     {{ form.filterNumber.label }}
-                    {{ form.filterNumber }}
+                    {% for entry in form.filterNumber %}
+                        {{ entry() }}
+                    {% endfor %}
+
                 </div>
                 <div class="form-group">
                     {{ form.dateRec.label }}

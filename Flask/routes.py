@@ -50,26 +50,31 @@ def chart(patient_number, parameter_name):
                            the_div=div, the_script=script)
 
 @app.route("/precise/addsample", methods=["GET", "POST"])
+@app.route("/precise/addsample/<int:num_filters>", methods=["GET", "POST"])
 @login_required
-def addsample():
+def addsample(num_filters=1):
     form = AddSampleForm()
+    for iii in range(1, num_filters):
+        form.filterNumber.append_entry()
     if request.method == "POST":
         if form.validate == False:
             return render_template("addsample.html", form=form)
         else:
             user = User.query.filter_by(id=session.get('user_id')).first().email
             patientNumber = form.patientNumber.data
-            filterNumber = form.filterNumber.data
+            filterNumbers = form.filterNumber.data
             dateRec = datetime.datetime.strftime(form.dateRec.data, "%Y-%m-%d")
             mLBlood = form.mLBlood.data
             initials = form.initials.data
             institute = form.institute.data
-            already_seen = add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, initials=initials, receiver=user, institute=institute)
-            if already_seen > 0:
-                logging.info("New sample. Sending email.")
-                email.sendemail(patientNumber, user, institute, already_seen)
-            flash("Sample {}, {} has been added".format(patientNumber, filterNumber))
-            logging.info("{} has added sample {}, {}".format(user, patientNumber, filterNumber))
+            for filterNumber in filterNumbers:
+                if filterNumber != "":
+                    already_seen = add(patientNumber=patientNumber, filterNumber=filterNumber, dateRec=dateRec, mLBlood=mLBlood, initials=initials, receiver=user, institute=institute)
+                    if already_seen > 0:
+                        logging.info("New sample. Sending email.")
+                        #email.sendemail(patientNumber, user, institute, already_seen)
+                    flash("Sample {}, {} has been added".format(patientNumber, filterNumber))
+                    logging.info("{} has added sample {}, {}".format(user, patientNumber, filterNumber))
             return redirect(url_for("addsample"))
     elif request.method == "GET":
         return render_template("addsample.html", form=form)
