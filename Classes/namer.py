@@ -24,8 +24,9 @@ def parseFilter(input_string):
     filter_ex = re.compile(r'-\d{4}|1\dAA\d{4}')
     filterNumber = filter_ex.search(input_string).group()
     if len(filterNumber) == 5:
-        filterNumber = '15AA' + filterNumber[1:]
+        filterNumber = '18AA' + filterNumber[1:]
     return(filterNumber)
+
 
 def parseImage(file_path):
     import re

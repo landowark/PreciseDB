@@ -276,3 +276,18 @@ def getTreatments(patient_number):
             del dicto
             continue
     return trx_dates
+
+def getAllFilters():
+    allFilters = [item for sublist in [list(retrieveDoc(patNum)['filters'].keys()) for patNum in getPatientList()] for
+                  item in sublist]
+    return allFilters
+
+def getClosestFilterMatches(input_filterNum):
+    import difflib
+    patientList = getPatientList()
+    allFilters = getAllFilters()
+    return difflib.get_close_matches(input_filterNum, allFilters, 3)
+
+def getPatientByFilter(filterNum):
+    patientList = [patient for patient in getPatientList() if filterNum in list(retrieveDoc(patient)['filters'].keys())]
+    return patientList

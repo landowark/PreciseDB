@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm as Form
-from wtforms import StringField, PasswordField, SubmitField, FloatField, SelectField, FieldList
+from wtforms import StringField, PasswordField, SubmitField, FloatField, SelectField, FieldList, FileField
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Email, Length
 import json
@@ -22,3 +22,7 @@ class AddSampleForm(Form):
     initials = StringField("Initials of sender.")
     institute = SelectField("Institute of Origin", choices = institutes)
     submit = SubmitField("Submit")
+
+class UploadForm(Form):
+    upfile = FileField("Upload", validators=None) # none for now
+    submit = SubmitField("Upload")

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <main class="container upload-section">
+        <div class="section-content">
+            <h1>Upload a file from Janine</h1>
+            {% if error %}
+              <p><strong>Error:</strong> {{ error }}
+            {% endif %}
+            <form method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+
+                <div class="form-group" style="padding:10px">
+                    {{ form.upfile.label }}
+                    {{ form.upfile(multiple="") }}
+                </div>
+
+                {{ form.submit(class="btn-primary") }}
+            </form>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <ul>
+                      {% for message in messages %}
+                      <li>{{ message }}</li>
+                      {% endfor %}
+                  </ul>
+               {% endif %}
+            {% endwith %}
+        </div>
+    </main>
+{% endblock %}
