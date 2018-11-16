@@ -17,15 +17,21 @@
 
                 {{ form.submit(class="btn-primary") }}
             </form>
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                  <ul>
-                      {% for message in messages %}
-                      <li>{{ message }}</li>
-                      {% endfor %}
-                  </ul>
-               {% endif %}
-            {% endwith %}
+            <br>
+            <div class="container" paddingTop="25px">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                      <ul>
+                          {% for message in messages %}
+                          <li>{{ message }}</li>
+                          {% endfor %}
+                      </ul>
+                   {% endif %}
+                {% endwith %}
+            </div>
+
         </div>
     </main>
+
 {% endblock %}
+

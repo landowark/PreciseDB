@@ -64,3 +64,8 @@ class filter(Resource):
         args = parser.parse_args()
         self.patient = add(args['patient'], args['fNum'], args['date'], args['mL'], args['ins'])
         return self.patient
+
+class All_Patients(Resource):
+    def get(self):
+        d = {patient: list(mng.retrieveDoc(patient)['filters'].keys()) for patient in mng.getPatientList()}
+        return d

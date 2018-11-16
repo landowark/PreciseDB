@@ -3,6 +3,8 @@ import pandas as pd
 from xlrd.biffh import XLRDError
 from Classes import namer
 from DB_DIR import mongo as mng
+from flask import jsonify
+import difflib
 
 # step one open file and create dataframe
 def openFileAndParse(inputFile):
@@ -13,28 +15,36 @@ def openFileAndParse(inputFile):
     filters = [filter for filter in data.to_dict(orient='records') if type(filter['Scan Number']) != float]
     return filters
 
-def makeLists(filters):
+def makeLists(filters: list):
     # split filters into two lists, ones that have exact matches in DB and ones that don't.
     filterCheck = []
     matchesDB = []
     notinDB = []
     allFilters = mng.getAllFilters()
-    print(allFilters)
     for filter in filters:
+        filter.pop("Date ")
         try:
             filter['Scan Number'] = namer.parseFilter(filter['Scan Number'])
-            filterCheck.append(filter['Scan Number'])
+            filterCheck.append(filter)
         except:
-            notinDB.append(filter['Scan Number'])
+            notinDB.append(filter)
     for filter in filterCheck:
-        if filter in allFilters:
+        if filter['Scan Number'] in allFilters:
             matchesDB.append(filter)
         else:
             notinDB.append(filter)
     return matchesDB, notinDB
 
-def addJanineData(filterNum, data):
+def addJanineData(filter: dict):
+    filterNum = filter.pop('Scan Number')
+    #print(filterNum)
     patient = mng.getPatientByFilter(filterNum)[0]
+    #print(patient)
     doc = mng.retrieveDoc(patient)
-    doc['filters'][filterNum]['janine'] = data
+    doc['filters'][filterNum]['janine'] = filter
     mng.shoveDoc(doc)
+
+def addChoicesToDict(notInDB: dict):
+    allFilts = mng.getAllFilters()
+    notInDB['choices'] = [""] + difflib.get_close_matches(notInDB['Scan Number'], allFilts, 3)
+    return notInDB

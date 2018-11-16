@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <main class="container corrections-section">
+        <div class="section-content">
+            <h1>Whoops! I need a little help from you!</h1>
+            {% if error %}
+              <p><strong>Error:</strong> {{ error }}
+            {% endif %}
+            <form method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                {% for entry in form.orphans %}
+                    <div class="form-group" style="padding:10px">
+                        {{ entry.label }}
+                        {{ entry() }}
+                    </div>
+                {% endfor %}
+                {{ form.submit(class="btn-primary") }}
+            </form>
+
+        </div>
+    </main>
+{% endblock %}

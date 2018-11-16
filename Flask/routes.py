@@ -7,10 +7,10 @@ from flask_bootstrap import Bootstrap
 from flask_restful import Api
 from flask_security import SQLAlchemyUserDatastore, Security, login_required
 from werkzeug.utils import secure_filename
-
+from wtforms import SelectField
 from Flask.admin import AdminView
-from Flask.resources import filter, logon, TokenRefresh
-from Flask.forms import AddSampleForm, UploadForm
+from Flask.resources import filter, logon, TokenRefresh, All_Patients
+from Flask.forms import AddSampleForm, UploadForm, CorrectionsForm
 from Flask import config, email
 from DB_DIR import mongo as mng
 from Classes.models import User, db, Role
@@ -94,6 +94,8 @@ def janinescrape(ALLOWED_EXTENSIONS = ['.csv', '.xls', '.xlsx']):
     form = UploadForm()
     user = User.query.filter_by(id=session.get('user_id')).first().email
     if request.method == 'POST':
+        if form.validate == False:
+            return render_template("fileupload.html", form=form)
         app.logger.info("{} uploaded a Janine file.".format(user))
         f = request.files.getlist('upfile')
         file = f[0]
@@ -101,19 +103,58 @@ def janinescrape(ALLOWED_EXTENSIONS = ['.csv', '.xls', '.xlsx']):
             newFile = uploadFile(file)
             # get dict of filters from file.
             filters = openFileAndParse(newFile)
-            # split into two lists
+            # split into two lists of dictionaries
             yesInDB, notInDB = makeLists(filters)
-            for filterNum in yesInDB:
-                relevantData = [filter for filter in filters if filter['Scan Number'] == filterNum][0]
-                addJanineData(filterNum, relevantData)
-        return redirect(url_for('janinescrape'))
+            for filter in yesInDB:
+                #inDBData = [filter for filter in filters if filter['Scan Number'] == filterNum][0]
+                addJanineData(filter)
+            if len(notInDB) > 0:
+                session['notInJSON'] = [addChoicesToDict(filter) for filter in notInDB]
+                return redirect(url_for("corrections"))
+            else:
+                return redirect(url_for("janinescrape"))
     elif request.method == 'GET':
         return render_template("fileupload.html", form=form)
+
+@app.route("/precise/corrections", methods=["GET", "POST"])
+@login_required
+def corrections():
+    form = CorrectionsForm()
+    if request.method == 'POST':
+        if form.validate == False:
+            return render_template("corrections.html", form=form)
+        for iii, item in enumerate(form.orphans.entries):
+            relevant_filter = session['notInJSON'][iii]
+            old_filter_num = relevant_filter['Scan Number']
+            relevant_filter['Scan Number'] = item.data
+            relevant_filter.pop('choices')
+            print(relevant_filter)
+            if relevant_filter['Scan Number'] != "":
+                addJanineData(relevant_filter)
+            else:
+                flash("Filter with number {} was ignored.".format(old_filter_num))
+        session.pop("notInJSON")
+        return redirect(url_for('janinescrape'))
+    elif request.method == 'GET':
+        session.modified = True
+        try:
+            orphans = session['notInJSON']
+        except:
+            print("NotInJSON does not exist")
+            return redirect(url_for("janinescrape"))
+        for iii, orphan in enumerate(orphans):
+            form.orphans.append_entry()
+            setattr(form.orphans.entries[iii], 'id', "orphans-" + orphan['Scan Number'])
+            form.orphans.entries[iii].label = orphan['Scan Number']
+            form.orphans.entries[iii].choices = [(item, item) for item in orphan['choices']]
+
+        return render_template("corrections.html", form=form)
 
 
 api.add_resource(filter, "/precise/api")
 api.add_resource(logon, "/precise/api/login")
 api.add_resource(TokenRefresh, "/precise/api/tokenrefresh")
+api.add_resource(All_Patients, "/precise/api/all")
 
 def uploadFile(file):
     user = User.query.filter_by(id=session.get('user_id')).first().email
