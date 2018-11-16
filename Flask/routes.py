@@ -1,7 +1,7 @@
 import os
 
 from bokeh.embed import components
-from flask import Flask, render_template, session, redirect, url_for, request, flash
+from flask import Flask, render_template, session, redirect, url_for, request, flash, jsonify
 from flask_admin import Admin
 from flask_bootstrap import Bootstrap
 from flask_restful import Api
@@ -61,6 +61,7 @@ def chart(patient_number, parameter_name):
 @app.route("/precise/addsample/<int:num_filters>", methods=["GET", "POST"])
 @login_required
 def addsample(num_filters=1):
+
     form = AddSampleForm()
     for iii in range(1, num_filters):
         form.filterNumber.append_entry()
@@ -128,7 +129,6 @@ def corrections():
             old_filter_num = relevant_filter['Scan Number']
             relevant_filter['Scan Number'] = item.data
             relevant_filter.pop('choices')
-            print(relevant_filter)
             if relevant_filter['Scan Number'] != "":
                 addJanineData(relevant_filter)
             else:
@@ -150,6 +150,11 @@ def corrections():
 
         return render_template("corrections.html", form=form)
 
+@app.route("/precise/all", methods=["GET", "POST"])
+@login_required
+def all():
+    db = mng.retrieveAll()
+    return jsonify(db)
 
 api.add_resource(filter, "/precise/api")
 api.add_resource(logon, "/precise/api/login")

@@ -3,8 +3,8 @@ import pandas as pd
 from xlrd.biffh import XLRDError
 from Classes import namer
 from DB_DIR import mongo as mng
-from flask import jsonify
 import difflib
+import numpy as np
 
 # step one open file and create dataframe
 def openFileAndParse(inputFile):
@@ -12,6 +12,7 @@ def openFileAndParse(inputFile):
         data = pd.read_excel(inputFile, "Feuil1")
     except XLRDError:
         data = pd.read_excel(inputFile, "Sheet1")
+    data.fillna("")
     filters = [filter for filter in data.to_dict(orient='records') if type(filter['Scan Number']) != float]
     return filters
 
@@ -36,6 +37,9 @@ def makeLists(filters: list):
     return matchesDB, notinDB
 
 def addJanineData(filter: dict):
+
+    if type(filter[' Comments']) == float:
+        filter[' Comments'] = ""
     filterNum = filter.pop('Scan Number')
     #print(filterNum)
     patient = mng.getPatientByFilter(filterNum)[0]
