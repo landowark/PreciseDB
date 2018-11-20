@@ -6,6 +6,8 @@ from flask_security import SQLAlchemyUserDatastore
 from flask_security.utils import hash_password
 from getpass import getpass
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from Flask.routes import app
 from Classes.models import User, db, Role
 
