@@ -46,7 +46,7 @@ def create():
 
 @app.route("/")
 def index():
-    return redirect(url_for("login"))
+    return redirect(url_for("logon"))
 
 @app.route("/img/<string:patient_number>/<string:parameter_name>", methods=["GET"])
 @login_required

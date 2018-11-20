@@ -16,7 +16,7 @@
     {% block javascript %}
         {# this script creates a tree view from data gleaned from the api #}
         <script>
-            $.ajax({dataType: 'json', url: "/precise/api/all", success: function(data){
+            $.ajax({dataType: 'json', url: "/api/all", success: function(data){
                 $("#result").html(renderjson(data));
             }});
         </script>
