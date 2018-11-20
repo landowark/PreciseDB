@@ -1,5 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_security import RoleMixin, UserMixin
+from flask_security.utils import hash_password
+from DB_DIR.mongo import getSecrets
 
 db = SQLAlchemy()
 

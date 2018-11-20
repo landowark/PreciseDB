@@ -1,6 +1,7 @@
 from flask_admin.contrib.sqla import ModelView
 from flask import session, redirect, url_for, request
 from Classes.models import db, User
+from flask_security import utils
 
 
 class AdminView(ModelView):

@@ -1,7 +1,8 @@
 import os
 
 from bokeh.embed import components
-from flask import Flask, render_template, session, redirect, url_for, request, flash, jsonify
+from flask import Flask, render_template, session, redirect, url_for, request, flash
+from flask.json import jsonify
 from flask_admin import Admin
 from flask_bootstrap import Bootstrap
 from flask_restful import Api
@@ -21,6 +22,7 @@ from AddData.janine_scraper import *
 import datetime
 import logging
 import platform
+import json
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -153,8 +155,7 @@ def corrections():
 @app.route("/precise/all", methods=["GET", "POST"])
 @login_required
 def all():
-    db = mng.retrieveAll()
-    return jsonify(db)
+    return render_template("all.html")
 
 api.add_resource(filter, "/precise/api")
 api.add_resource(logon, "/precise/api/login")

@@ -1,9 +1,10 @@
-
+from flask.json import jsonify
 from flask_restful import Resource, reqparse
 from DB_DIR import mongo as mng
 from AddData.sample_adder import add
 from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required, jwt_refresh_token_required, get_jwt_identity, get_raw_jwt)
 from Classes.models import User
+import json
 
 
 class logon(Resource):
@@ -67,5 +68,6 @@ class filter(Resource):
 
 class All_Patients(Resource):
     def get(self):
-        d = {patient: list(mng.retrieveDoc(patient)['filters'].keys()) for patient in mng.getPatientList()}
-        return d
+        #d = {"#" + str(mng.retrieveDoc(patient)['patient_num']).zfill(3) + " " + patient: mng.retrieveDoc(patient) for patient in mng.getPatientList()}
+        d = mng.retrieveAll()
+        return jsonify(d)

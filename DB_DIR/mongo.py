@@ -99,12 +99,12 @@ def retrieveAll():
     secrets = getSecrets()
     try:
         db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
-        doc = {doc['_id']:doc for doc in db.find()}
+        doc = {"#" + str(doc['patient_num']).zfill(3) + " " + doc['_id']: doc for doc in db.find()}
         for item in doc:
             doc[item].pop('_id')
     except OperationFailure:
         db = getPatientDB()
-        doc = {doc['_id']:doc for doc in db.find()}
+        doc = {"#" + str(doc['patient_num']).zfill(3) + " " + doc['_id']:doc for doc in db.find()}
         for item in doc:
             doc[item].pop('_id')
     return (doc)

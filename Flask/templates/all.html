@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/renderjson.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <main class="container">
+        <div class="section-content">
+            <h1>Welcome to the Precise Database</h1>
+		    <p id="result"></p>
+        </div>
+	</main>
+    {% block javascript %}
+        {# this script creates a tree view from data gleaned from the api #}
+        <script>
+            $.ajax({dataType: 'json', url: "/precise/api/all", success: function(data){
+                $("#result").html(renderjson(data));
+            }});
+        </script>
+    {% endblock %}
+
+{% endblock %}
+
+
