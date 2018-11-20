@@ -44,11 +44,11 @@ admin = Admin(app, name='Dashboard', index_view=AdminView(User, db.session, url=
 def create():
     db.create_all()
 
-@app.route("/precise")
+@app.route("/")
 def index():
     return redirect(url_for("login"))
 
-@app.route("/precise/img/<string:patient_number>/<string:parameter_name>", methods=["GET"])
+@app.route("/img/<string:patient_number>/<string:parameter_name>", methods=["GET"])
 @login_required
 def chart(patient_number, parameter_name):
     hover = create_hover_tool()
@@ -59,8 +59,8 @@ def chart(patient_number, parameter_name):
     return render_template("chart.html", parameter_name=parameter_name, patient_number=patient_number,
                            the_div=div, the_script=script)
 
-@app.route("/precise/addsample", methods=["GET", "POST"])
-@app.route("/precise/addsample/<int:num_filters>", methods=["GET", "POST"])
+@app.route("/addsample", methods=["GET", "POST"])
+@app.route("/addsample/<int:num_filters>", methods=["GET", "POST"])
 @login_required
 def addsample(num_filters=1):
 
@@ -91,7 +91,7 @@ def addsample(num_filters=1):
     elif request.method == "GET":
         return render_template("addsample.html", form=form)
 
-@app.route("/precise/janinescrape", methods=["GET", "POST"])
+@app.route("/janinescrape", methods=["GET", "POST"])
 @login_required
 def janinescrape(ALLOWED_EXTENSIONS = ['.csv', '.xls', '.xlsx']):
     form = UploadForm()
@@ -119,7 +119,7 @@ def janinescrape(ALLOWED_EXTENSIONS = ['.csv', '.xls', '.xlsx']):
     elif request.method == 'GET':
         return render_template("fileupload.html", form=form)
 
-@app.route("/precise/corrections", methods=["GET", "POST"])
+@app.route("/corrections", methods=["GET", "POST"])
 @login_required
 def corrections():
     form = CorrectionsForm()
@@ -152,15 +152,15 @@ def corrections():
 
         return render_template("corrections.html", form=form)
 
-@app.route("/precise/all", methods=["GET", "POST"])
+@app.route("/all", methods=["GET", "POST"])
 @login_required
 def all():
     return render_template("all.html")
 
-api.add_resource(filter, "/precise/api")
-api.add_resource(logon, "/precise/api/login")
-api.add_resource(TokenRefresh, "/precise/api/tokenrefresh")
-api.add_resource(All_Patients, "/precise/api/all")
+api.add_resource(filter, "/api")
+api.add_resource(logon, "/api/login")
+api.add_resource(TokenRefresh, "/api/tokenrefresh")
+api.add_resource(All_Patients, "/api/all")
 
 def uploadFile(file):
     user = User.query.filter_by(id=session.get('user_id')).first().email
