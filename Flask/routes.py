@@ -38,7 +38,7 @@ db.init_app(app)
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security = Security(app, user_datastore)
 
-admin = Admin(app, name='Dashboard', index_view=AdminView(User, db.session, url='/precise/admin', endpoint='admin'))
+admin = Admin(app, name='Dashboard', index_view=AdminView(User, db.session, url='/admin', endpoint='admin'))
 
 @app.before_first_request
 def create():
@@ -63,7 +63,6 @@ def chart(patient_number, parameter_name):
 @app.route("/addsample/<int:num_filters>", methods=["GET", "POST"])
 @login_required
 def addsample(num_filters=1):
-
     form = AddSampleForm()
     for iii in range(1, num_filters):
         form.filterNumber.append_entry()

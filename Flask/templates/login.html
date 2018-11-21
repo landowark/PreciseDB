@@ -7,7 +7,7 @@
             {% if error %}
               <p><strong>Error:</strong> {{ error }}
             {% endif %}
-            <form method="POST" action="/precise/login">
+            <form method="POST" action="/login">
                 {{ form.hidden_tag() }}
                 <div class="form-group">
                     {{ form.email.label }}

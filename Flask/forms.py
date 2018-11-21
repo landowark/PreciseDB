@@ -3,6 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField, FloatField, SelectF
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Email, Length
 import json
+import os
 
 with open("credentials.json", "r") as f:
     creds = json.load(f)
