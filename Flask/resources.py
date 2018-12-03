@@ -71,3 +71,8 @@ class All_Patients(Resource):
         #d = {"#" + str(mng.retrieveDoc(patient)['patient_num']).zfill(3) + " " + patient: mng.retrieveDoc(patient) for patient in mng.getPatientList()}
         d = mng.retrieveAll()
         return jsonify(d)
+
+class Janine_DidNot(Resource):
+    def get(self):
+        d = mng.getAllNotJanine()
+        return jsonify({'Not_Done' : d})

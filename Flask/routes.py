@@ -10,7 +10,7 @@ from flask_security import SQLAlchemyUserDatastore, Security, login_required
 from werkzeug.utils import secure_filename
 from wtforms import SelectField
 from Flask.admin import AdminView
-from Flask.resources import filter, logon, TokenRefresh, All_Patients
+from Flask.resources import filter, logon, TokenRefresh, All_Patients, Janine_DidNot
 from Flask.forms import AddSampleForm, UploadForm, CorrectionsForm
 from Flask import config, email
 from DB_DIR import mongo as mng
@@ -160,6 +160,7 @@ api.add_resource(filter, "/api")
 api.add_resource(logon, "/api/login")
 api.add_resource(TokenRefresh, "/api/tokenrefresh")
 api.add_resource(All_Patients, "/api/all")
+api.add_resource(Janine_DidNot, "/api/JanineDidNot")
 
 def uploadFile(file):
     user = User.query.filter_by(id=session.get('user_id')).first().email

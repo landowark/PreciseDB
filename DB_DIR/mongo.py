@@ -305,3 +305,12 @@ def getClosestFilterMatches(input_filterNum):
 def getPatientByFilter(filterNum):
     patientList = [patient for patient in getPatientList() if filterNum in list(retrieveDoc(patient)['filters'].keys())]
     return patientList
+
+def getAllNotJanine():
+    janine_did = []
+    for patient in getPatientList():
+        for filter in retrieveDoc(patient)['filters'].keys():
+            if 'janine' in retrieveDoc(patient)['filters'][filter].keys():
+                janine_did.append(patient)
+    janine_didnot = [item for item in getPatientList() if item not in janine_did]
+    return janine_didnot

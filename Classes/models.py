@@ -1,9 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.ext.hybrid import hybrid_property
 from flask_security import RoleMixin, UserMixin
 from flask_security.utils import hash_password
 from DB_DIR.mongo import getSecrets
 
 db = SQLAlchemy()
+salt = getSecrets()['SECURITY_PASSWORD_SALT']
 
 roles_users = db.Table('roles_users',
         db.Column('user_id', db.Integer(), db.ForeignKey('user.id')),

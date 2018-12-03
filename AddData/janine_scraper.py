@@ -23,7 +23,10 @@ def makeLists(filters: list):
     notinDB = []
     allFilters = mng.getAllFilters()
     for filter in filters:
-        filter.pop("Date ")
+        try:
+            filter.pop("Date ")
+        except KeyError:
+            filter.pop("Date")
         try:
             filter['Scan Number'] = namer.parseFilter(filter['Scan Number'])
             filterCheck.append(filter)
