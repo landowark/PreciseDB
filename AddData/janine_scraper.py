@@ -23,6 +23,7 @@ def makeLists(filters: list):
     notinDB = []
     allFilters = mng.getAllFilters()
     for filter in filters:
+        filter.pop("# Patients")
         try:
             filter.pop("Date ")
         except KeyError:
