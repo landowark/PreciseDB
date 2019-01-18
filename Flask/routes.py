@@ -11,7 +11,8 @@ from werkzeug.utils import secure_filename
 from wtforms import SelectField
 from Flask.admin import AdminView
 from Flask.resources import filter, logon, TokenRefresh, All_Patients, Janine_DidNot
-from Flask.forms import AddSampleForm, UploadForm, CorrectionsForm
+from Flask.forms import AddSampleForm, UploadForm, CorrectionsForm, UploadZipForm
+from Scripts import zip_parser
 from Flask import config, email
 from DB_DIR import mongo as mng
 from Classes.models import User, db, Role
@@ -23,6 +24,7 @@ import datetime
 import logging
 import platform
 import json
+
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -118,6 +120,29 @@ def janinescrape(ALLOWED_EXTENSIONS = ['.csv', '.xls', '.xlsx']):
     elif request.method == 'GET':
         return render_template("fileupload.html", form=form)
 
+
+@app.route("/upload_zip", methods=["GET", "POST"])
+@login_required
+def upload_zip():
+    form = UploadZipForm()
+    user = User.query.filter_by(id=session.get('user_id')).first().email
+    if request.method == 'POST':
+        if form.validate == False:
+            return render_template("zip_upload.html")
+        app.logger.info("{} uploaded a zip file.".format(user))
+        f = request.files.getlist('upfile')
+        file = f[0]
+        if os.path.splitext(secure_filename(file.filename))[1] == ".zip":
+            newFile = uploadFile(file)
+            zip_parser.extract_files(newFile, form.patientNumber.data, form.filterNumber.data)
+            return redirect(url_for("upload_zip"))
+        else:
+            # TODO insert flash error message.
+            return redirect(url_for("upload_zip"))
+    elif request.method == 'GET':
+        return render_template("zip_upload.html", form=form)
+
+
 @app.route("/corrections", methods=["GET", "POST"])
 @login_required
 def corrections():
@@ -148,8 +173,8 @@ def corrections():
             setattr(form.orphans.entries[iii], 'id', "orphans-" + orphan['Scan Number'])
             form.orphans.entries[iii].label = orphan['Scan Number']
             form.orphans.entries[iii].choices = [(item, item) for item in orphan['choices']]
-
         return render_template("corrections.html", form=form)
+
 
 @app.route("/all", methods=["GET", "POST"])
 @login_required

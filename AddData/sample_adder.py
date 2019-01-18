@@ -32,7 +32,6 @@ def add(patientNumber, filterNumber, dateRec, mLBlood, initials, institute, rece
         mng.addPatient(newPat)
     else:
         logger.info('Previously seen patient: {}.'.format(patientNumber))
-
     try:
         patient_increment = newPat.patient_num
     except:

@@ -314,3 +314,15 @@ def getAllNotJanine():
                 janine_did.append(patient)
     janine_didnot = [item for item in getPatientList() if item not in janine_did]
     return janine_didnot
+
+
+def getFiltersInPatient(patient_num):
+    try:
+        filters = retrieveDoc(patient_num)['filters'].keys()
+    except TypeError:
+        filters = []
+    if filters == None:
+        filters = []
+        return filters
+    else:
+        return list(filters)

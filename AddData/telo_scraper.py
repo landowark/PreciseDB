@@ -13,41 +13,34 @@ import sys
 import os
 from glob import glob
 import logging
-from logging.handlers import RotatingFileHandler
-
-logfile = os.path.abspath(os.path.relpath("Logs"))
 
 #set up logging.
-logger = logging.getLogger("teloscrape")
-logger.setLevel(logging.DEBUG)
-fh = RotatingFileHandler(os.path.join(logfile, 'QP.log'), maxBytes=50000, backupCount=3)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-fh.setFormatter(formatter)
-logger.addHandler(fh)
+logger = logging.getLogger("Flask.teloscrape")
 
 def scrape_dir(directory):
     try:
-        split_dir = directory.split("\\")
+        logger.info("Hello world!")
         # recur find in UI.menu_items finds all xlsx files in directories
         file_list = fg.recur_find(directory, 'xlsx')
         # include files containing 'deconvolution' and not containing 'lymp'
-        file_list = [item for item in file_list if 'deconvolution' in item and 'lymp' not in item]
+        # file_list = [item for item in file_list if 'deconvolution' in item and 'lymp' not in item]
         try:
             # Ensure there are at least 30 files
             assert len(file_list) >= 30
             # Crop number of files to the first 30.
             file_list = file_list[0:30]
         except AssertionError:
-            logging.warning("{q}: Not enough cells for analysis.".format(q=directory))
-
+            logger.warning("{q}: Not enough cells for analysis.".format(q=directory))
+            file_list = file_list
+        print(file_list)
         # enforce patient number scheme using Classes.namer
         patientNumber = namer.parsePatient(file_list[1])
         # enforce filter number scheme using Classes.namer
         filterNumber = namer.parseFilter(file_list[1])
-        logging.debug("Patient Number: %s Filter Number: %s" % (patientNumber, filterNumber))
+        logger.debug("Patient Number: %s Filter Number: %s" % (patientNumber, filterNumber))
         # check if patient exists
         if mng.patientExists(patientNumber) == False:
-            logging.debug('Previously unseen patient {s}. Adding to database.'.format(s=patientNumber))
+            logger.debug('Previously unseen patient {s}. Adding to database.'.format(s=patientNumber))
             # Create basic patient object
             newPat = ptz.Patient(patNum=patientNumber)
             # Add new patient to DB
@@ -59,14 +52,14 @@ def scrape_dir(directory):
             # Create new basic filter object only if it has already been logged in the DB
             newFilt = flz.Filter(tPoint=patientDoc['filters'][filterNumber]['tPoint'])
         except KeyError:
-            logging.warning("%s - %s Filter not found, skipping." % (patientNumber, filterNumber))
+            logger.warning("%s - %s Filter not found, skipping." % (patientNumber, filterNumber))
         try:
             # Attempt to get filter received date from record
             newFilt.DateRec = \
             [patientDoc['filters'][item]['DateRec'] for item in patientDoc['filters'] if item == filterNumber][0]
         except (KeyError, IndexError):
             # If no record this will default to tPoint="+00m" as in Classes.filterizer
-            logging.warning("No date found!")
+            logger.warning("No date found!")
         # initialize dictionary
         dict_images = {}
         for item in file_list:
@@ -85,7 +78,7 @@ def scrape_dir(directory):
         # ensure filter number matches filter in patient before assigning.
         for item in patientDoc['filters']:
             if item == filterNumber:
-                logging.debug("Hit " + filterNumber)
+                logger.debug("Hit " + filterNumber)
                 patientDoc['filters'][item] = this_filter
         # update patient
         print("Done!")

@@ -8,7 +8,7 @@ from DB_DIR import mongo as mng
 import datetime
 import logging
 
-logger = logging.getLogger("mainUI.ClinicalScraper")
+logger = logging.getLogger("Flask.ClinicalScraper")
 
 def scrape_clinical(filepath_clinical):
     # read into dataframes

@@ -5,6 +5,7 @@ This module will be used to scrape patient, filter and
 timepoint info from the filepath selected by the user.
 @author: Landon
 """
+import os
 import logging
 
 logger = logging.getLogger("mainUI.namer")
@@ -29,13 +30,14 @@ def parseFilter(input_string):
 
 
 def parseImage(file_path):
-    import re
-    imageNumRegex = re.compile(r'Image\d{4}')
-    imageName = imageNumRegex.search(file_path)
-    try:
-        return(imageName.group())
-    except AttributeError as e:
-        print(file_path, e)
+    # import re
+    # imageNumRegex = re.compile(r'Image\d{4}')
+    # imageName = imageNumRegex.search(file_path)
+    # try:
+    #     return(imageName.group())
+    # except AttributeError as e:
+    #     print(file_path, e)
+    return os.path.basename(file_path)
     
 def time_pointer(file_path):
     import re
