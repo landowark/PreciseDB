@@ -32,9 +32,9 @@ def scrape_dir(directory):
         file_list = file_list
     print(file_list)
     # enforce patient number scheme using Classes.namer
-    patientNumber = namer.parsePatient(file_list[1])
+    patientNumber = namer.parsePatient(file_list[0])
     # enforce filter number scheme using Classes.namer
-    filterNumber = namer.parseFilter(file_list[1])
+    filterNumber = namer.parseFilter(file_list[0])
     logger.debug("Patient Number: %s Filter Number: %s" % (patientNumber, filterNumber))
     # check if patient exists
     if mng.patientExists(patientNumber) == False:
