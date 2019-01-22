@@ -130,8 +130,9 @@ def shoveDoc(dicto):
         db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
         doc = jsonpickle.encode(dicto, unpicklable=False)
         db.find_one_and_replace({'_id': dicto['_id']}, loads(doc))
-    except OperationFailure:
+    except OperationFailure as e:
         logger.debug("shoveDoc: Can't log in to mongo, attempting userless operation.")
+        logger.debug(e)
         db = getPatientDB()
         doc = jsonpickle.encode(dicto, unpicklable=False)
         db.find_one_and_replace({'_id':dicto['_id']}, loads(doc))
