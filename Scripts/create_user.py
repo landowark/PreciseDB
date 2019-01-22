@@ -19,7 +19,6 @@ def input_data():
     email = input("Input user's email: [{}] \n".format(default_email)) or default_email
     while pass_match == False:
         password1 = getpass(prompt="Input user password [8-16 chars]: \n")
-        print(password1)
         password2 = getpass(prompt="Repeat user password: \n")
         if len(password1) > 8 and len(password1) < 16 and password1 == password2:
             print("Password accepted")
@@ -30,6 +29,8 @@ def input_data():
             print("Password is too long!")
         elif password1 != password2:
             print("Passwords don't match!")
+        else:
+            print("Something went wrong.")
     with app.app_context():
         db.init_app(app)
         db.create_all()
