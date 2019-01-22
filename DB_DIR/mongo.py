@@ -104,6 +104,8 @@ def retrieveAll():
         doc = {"#" + str(doc['patient_num']).zfill(3) + " " + doc['_id']: doc for doc in db.find()}
         for item in doc:
             doc[item].pop('_id')
+            for filter in list(doc[item]['filters'].keys()):
+                doc[item]['filters'][filter]['images'] = len(doc[item]['filters'][filter]['images'])
     except OperationFailure:
         logger.debug("retrieveAll: Can't log in to mongo, attempting userless operation.")
         db = getPatientDB()
