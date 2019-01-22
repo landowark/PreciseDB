@@ -126,6 +126,7 @@ def shoveDoc(dicto):
         doc = jsonpickle.encode(dicto, unpicklable=False)
         db.find_one_and_replace({'_id': dicto['_id']}, loads(doc))
     except OperationFailure:
+        logger.debug("Can't log in to mongo, attempting userless operation.")
         db = getPatientDB()
         doc = jsonpickle.encode(dicto, unpicklable=False)
         db.find_one_and_replace({'_id':dicto['_id']}, loads(doc))

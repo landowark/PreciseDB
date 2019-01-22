@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Updated teloscraper to process uploaded zip files.">
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="minor changes to teloscraper">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +48,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
@@ -60,10 +60,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AddData/telo_scraper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
+            <state relative-caret-position="-817">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="e#164#245#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4066">
+              <caret line="322" column="19" selection-start-line="322" selection-start-column="19" selection-end-line="322" selection-end-column="19" />
+              <folding>
+                <element signature="e#161#182#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,8 +189,8 @@
         <option value="$PROJECT_DIR$/AddData/clinical_scraper_main.py" />
         <option value="$PROJECT_DIR$/AddData/sample_adder.py" />
         <option value="$PROJECT_DIR$/Flask/routes.py" />
-        <option value="$PROJECT_DIR$/AddData/telo_scraper.py" />
         <option value="$PROJECT_DIR$/Classes/namer.py" />
+        <option value="$PROJECT_DIR$/AddData/telo_scraper.py" />
       </list>
     </option>
   </component>
@@ -202,12 +214,7 @@
             <path>
               <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
-              <item name="AddData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
-              <item name="Flask" type="462c0819:PsiDirectoryNode" />
+              <item name="DB_DIR" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -448,20 +455,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488374743015</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Addition of Combgraph and relocating Graphing to menu bar.">
-      <created>1528291679926</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1528291679926</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Addition of radio buttons for parameters &amp; Exporting chart.">
-      <created>1528397833376</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1528397833376</updated>
     </task>
     <task id="LOCAL-00030" summary="General tweaking. Color of Y axes. Omitting 0 image filters.">
       <created>1528484894693</created>
@@ -792,7 +785,21 @@
       <option name="project" value="LOCAL" />
       <updated>1547830888366</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Updated teloscraper to process uploaded zip files.">
+      <created>1548171966956</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1548171966957</updated>
+    </task>
+    <task id="LOCAL-00078" summary="minor changes to teloscraper">
+      <created>1548173184656</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1548173184656</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -818,14 +825,14 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3267974" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49447078" weight="0.24945533" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49447078" visible="true" weight="0.24945533" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39945835" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49357328" weight="0.32974428" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5055292" side_tool="true" weight="0.2633297" />
       <window_info anchor="bottom" id="Messages" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49552396" visible="true" weight="0.37037036" />
+      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49552396" weight="0.37037036" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49904883" weight="0.32535365" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32861805" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -914,7 +921,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="updated relpath" />
     <MESSAGE value="updated relpath--again" />
     <MESSAGE value="reverted relpath--again" />
     <MESSAGE value="Added email support." />
@@ -939,7 +945,8 @@
     <MESSAGE value="Fixed bug in keyerror scraping Janine results." />
     <MESSAGE value="Removed patient numbers that Janine inputs in her excel sheet for brevity." />
     <MESSAGE value="Updated teloscraper to process uploaded zip files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated teloscraper to process uploaded zip files." />
+    <MESSAGE value="minor changes to teloscraper" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes to teloscraper" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -1117,16 +1124,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="322" column="19" selection-start-line="322" selection-start-column="19" selection-end-line="322" selection-end-column="19" />
-          <folding>
-            <element signature="e#161#182#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1236,16 +1233,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AddData/telo_scraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
-          <folding>
-            <element signature="e#164#245#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/routes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1993">
@@ -1274,6 +1261,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AddData/telo_scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-817">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#164#245#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4066">
+          <caret line="322" column="19" selection-start-line="322" selection-start-column="19" selection-end-line="322" selection-end-column="19" />
+          <folding>
+            <element signature="e#161#182#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
