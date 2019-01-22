@@ -41,6 +41,7 @@ def getPatientList():
         db = mng.MongoClient('mongodb://%s:%s@127.0.0.1' % (secrets['MONGO_DB_USER'], secrets['MONGO_DB_PASSWORD'])).precise_actual
         patient_list = [doc['_id'] for doc in db.patient.find().batch_size(10)]
     except OperationFailure:
+        logger.debug("getPatientList: Can't log in to mongo, attempting userless operation.")
         db = mng.MongoClient().precise_actual
         patient_list = [doc['_id'] for doc in db.patient.find().batch_size(10)]
 
@@ -62,6 +63,7 @@ def addPatient(newPat):
         doc = jsonpickle.encode(newPat)
         db.insert_one(loads(doc))
     except OperationFailure:
+        logger.debug("addPatient: Can't log in to mongo, attempting userless operation.")
         db = getPatientDB()
         doc = jsonpickle.encode(newPat)
         db.insert_one(loads(doc))
@@ -115,6 +117,7 @@ def retrieveDoc(patientNumber):
         db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
         doc = db.find_one({'_id': patientNumber})
     except OperationFailure:
+        logger.debug("retrieveDoc: Can't log in to mongo, attempting userless operation.")
         db = getPatientDB()
         doc = db.find_one({'_id': patientNumber})
     return(doc)
@@ -127,7 +130,7 @@ def shoveDoc(dicto):
         doc = jsonpickle.encode(dicto, unpicklable=False)
         db.find_one_and_replace({'_id': dicto['_id']}, loads(doc))
     except OperationFailure:
-        logger.debug("Can't log in to mongo, attempting userless operation.")
+        logger.debug("shoveDoc: Can't log in to mongo, attempting userless operation.")
         db = getPatientDB()
         doc = jsonpickle.encode(dicto, unpicklable=False)
         db.find_one_and_replace({'_id':dicto['_id']}, loads(doc))
