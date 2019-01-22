@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="removed levels below 'images' in tree view.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/create_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/create_user.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scripts/create_user.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-57">
-              <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+            <state relative-caret-position="399">
+              <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
               <folding>
                 <element signature="e#37#47#0" expanded="true" />
               </folding>
@@ -123,7 +123,6 @@
         <option value="$PROJECT_DIR$/Flask/static/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/Flask/config.py" />
         <option value="$PROJECT_DIR$/Flask/templates/all.html" />
-        <option value="$PROJECT_DIR$/Scripts/create_user.py" />
         <option value="$PROJECT_DIR$/Flask/templates/addsample.html" />
         <option value="$PROJECT_DIR$/Flask/templates/login.html" />
         <option value="$PROJECT_DIR$/Classes/models.py" />
@@ -140,6 +139,7 @@
         <option value="$PROJECT_DIR$/Flask/routes.py" />
         <option value="$PROJECT_DIR$/AddData/telo_scraper.py" />
         <option value="$PROJECT_DIR$/DB_DIR/mongo.py" />
+        <option value="$PROJECT_DIR$/Scripts/create_user.py" />
       </list>
     </option>
   </component>
@@ -430,13 +430,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488374743015</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Clear form after adding new sample - fix">
-      <created>1537376785443</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1537376785443</updated>
     </task>
     <task id="LOCAL-00043" summary="Added in flask-security and admin.">
       <created>1537997315282</created>
@@ -774,7 +767,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548185623242</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="removed levels below 'images' in tree view.">
+      <created>1548186771609</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1548186771610</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1252,8 +1252,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/create_user.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+        <state relative-caret-position="399">
+          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
           <folding>
             <element signature="e#37#47#0" expanded="true" />
           </folding>
