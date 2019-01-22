@@ -125,7 +125,7 @@ def retrieveDoc(patientNumber):
     
 def shoveDoc(dicto):
     secrets = getSecrets()
-    logger.debug("user={}, pwd={}".format(secrets['MONGO_DB_USER'], secrets['MONGO_DB_PASSWORD']))
+
     try:
         db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
         doc = jsonpickle.encode(dicto, unpicklable=False)

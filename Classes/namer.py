@@ -37,7 +37,7 @@ def parseImage(file_path):
     #     return(imageName.group())
     # except AttributeError as e:
     #     print(file_path, e)
-    return os.path.basename(file_path)
+    return os.path.splitext(os.path.basename(file_path))[0]
     
 def time_pointer(file_path):
     import re
