@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added flash messages for zip-upload.">
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="removed levels below 'images' in tree view.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,31 +18,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Flask/routes.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Scripts/create_user.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="132" column="20" lean-forward="true" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
+            <state relative-caret-position="-57">
+              <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#37#47#0" expanded="true" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Flask/templates/zip_upload.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="14" column="22" selection-start-line="11" selection-start-column="16" selection-end-line="14" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Classes/imagizer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-513" />
           </provider>
         </entry>
       </file>
@@ -152,10 +136,10 @@
         <option value="$PROJECT_DIR$/Scripts/zip_parser.py" />
         <option value="$PROJECT_DIR$/AddData/clinical_scraper_main.py" />
         <option value="$PROJECT_DIR$/AddData/sample_adder.py" />
-        <option value="$PROJECT_DIR$/DB_DIR/mongo.py" />
         <option value="$PROJECT_DIR$/Classes/namer.py" />
-        <option value="$PROJECT_DIR$/AddData/telo_scraper.py" />
         <option value="$PROJECT_DIR$/Flask/routes.py" />
+        <option value="$PROJECT_DIR$/AddData/telo_scraper.py" />
+        <option value="$PROJECT_DIR$/DB_DIR/mongo.py" />
       </list>
     </option>
   </component>
@@ -179,6 +163,11 @@
             <path>
               <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
+              <item name="AddData" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
               <item name="Classes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -196,6 +185,11 @@
               <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
               <item name="Flask" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
+              <item name="Scripts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -436,20 +430,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488374743015</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Tweaked logging.">
-      <created>1537367613173</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1537367613173</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Clear form after adding new sample.">
-      <created>1537375237651</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1537375237651</updated>
     </task>
     <task id="LOCAL-00042" summary="Clear form after adding new sample - fix">
       <created>1537376785443</created>
@@ -780,7 +760,21 @@
       <option name="project" value="LOCAL" />
       <updated>1548180430944</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Keyerror debug in teloscrape line 68.">
+      <created>1548181046789</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1548181046789</updated>
+    </task>
+    <task id="LOCAL-00090" summary="removed levels below 'images' in tree view.">
+      <created>1548185623242</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1548185623242</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -902,8 +896,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added in institutes seperations for email and forms." />
-    <MESSAGE value="Get institutes from list in creds." />
     <MESSAGE value="Fixed json load error in forms.py" />
     <MESSAGE value="Fixed bug in institutes form." />
     <MESSAGE value="Removed excess database." />
@@ -927,7 +919,9 @@
     <MESSAGE value="Changed parseimage to strip out file extension...doy!" />
     <MESSAGE value="Changed teloscraper to name using filelist[0]" />
     <MESSAGE value="Added flash messages for zip-upload." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added flash messages for zip-upload." />
+    <MESSAGE value="Keyerror debug in teloscrape line 68." />
+    <MESSAGE value="removed levels below 'images' in tree view." />
+    <option name="LAST_COMMIT_MESSAGE" value="removed levels below 'images' in tree view." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -1037,13 +1031,6 @@
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/create_user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="46" selection-start-line="5" selection-end-line="5" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1204,26 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/resources.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
-          <folding>
-            <element signature="e#161#182#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/namer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1231,10 +1198,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/templates/zip_upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="14" column="22" selection-start-line="11" selection-start-column="16" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/imagizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AddData/telo_scraper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-399">
-          <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+        <state relative-caret-position="247">
+          <caret line="66" column="31" lean-forward="true" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
           <folding>
             <element signature="e#164#245#0" expanded="true" />
           </folding>
@@ -1251,16 +1230,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/zip_upload.html">
+    <entry file="file://$PROJECT_DIR$/Flask/resources.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="14" column="22" selection-start-line="11" selection-start-column="16" selection-end-line="14" selection-end-column="22" />
+        <state relative-caret-position="340">
+          <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/imagizer.py">
+    <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-513" />
+        <state relative-caret-position="304">
+          <caret line="106" column="59" selection-start-line="106" selection-start-column="59" selection-end-line="106" selection-end-column="59" />
+          <folding>
+            <element signature="e#161#182#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/create_user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding>
+            <element signature="e#37#47#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

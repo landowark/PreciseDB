@@ -19,6 +19,7 @@ def input_data():
     email = input("Input user's email: [{}] \n".format(default_email)) or default_email
     while pass_match == False:
         password1 = getpass(prompt="Input user password [8-16 chars]: \n")
+        print(password1)
         password2 = getpass(prompt="Repeat user password: \n")
         if len(password1) > 8 and len(password1) < 16 and password1 == password2:
             print("Password accepted")
