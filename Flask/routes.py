@@ -129,12 +129,15 @@ def upload_zip():
     if request.method == 'POST':
         if form.validate == False:
             return render_template("zip_upload.html")
+        patientNumber = form.patientNumber.data
+        filterNumber = form.filterNumber.data
         app.logger.info("{} uploaded a zip file.".format(user))
         f = request.files.getlist('upfile')
         file = f[0]
         if os.path.splitext(secure_filename(file.filename))[1] == ".zip":
             newFile = uploadFile(file)
             zip_parser.extract_files(newFile, form.patientNumber.data, form.filterNumber.data)
+            flash("Data for {}-{} has been added".format(patientNumber, filterNumber))
             return redirect(url_for("upload_zip"))
         else:
             # TODO insert flash error message.
