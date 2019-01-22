@@ -7,7 +7,7 @@ from Classes.models import User
 import json
 
 
-class logon(Resource):
+class ApiLogin(Resource):
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument("email", required=True, type=str, help="Your email address")

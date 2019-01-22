@@ -10,7 +10,7 @@ from flask_security import SQLAlchemyUserDatastore, Security, login_required
 from werkzeug.utils import secure_filename
 from wtforms import SelectField
 from Flask.admin import AdminView
-from Flask.resources import filter, logon, TokenRefresh, All_Patients, Janine_DidNot
+from Flask.resources import filter, ApiLogin, TokenRefresh, All_Patients, Janine_DidNot
 from Flask.forms import AddSampleForm, UploadForm, CorrectionsForm, UploadZipForm
 from Scripts import zip_parser
 from Flask import config, email
@@ -46,9 +46,7 @@ admin = Admin(app, name='Dashboard', index_view=AdminView(User, db.session, url=
 def create():
     db.create_all()
 
-@app.route("/")
-def index():
-    return redirect(url_for("logon"))
+
 
 @app.route("/img/<string:patient_number>/<string:parameter_name>", methods=["GET"])
 @login_required
@@ -178,14 +176,14 @@ def corrections():
             form.orphans.entries[iii].choices = [(item, item) for item in orphan['choices']]
         return render_template("corrections.html", form=form)
 
-
+@app.route("/", methods=["GET", "POST"])
 @app.route("/all", methods=["GET", "POST"])
 @login_required
 def all():
     return render_template("all.html")
 
 api.add_resource(filter, "/api")
-api.add_resource(logon, "/api/login")
+api.add_resource(ApiLogin, "/api/login")
 api.add_resource(TokenRefresh, "/api/tokenrefresh")
 api.add_resource(All_Patients, "/api/all")
 api.add_resource(Janine_DidNot, "/api/JanineDidNot")
