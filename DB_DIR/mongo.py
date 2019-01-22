@@ -120,6 +120,7 @@ def retrieveDoc(patientNumber):
     return(doc)
     
 def shoveDoc(dicto):
+    logger.info("Hello from mongo.shoveDoc")
     secrets = getSecrets()
     try:
         db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])

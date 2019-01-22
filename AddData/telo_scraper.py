@@ -79,8 +79,8 @@ def scrape_dir(directory):
             logger.debug("Hit " + filterNumber)
             patientDoc['filters'][item] = this_filter
     # update patient
-    logger.debug("Done!")
     mng.shoveDoc(patientDoc)
+    logger.debug("Done!")
 
 
 if __name__ == '__main__':
