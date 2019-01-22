@@ -65,7 +65,11 @@ def scrape_dir(directory):
         name = namer.parseImage(item)
         # Create new image object, filling in with scraped data and adding to dictionary
         new_image = imz.Image()
-        new_image.data_scrape(item)
+        try:
+            new_image.data_scrape(item)
+        except KeyError:
+            logger.warning("KeyError in {}".format(item))
+            continue
         new_image = new_image.jsonable()
         dict_images[name] = new_image
     # Set this filter's images to dictionary
