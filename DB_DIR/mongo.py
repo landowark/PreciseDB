@@ -18,7 +18,7 @@ import os
 
 from matplotlib import dates as mdates
 
-logger = logging.getLogger("mainUI.mongo")
+logger = logging.getLogger("Flask.mongo")
 
 def getSecrets():
     file = os.path.abspath(os.path.relpath("keys.json"))
