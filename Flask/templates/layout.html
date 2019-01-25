@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
+{% endblock %}
+
+
+{% block navbar %}
+{{nav.mynavbar.render()}}
 {% endblock %}
 
 {% block content %}
@@ -12,5 +18,7 @@
     {% block javascript %}
     {% endblock %}
 {% endblock %}
+
+
 
 

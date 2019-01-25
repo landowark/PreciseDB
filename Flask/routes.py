@@ -2,19 +2,19 @@ import os
 
 from bokeh.embed import components
 from flask import Flask, render_template, session, redirect, url_for, request, flash
-from flask.json import jsonify
+#from flask.json import jsonify
 from flask_admin import Admin
 from flask_bootstrap import Bootstrap
 from flask_restful import Api
 from flask_security import SQLAlchemyUserDatastore, Security, login_required
 from werkzeug.utils import secure_filename
-from wtforms import SelectField
+#from wtforms import SelectField
 from Flask.admin import AdminView
 from Flask.resources import filter, ApiLogin, TokenRefresh, All_Patients, Janine_DidNot
 from Flask.forms import AddSampleForm, UploadForm, CorrectionsForm, UploadZipForm
 from Scripts import zip_parser
 from Flask import config, email
-from DB_DIR import mongo as mng
+#from DB_DIR import mongo as mng
 from Classes.models import User, db, Role
 from AddData.sample_adder import add
 from ChartMakers.bokeh_maker import create_hover_tool, create_histogram
@@ -23,7 +23,8 @@ from AddData.janine_scraper import *
 import datetime
 import logging
 import platform
-import json
+#import json
+from .navbar import nav
 
 
 app = Flask(__name__)
@@ -33,7 +34,7 @@ Bootstrap(app)
 # Must be done before db.init
 app.logger = logging.getLogger("Flask.routers")
 device = platform.node()
-
+nav.init_app(app)
 jwt = JWTManager(app)
 db.init_app(app)
 
@@ -41,6 +42,8 @@ user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security = Security(app, user_datastore)
 
 admin = Admin(app, name='Dashboard', index_view=AdminView(User, db.session, url='/admin', endpoint='admin'))
+
+
 
 @app.before_first_request
 def create():

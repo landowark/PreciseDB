@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="create user script debugging.">
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Proper redirecting of root page... I hope.">
+      <change afterPath="$PROJECT_DIR$/Flask/navbar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Flask/static/js/bootstrap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flask/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/resources.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Flask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/static/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/layout.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="178" column="39" selection-start-line="178" selection-start-column="39" selection-end-line="178" selection-end-column="39" />
+            <state relative-caret-position="623">
+              <caret line="64" column="22" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="22" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -33,34 +36,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Flask/resources.py">
+        <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="342">
+              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Flask/navbar.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Flask/config.py">
+        <entry file="file://$PROJECT_DIR$/Flask/static/css/bootstrap.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="20" column="38" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="38" />
+            <state relative-caret-position="376">
+              <caret line="8973" selection-start-line="8973" selection-end-line="8973" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scripts/create_user.py">
+        <entry file="file://$PROJECT_DIR$/Flask/templates/all.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="20" column="74" selection-start-line="20" selection-start-column="74" selection-end-line="20" selection-end-column="74" />
-              <folding>
-                <element signature="e#37#47#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="209">
+              <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Flask/templates/zip_upload.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -70,8 +85,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -103,6 +118,8 @@
       <find>ALLOWED_EXTENSIONS</find>
       <find>uploadFile</find>
       <find>openFileAndParse</find>
+      <find>btn</find>
+      <find>navbar-toggle</find>
     </findStrings>
     <replaceStrings>
       <replace>precise_actual</replace>
@@ -124,7 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ScrapeTeloView/chart_maker.py" />
         <option value="$PROJECT_DIR$/MongoInterface/mongo.py" />
         <option value="$PROJECT_DIR$/ChartMakers/__init__.py" />
         <option value="$PROJECT_DIR$/ChartMakers/chart_maker.py" />
@@ -154,8 +170,6 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/Flask/templates/vanilla.html" />
         <option value="$PROJECT_DIR$/Flask/static/js/renderjson.js" />
-        <option value="$PROJECT_DIR$/Flask/templates/layout.html" />
-        <option value="$PROJECT_DIR$/Flask/static/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/Flask/templates/all.html" />
         <option value="$PROJECT_DIR$/Flask/templates/addsample.html" />
         <option value="$PROJECT_DIR$/Flask/templates/login.html" />
@@ -175,6 +189,9 @@
         <option value="$PROJECT_DIR$/Flask/resources.py" />
         <option value="$PROJECT_DIR$/Flask/config.py" />
         <option value="$PROJECT_DIR$/Flask/routes.py" />
+        <option value="$PROJECT_DIR$/Flask/static/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/Flask/templates/layout.html" />
+        <option value="$PROJECT_DIR$/Flask/navbar.py" />
       </list>
     </option>
   </component>
@@ -219,6 +236,26 @@
               <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
               <item name="Flask" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
+              <item name="Flask" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
+              <item name="Flask" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
+              <item name="Flask" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -250,11 +287,11 @@
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\UI" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Flask/static/img" />
       <recent name="$PROJECT_DIR$/Flask/static/js" />
       <recent name="$PROJECT_DIR$/Flask/static/css" />
       <recent name="$PROJECT_DIR$/Flask/templates" />
       <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Scripts" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\DB_DIR" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -465,13 +502,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488374743015</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Attempting to get static files to cross platforms correctly - fix">
-      <created>1538000864136</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1538000864136</updated>
     </task>
     <task id="LOCAL-00046" summary="Attempting to get static files to cross platforms correctly - fix2">
       <created>1538002416435</created>
@@ -809,7 +839,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548187246790</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="Proper redirecting of root page... I hope.">
+      <created>1548188412210</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1548188412210</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -828,13 +865,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="32" width="1920" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21063718" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3267974" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49447078" visible="true" weight="0.42156863" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49447078" visible="true" weight="0.19389978" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39945835" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -843,7 +881,7 @@
       <window_info anchor="bottom" id="Messages" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49552396" weight="0.37037036" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49904883" weight="0.32535365" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32861805" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3278867" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -930,7 +968,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Fixed bug in institutes form." />
     <MESSAGE value="Removed excess database." />
     <MESSAGE value="Fixed institute bug in routes.py" />
     <MESSAGE value="Added Aline's stupid patient numbers to DB." />
@@ -955,7 +992,8 @@
     <MESSAGE value="Keyerror debug in teloscrape line 68." />
     <MESSAGE value="removed levels below 'images' in tree view." />
     <MESSAGE value="create user script debugging." />
-    <option name="LAST_COMMIT_MESSAGE" value="create user script debugging." />
+    <MESSAGE value="Proper redirecting of root page... I hope." />
+    <option name="LAST_COMMIT_MESSAGE" value="Proper redirecting of root page... I hope." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -972,7 +1010,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.py" />
     <entry file="file://$PROJECT_DIR$/ChartMakers/bokeh_maker.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1048,13 +1085,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/static/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170487">
-          <caret line="8973" column="1" selection-start-line="8973" selection-start-column="1" selection-end-line="8973" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/templates/chart.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1085,13 +1115,6 @@
           <folding>
             <element signature="e#24#157#1" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -1211,24 +1234,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/all.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/namer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/zip_upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="14" column="22" selection-start-line="11" selection-start-column="16" selection-end-line="14" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1284,13 +1293,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/templates/all.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/templates/zip_upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/static/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="8973" selection-start-line="8973" selection-end-line="8973" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="178" column="39" selection-start-line="178" selection-start-column="39" selection-end-line="178" selection-end-column="39" />
+        <state relative-caret-position="623">
+          <caret line="64" column="22" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="22" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/navbar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
         </state>
       </provider>
     </entry>
