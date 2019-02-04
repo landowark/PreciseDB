@@ -201,8 +201,10 @@ def get_filter_by_tPoint(patientNumber, tPoint):
         db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
         doc = db.find_one({'_id': patientNumber})
     except OperationFailure:
+        print("get_filter_by_tPoint: Can't log in to mongo, attempting userless operation.")
         db = getPatientDB()
         doc = db.find_one({'_id': patientNumber})
+    print(doc)
     for filter in list(doc['filters'].keys()):
         if doc['filters'][filter]['tPoint'] == tPoint:
             filtDict = doc['filters'][filter]
@@ -315,14 +317,29 @@ def getPatientByFilter(filterNum):
     patientList = [patient for patient in getPatientList() if filterNum in list(retrieveDoc(patient)['filters'].keys())]
     return patientList
 
-def getAllNotJanine():
+def getAllJanine():
     janine_did = []
     for patient in getPatientList():
         for filter in retrieveDoc(patient)['filters'].keys():
             if 'janine' in retrieveDoc(patient)['filters'][filter].keys():
                 janine_did.append(patient)
+    #janine_didnot = [item for item in getPatientList() if item not in janine_did]
+    return janine_did
+
+def getAllNotJanine():
+    janine_did = getAllJanine()
     janine_didnot = [item for item in getPatientList() if item not in janine_did]
     return janine_didnot
+
+
+def getAllTeloViewed():
+    teloviewed = []
+    for patient in getPatientList():
+        for filter in retrieveDoc(patient)['filters'].keys():
+            if len(retrieveDoc(patient)['filters'][filter]['images']) > 0:
+                teloviewed.append(patient)
+    # janine_didnot = [item for item in getPatientList() if item not in janine_did]
+    return teloviewed
 
 
 def getFiltersInPatient(patient_num):

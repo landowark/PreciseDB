@@ -25,6 +25,7 @@ import logging
 import platform
 #import json
 from .navbar import nav
+from DB_DIR import mongo as mng
 
 
 app = Flask(__name__)
@@ -61,6 +62,7 @@ def chart(patient_number, parameter_name):
     script, div = components(plot)
     return render_template("chart.html", parameter_name=parameter_name, patient_number=patient_number,
                            the_div=div, the_script=script)
+
 
 @app.route("/addsample", methods=["GET", "POST"])
 @app.route("/addsample/<int:num_filters>", methods=["GET", "POST"])
@@ -183,7 +185,11 @@ def corrections():
 @app.route("/all", methods=["GET", "POST"])
 @login_required
 def all():
-    return render_template("all.html")
+    janine = mng.getAllJanine()
+    num_janine = len(janine)
+    teloviewed = mng.getAllTeloViewed()
+    num_teloviewed = len(teloviewed)
+    return render_template("all.html", janine=mng.getAllJanine(), num_janine=len(janine), teloviewed=mng.getAllTeloViewed(), num_teloviewed=len(teloviewed))
 
 api.add_resource(filter, "/api")
 api.add_resource(ApiLogin, "/api/login")
