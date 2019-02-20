@@ -2,7 +2,6 @@ import pymongo as pmg
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-import math
 import numpy as np
 
 

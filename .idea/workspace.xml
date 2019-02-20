@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="minor troubleshooting.">
-      <change afterPath="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,53 +19,7 @@
     <favorites_list name="Prostate_Database" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scripts/PSA_intensities.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="15" column="75" selection-start-line="14" selection-start-column="4" selection-end-line="15" selection-end-column="75" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/filterizer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1463">
-              <caret line="77" column="66" selection-start-line="74" selection-start-column="8" selection-end-line="77" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6308">
-              <caret line="341" column="21" selection-start-line="334" selection-end-line="341" selection-end-column="21" />
-              <folding>
-                <element signature="e#161#182#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -196,16 +151,6 @@
             <path>
               <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
-              <item name="Classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
-              <item name="DB_DIR" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -445,13 +390,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488374743015</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Added shebang for script.">
-      <created>1538068272596</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1538068272596</updated>
     </task>
     <task id="LOCAL-00052" summary="updated relpath">
       <created>1538068464278</created>
@@ -789,7 +727,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549292815648</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="updating requirements">
+      <created>1550691031178</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1550691031179</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -808,7 +753,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="31" width="1920" height="1049" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21063718" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -823,7 +767,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5050026" side_tool="true" weight="0.37037036" />
       <window_info anchor="bottom" id="Messages" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49499735" weight="0.37037036" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49904883" weight="0.32461873" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49904883" visible="true" weight="0.32461873" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49552396" weight="0.32752994" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -911,7 +855,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Fixed error with returning new patient number if it doesn't exist." />
     <MESSAGE value="Added in multiple filter per sample option." />
     <MESSAGE value="Added in multiple filter per sample option - restored email." />
     <MESSAGE value="Added in scraping for excel files Janine sends." />
@@ -936,7 +879,8 @@
     <MESSAGE value="Rudimentary navbar added." />
     <MESSAGE value="Added summary of progress to home page." />
     <MESSAGE value="minor troubleshooting." />
-    <option name="LAST_COMMIT_MESSAGE" value="minor troubleshooting." />
+    <MESSAGE value="updating requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating requirements" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -1248,6 +1192,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/PSA_intensities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1260,27 +1211,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/filterizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1463">
+        <state relative-caret-position="529">
           <caret line="77" column="66" selection-start-line="74" selection-start-column="8" selection-end-line="77" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6308">
+        <state relative-caret-position="529">
           <caret line="341" column="21" selection-start-line="334" selection-end-line="341" selection-end-column="21" />
           <folding>
             <element signature="e#161#182#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
