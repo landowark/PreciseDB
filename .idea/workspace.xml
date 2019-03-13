@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="minor troubleshooting.">
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Updating requirements.">
+      <change afterPath="$PROJECT_DIR$/Scripts/kmeans.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB_DIR/mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/DB_DIR/mongo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +20,80 @@
     <favorites_list name="Prostate_Database" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Flask/routes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3116">
+              <caret line="191" column="140" selection-start-line="191" selection-start-column="140" selection-end-line="191" selection-end-column="140" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/kmeans.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1235">
+              <caret line="76" column="4" selection-end-line="87" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2204">
+              <caret line="125" column="15" selection-start-line="116" selection-end-line="125" selection-end-column="15" />
+              <folding>
+                <element signature="e#161#182#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/HarveyFinder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1045">
+              <caret line="63" column="17" selection-start-line="59" selection-start-column="4" selection-end-line="63" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/quon_kmeans.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1292">
+              <caret line="79" column="57" selection-start-line="78" selection-start-column="4" selection-end-line="79" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="177" column="111" selection-start-line="177" selection-start-column="111" selection-end-line="177" selection-end-column="111" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -80,8 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/Flask/static/layout.html" />
         <option value="$PROJECT_DIR$/Flask/templates/chart.html" />
         <option value="$PROJECT_DIR$/Classes/user.py" />
         <option value="$PROJECT_DIR$/Scripts/__init__.py" />
@@ -127,9 +199,11 @@
         <option value="$PROJECT_DIR$/Scripts/sloper_2.py" />
         <option value="$PROJECT_DIR$/Scripts/PSA_intensities.py" />
         <option value="$PROJECT_DIR$/Scripts/analysis_summary.py" />
-        <option value="$PROJECT_DIR$/DB_DIR/mongo.py" />
         <option value="$PROJECT_DIR$/Flask/routes.py" />
         <option value="$PROJECT_DIR$/Flask/templates/all.html" />
+        <option value="$PROJECT_DIR$/DB_DIR/mongo.py" />
+        <option value="$PROJECT_DIR$/Scripts/kmeans.py" />
+        <option value="$PROJECT_DIR$/Scripts/quon_kmeans.py" />
         <option value="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" />
       </list>
     </option>
@@ -152,6 +226,16 @@
               <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
+              <item name="DB_DIR" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
+              <item name="Scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -163,23 +247,23 @@
     <property name="SearchEverywhereHistoryKey" value="telo&#9;null&#9;null" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/Flask/static/js/node_modules/jquery-ui/build/release.js&#10;/home/landon/Documents/PycharmProjects/PreciseDB/Logs/QP.log&#10;/home/landon/Documents/PycharmProjects/PreciseDB/Logs/precise.log&#10;true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ChartMakers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\static\css" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\templates" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\ChartMakers" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\UI" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Scripts" />
       <recent name="$PROJECT_DIR$/Flask/static/img" />
       <recent name="$PROJECT_DIR$/Flask/static/js" />
       <recent name="$PROJECT_DIR$/Flask/static/css" />
       <recent name="$PROJECT_DIR$/Flask/templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\static\css" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\templates" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\ChartMakers" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
+      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\UI" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -256,7 +340,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="create_user" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="quon_kmeans" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Prostate_Database" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -268,7 +352,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/create_user.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/quon_kmeans.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -364,19 +448,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.create_user" />
       <item itemvalue="Python.sloper_2" />
       <item itemvalue="Python.wsgi" />
       <item itemvalue="Python.PSA_intensities" />
       <item itemvalue="Python.PSA_telomere_counts" />
+      <item itemvalue="Python.quon_kmeans" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.PSA_telomere_counts" />
+        <item itemvalue="Python.quon_kmeans" />
         <item itemvalue="Python.wsgi" />
         <item itemvalue="Python.PSA_intensities" />
         <item itemvalue="Python.sloper_2" />
-        <item itemvalue="Python.create_user" />
       </list>
     </recent_temporary>
   </component>
@@ -390,13 +474,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488374743015</updated>
-    </task>
-    <task id="LOCAL-00052" summary="updated relpath">
-      <created>1538068464278</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1538068464279</updated>
     </task>
     <task id="LOCAL-00053" summary="updated relpath--again">
       <created>1538068539215</created>
@@ -734,7 +811,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550691031179</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Updating requirements.">
+      <created>1550693698611</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1550693698611</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -753,13 +837,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="31" width="1920" height="1049" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21063718" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21063718" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3267974" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49447078" weight="0.32026145" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49447078" visible="true" weight="0.32026145" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39945835" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -767,7 +852,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5050026" side_tool="true" weight="0.37037036" />
       <window_info anchor="bottom" id="Messages" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49499735" weight="0.37037036" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49904883" visible="true" weight="0.32461873" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49904883" weight="0.3242655" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49552396" weight="0.32752994" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -855,7 +940,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added in multiple filter per sample option." />
     <MESSAGE value="Added in multiple filter per sample option - restored email." />
     <MESSAGE value="Added in scraping for excel files Janine sends." />
     <MESSAGE value="Added in scraping for excel files Janine sends with manual error correction." />
@@ -880,7 +964,8 @@
     <MESSAGE value="Added summary of progress to home page." />
     <MESSAGE value="minor troubleshooting." />
     <MESSAGE value="updating requirements" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating requirements" />
+    <MESSAGE value="Updating requirements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating requirements." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -897,15 +982,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-347">
-          <caret line="55" column="15" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/static/js/jquery-3.3.1.min.js" />
-    <entry file="file://$PROJECT_DIR$/Flask/static/js/jquery-3.3.1.js" />
     <entry file="file://$PROJECT_DIR$/Flask/static/js/package-lock.json" />
     <entry file="file://$PROJECT_DIR$/Flask/static/js/package.json" />
     <entry file="file://$PROJECT_DIR$/Flask/static/js/node_modules/jquery/dist/jquery.js" />
@@ -1074,16 +1150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/resources.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Flask/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -1168,16 +1234,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/analysis_summary.py" />
-    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3116">
-          <caret line="191" column="140" selection-start-line="191" selection-start-column="140" selection-end-line="191" selection-end-column="140" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -1189,13 +1245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -1216,12 +1265,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/resources.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3116">
+          <caret line="191" column="140" selection-start-line="191" selection-start-column="140" selection-end-line="191" selection-end-column="140" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/kmeans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1235">
+          <caret line="76" column="4" selection-end-line="87" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="341" column="21" selection-start-line="334" selection-end-line="341" selection-end-column="21" />
+        <state relative-caret-position="2204">
+          <caret line="125" column="15" selection-start-line="116" selection-end-line="125" selection-end-column="15" />
           <folding>
             <element signature="e#161#182#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/HarveyFinder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1045">
+          <caret line="63" column="17" selection-start-line="59" selection-start-column="4" selection-end-line="63" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/quon_kmeans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="79" column="57" selection-start-line="78" selection-start-column="4" selection-end-line="79" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="177" column="111" selection-start-line="177" selection-start-column="111" selection-end-line="177" selection-end-column="111" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>

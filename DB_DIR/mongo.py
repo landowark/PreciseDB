@@ -352,3 +352,6 @@ def getFiltersInPatient(patient_num):
         return filters
     else:
         return list(filters)
+
+
+
