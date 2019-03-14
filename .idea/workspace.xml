@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Updating requirements.">
-      <change afterPath="$PROJECT_DIR$/Scripts/kmeans.py" afterDir="false" />
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Created psa vs. parameter graph maker.">
+      <change afterPath="$PROJECT_DIR$/Scripts/quon_kmeans.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB_DIR/mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/DB_DIR/mongo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/kmeans.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,22 +24,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3116">
+            <state relative-caret-position="827">
               <caret line="191" column="140" selection-start-line="191" selection-start-column="140" selection-end-line="191" selection-end-column="140" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scripts/kmeans.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1235">
-              <caret line="76" column="4" selection-end-line="87" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scripts/quon_kmeans.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="79" column="57" selection-start-line="78" selection-start-column="4" selection-end-line="79" selection-end-column="57" />
+            <state relative-caret-position="-380">
+              <caret line="75" column="26" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -81,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="177" column="111" selection-start-line="177" selection-start-column="111" selection-end-line="177" selection-end-column="111" />
+            <state relative-caret-position="89">
+              <caret line="69" column="104" selection-start-line="69" selection-start-column="89" selection-end-line="69" selection-end-column="104" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -133,6 +121,7 @@
       <find>openFileAndParse</find>
       <find>btn</find>
       <find>navbar-toggle</find>
+      <find>adtrad</find>
     </findStrings>
     <replaceStrings>
       <replace>precise_actual</replace>
@@ -202,9 +191,9 @@
         <option value="$PROJECT_DIR$/Flask/routes.py" />
         <option value="$PROJECT_DIR$/Flask/templates/all.html" />
         <option value="$PROJECT_DIR$/DB_DIR/mongo.py" />
+        <option value="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" />
         <option value="$PROJECT_DIR$/Scripts/kmeans.py" />
         <option value="$PROJECT_DIR$/Scripts/quon_kmeans.py" />
-        <option value="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" />
       </list>
     </option>
   </component>
@@ -278,7 +267,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.PSA_telomere_counts">
+  <component name="RunManager" selected="Python.quon_kmeans">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -456,8 +445,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.PSA_telomere_counts" />
         <item itemvalue="Python.quon_kmeans" />
+        <item itemvalue="Python.PSA_telomere_counts" />
         <item itemvalue="Python.wsgi" />
         <item itemvalue="Python.PSA_intensities" />
         <item itemvalue="Python.sloper_2" />
@@ -474,13 +463,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488374743015</updated>
-    </task>
-    <task id="LOCAL-00053" summary="updated relpath--again">
-      <created>1538068539215</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1538068539215</updated>
     </task>
     <task id="LOCAL-00054" summary="reverted relpath--again">
       <created>1538068594294</created>
@@ -818,7 +800,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550693698611</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Created psa vs. parameter graph maker.">
+      <created>1552503400853</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1552503400854</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -940,7 +929,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added in multiple filter per sample option - restored email." />
     <MESSAGE value="Added in scraping for excel files Janine sends." />
     <MESSAGE value="Added in scraping for excel files Janine sends with manual error correction." />
     <MESSAGE value="Added in page to show all data in json format." />
@@ -965,7 +953,8 @@
     <MESSAGE value="minor troubleshooting." />
     <MESSAGE value="updating requirements" />
     <MESSAGE value="Updating requirements." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating requirements." />
+    <MESSAGE value="Created psa vs. parameter graph maker." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created psa vs. parameter graph maker." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -1079,12 +1068,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Logs/precise.log">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="7429">
           <caret line="391" column="62" selection-start-line="391" selection-start-column="58" selection-end-line="391" selection-end-column="62" />
         </state>
       </provider>
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Flask/templates/addsample.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1275,26 +1264,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3116">
-          <caret line="191" column="140" selection-start-line="191" selection-start-column="140" selection-end-line="191" selection-end-column="140" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/kmeans.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1235">
-          <caret line="76" column="4" selection-end-line="87" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2204">
@@ -1315,22 +1284,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/quon_kmeans.py">
+    <entry file="file://$PROJECT_DIR$/Scripts/kmeans.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="79" column="57" selection-start-line="78" selection-start-column="4" selection-end-line="79" selection-end-column="57" />
+        <state relative-caret-position="200">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="827">
+          <caret line="191" column="140" selection-start-line="191" selection-start-column="140" selection-end-line="191" selection-end-column="140" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="177" column="111" selection-start-line="177" selection-start-column="111" selection-end-line="177" selection-end-column="111" />
+        <state relative-caret-position="89">
+          <caret line="69" column="104" selection-start-line="69" selection-start-column="89" selection-end-line="69" selection-end-column="104" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/quon_kmeans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-380">
+          <caret line="75" column="26" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

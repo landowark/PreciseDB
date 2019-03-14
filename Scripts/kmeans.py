@@ -51,11 +51,6 @@ def make_chart(X: ndarray, y_km: KMeans, km: KMeans, optimal_clusters: int, x_la
     plt.show()
 
 
-def make_summary(X_df_indices, cluster_labels):
-    # todo make an excel sheet with a summary of which row index goes to which column
-    pass
-
-
 def perform_clustering(X_df: pd.DataFrame):
     X = X_df.to_numpy()
     X = norm(X, axis=0)

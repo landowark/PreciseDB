@@ -9,11 +9,10 @@ from scipy import stats
 import seaborn as sns
 
 
-analysis_type = "Exclusion" # "Sensitivity"
-cutoff = ".1" # 0.5
-PSA_file = os.path.join(os.path.expanduser("~"), "Documents/Lab/Quon Project/Mary's Analyses", analysis_type + ".xlsx")
-adtrad = "psa6mafcompleterad" #"psa6moafadt" #
 
+def reject_outliers(data, m=2):
+    data = np.array(data)
+    return data[abs(data - np.mean(data)) < m * np.std(data)]
 
 def check_for_threshold(master, patient):
     if "threshold" not in list(master[patient].keys()):
@@ -24,6 +23,7 @@ def check_for_threshold(master, patient):
 
 def get_count_quartiles(filtDict, parameter: str):
     para_measure = [filtDict['images'][image][parameter] for image in filtDict['images'].keys()]
+    para_measure = reject_outliers(para_measure, 2)
     avg = np.mean(para_measure)
     dest = np.histogram(para_measure, 4)
     quart_list = [float((item / len(para_measure)) * 100) for item in np.ravel(dest)[0]]
@@ -36,19 +36,18 @@ def get_count_quartiles(filtDict, parameter: str):
             "q3_percent": float(quart_list[2]), "q4_percent": float(quart_list[3]), 'avg':avg, 'all':para_measure}
 
 
-def make_rank_chart(master, parameter: str):
-
+def make_swarm_chart(master, parameter: str, adtrad, cutoff):
+    df = pd.DataFrame()
+    above = [master[patient]["all"] for patient in master.keys() if master[patient]['threshold'] == ">=0{}".format(cutoff)]
+    below = [master[patient]["all"] for patient in master.keys() if master[patient]['threshold'] == "<0{}".format(cutoff)]
     if adtrad == "psa6moafadt":
         subtitle_adtrad = "ADT"
     elif adtrad == "psa6mafcompleterad":
         subtitle_adtrad = "RT"
-    df['<0.1'] = pd.Series([item2 for sublist2 in below for item2 in sublist2])
-    df['>=0.1'] = pd.Series([item1 for sublist1 in above for item1 in sublist1])
-    # df[(np.abs(stats.zscore(df)) > 2).all(axis=1)]
-    # print(df)
-    # ax = sns.violinplot(data=df, inner=None)
-    fig, ax =plt.subplots(figsize=(15,15))
-    sns.swarmplot(data=df, ax=ax)
+    df['>=0'.format(cutoff)] = pd.Series([item1 for sublist1 in above for item1 in sublist1])
+    df['<0'.format(cutoff)] = pd.Series([item2 for sublist2 in below for item2 in sublist2])
+    fig1, ax1 =plt.subplots(figsize=(15,15))
+    sns.swarmplot(data=df, ax=ax1)
     plt.title(parameter)
     imgdata = BytesIO()
     plt.savefig(imgdata, format="png")
@@ -57,12 +56,13 @@ def make_rank_chart(master, parameter: str):
     return imgdata
 
 
-def make_boxplot(master, parameter: str):
-    above = [master[patient]["all"] for patient in master.keys() if master[patient]['threshold'] == ">=0.1"]
-    above_labels = [patient for patient in master.keys() if master[patient]['threshold'] == ">=0.1"]
-    below = [master[patient]["all"] for patient in master.keys() if master[patient]['threshold'] == "<0.1"]
-    below_labels = [patient for patient in master.keys() if master[patient]['threshold'] == "<0.1"]
-
+def make_boxplot(master, parameter: str, adtrad, cutoff):
+    above = [master[patient]["all"] for patient in master.keys() if master[patient]['threshold'] == ">=0{}".format(cutoff)]
+    above_labels = [patient for patient in master.keys() if master[patient]['threshold'] == ">=0{}".format(cutoff)]
+    below = [master[patient]["all"] for patient in master.keys() if master[patient]['threshold'] == "<0{}".format(cutoff)]
+    below_labels = [patient for patient in master.keys() if master[patient]['threshold'] == "<0{}".format(cutoff)]
+    print(len(above), len(above_labels))
+    print(len(below), len(below_labels))
     if adtrad == "psa6moafadt":
         subtitle_adtrad = "ADT"
     elif adtrad == "psa6mafcompleterad":
@@ -83,7 +83,7 @@ def make_boxplot(master, parameter: str):
     plt.clf()
     imgdata1.seek(0)
     fig2, axes2 = plt.subplots()
-    axes2.boxplot(flat, labels=[">=0.1", "<0.1"], showfliers=False)
+    axes2.boxplot(flat, labels=[">=0{}".format(cutoff), "<0{}".format(cutoff)], showfliers=False)
     imgdata2 = BytesIO()
     plt.savefig(imgdata2, format="png")
     plt.clf()
@@ -91,14 +91,14 @@ def make_boxplot(master, parameter: str):
     return imgdata1, imgdata2
 
 
-def make_quartile_plot(master, parameter):
+def make_quartile_plot(master, parameter,cutoff):
     img_dict = {}
     quart_list = ['quartile_1', 'quartile_2', 'quartile_3', 'quartile_4']
     percent_list = ["q1_percent", "q2_percent", "q3_percent", "q4_percent"]
     for quart in quart_list:
         # print("Running {} chart for {}".format(quart, parameter))
-        q_above = [master[patient][quart] for patient in master.keys() if master[patient]['threshold'] == ">=0.1"]
-        q_below = [master[patient][quart] for patient in master.keys() if master[patient]['threshold'] == "<0.1"]
+        q_above = [master[patient][quart] for patient in master.keys() if master[patient]['threshold'] == ">=0{}".format(cutoff)]
+        q_below = [master[patient][quart] for patient in master.keys() if master[patient]['threshold'] == "<0{}".format(cutoff)]
         q_above = np.array([item1 for sublist1 in q_above for item1 in sublist1])
         q_below = np.array([item2 for sublist2 in q_below for item2 in sublist2])
         above_mean = np.mean(q_above)
@@ -106,7 +106,7 @@ def make_quartile_plot(master, parameter):
         above_stde = stats.sem(q_above)
         below_stde = stats.sem(q_below)
         plt.clf()
-        plt.errorbar(x=[">=0.1", "<0.1"], y=[above_mean, below_mean], yerr=[above_stde, below_stde], fmt='o')
+        plt.errorbar(x=[">=0{}".format(cutoff), "<0{}".format(cutoff)], y=[above_mean, below_mean], yerr=[above_stde, below_stde], fmt='o')
         plt.title(quart, loc='center')
         imgdata = BytesIO()
         plt.savefig(imgdata, format="png")
@@ -115,8 +115,8 @@ def make_quartile_plot(master, parameter):
         img_dict[quart] = imgdata
     for percent in percent_list:
         # print("Running {} chart for {}".format(percent, parameter))
-        q_above = [master[patient][percent] for patient in master.keys() if master[patient]['threshold'] == ">=0.1"]
-        q_below = [master[patient][percent] for patient in master.keys() if master[patient]['threshold'] == "<0.1"]
+        q_above = [master[patient][percent] for patient in master.keys() if master[patient]['threshold'] == ">=0{}".format(cutoff)]
+        q_below = [master[patient][percent] for patient in master.keys() if master[patient]['threshold'] == "<0{}".format(cutoff)]
         q_above = np.array(q_above)
         q_below = np.array(q_below)
         above_mean = np.mean(q_above)
@@ -124,7 +124,7 @@ def make_quartile_plot(master, parameter):
         above_stde = stats.sem(q_above)
         below_stde = stats.sem(q_below)
         plt.clf()
-        plt.errorbar(x=[">=0.1", "<0.1"], y=[above_mean, below_mean], yerr=[above_stde, below_stde], fmt='o')
+        plt.errorbar(x=[">=0{}".format(cutoff), "<0{}".format(cutoff)], y=[above_mean, below_mean], yerr=[above_stde, below_stde], fmt='o')
         plt.title(percent, loc='center')
         imgdata = BytesIO()
         plt.savefig(imgdata, format="png")
@@ -135,75 +135,91 @@ def make_quartile_plot(master, parameter):
 
 
 def main():
+    analysis_type = ["Exclusion", "Sensitivity"]
+    cutoff = [".1", ".5"]
+    adtrad = ["psa6mafcompleterad",  "psa6moafadt"]
+
     used_db = "quon_actual"
-    df = pd.read_excel(PSA_file, sheet_name=cutoff + " cutoff")
+
     db = pmg.MongoClient().get_database(used_db).patient
     patient_list = [doc['_id'] for doc in db.find().batch_size(10)]
     para = ["ACRatio", "meanDist", "meanIntAll", "meanIntNorm", "nucDia", "nucVol", "prcAgg", "sigNum", "sigPerVol"]
-    for parameter in para:
-        print("Running parameter: {}".format(parameter))
-        master = {}
-        for patient in patient_list:
-            pd_patient = int(patient[3:-2])
-            try:
-                doc = db.find_one({'_id': patient})
-                for filter in list(doc['filters'].keys()):
-                    if doc['filters'][filter]['tPoint'] == "+00m":
-                        filtDict = doc['filters'][filter]
-                        master[patient] = get_count_quartiles(filtDict, parameter)
-                        index = df.loc[df['pt_id']==pd_patient].index[0]
-                        master[patient]["threshold"] = df.loc[index].at[adtrad]
+    for rad_type in adtrad:
+        print("Running radtype: {}".format(rad_type))
+        for c_type in cutoff:
+            print("Running cutoff: {}".format(c_type))
+            for a_type in analysis_type:
+                print("Running analysis type: {}".format(a_type))
+                PSA_file = os.path.join(os.path.expanduser("~"), "Documents/Lab/Quon Project/Mary's Analyses", a_type + ".xlsx")
+                print(PSA_file)
+                df = pd.read_excel(PSA_file, sheet_name=c_type + " cutoff")
+                for parameter in para:
+                    file_name = os.path.join(os.path.expanduser("~"), "Documents/Lab/Quon Project", "Graphs_{0}_{1}_{2}_{3}quartiles.xlsx".format(a_type, c_type.replace(".", ""), rad_type, parameter))
+                    if not os.path.exists(file_name):
+                        print("Running parameter: {}".format(parameter))
+                        master = {}
+                        for patient in patient_list:
+                            pd_patient = int(patient[3:-2])
+                            try:
+                                doc = db.find_one({'_id': patient})
+                                for filter in list(doc['filters'].keys()):
+                                    if doc['filters'][filter]['tPoint'] == "+00m":
+                                        filtDict = doc['filters'][filter]
+                                        master[patient] = get_count_quartiles(filtDict, parameter)
+                                        index = df.loc[df['pt_id']==pd_patient].index[0]
+                                        master[patient]["threshold"] = df.loc[index].at[rad_type]
+                                    else:
+                                        filtDict = {}
+                                        continue
+                            except IndexError:
+                                continue
+                            except KeyError:
+                                continue
+                        for patient in patient_list:
+                            try:
+                                check_condition1 = master[patient]['q1_percent'] == 0.0 and master[patient]['q2_percent'] == 0.0 and master[patient]['q3_percent'] == 0.0 and master[patient]['q4_percent'] == 0.0
+                                check_condition2 = master[patient]['q1_percent'] == '' and master[patient]['q2_percent'] == '' and master[patient]['q3_percent'] == '' and master[patient]['q4_percent'] == ''
+                                check_condition3 = check_for_threshold(master, patient)
+                                check_condition4 = math.isnan(master[patient]['q1_percent']) and math.isnan(master[patient]['q2_percent']) and math.isnan(master[patient]['q3_percent']) and math.isnan(master[patient]['q4_percent'])
+                                if check_condition1 or check_condition2 or check_condition3 or check_condition4:
+                                    del master[patient]
+                            except KeyError:
+                                continue
+                        try:
+                            df2 = pd.DataFrame(master).transpose()
+                            df2.index.name = "Patient"
+                            plot1, plot2 = make_boxplot(master, parameter, rad_type, c_type)
+                            img_dict = make_quartile_plot(master, parameter, c_type)
+                            plot3 = make_swarm_chart(master, parameter, rad_type, c_type)
+                            writer2 = pd.ExcelWriter(os.path.join(os.path.expanduser("~"), "Documents/Lab/Quon Project", "Graphs_{0}_{1}_{2}_{3}quartiles.xlsx".format(a_type, c_type.replace(".", ""), rad_type, parameter)))
+
+                            df2.to_excel(writer2, sheet_name="master", engine='xlsxwriter')
+                            workbook = writer2.book
+                            worksheet1 = writer2.sheets["master"]
+                            worksheet2 = workbook.add_worksheet("flattened")
+                            worksheet3 = workbook.add_worksheet("quartiles_raw")
+                            worksheet4 = workbook.add_worksheet("quartiles_percentage")
+                            worksheet5 = workbook.add_worksheet("swarm")
+                            if plot1 != None:
+                                worksheet1.insert_image(0, 9, "", {'image_data': plot1})
+                            worksheet2.insert_image(00, 00, "", {'image_data': plot2})
+                            worksheet3.insert_image(00, 00, "", {'image_data': img_dict['quartile_1']})
+                            worksheet3.insert_image(00, 10, "", {'image_data': img_dict['quartile_2']})
+                            worksheet3.insert_image(25, 00, "", {'image_data': img_dict['quartile_3']})
+                            worksheet3.insert_image(25, 10, "", {'image_data': img_dict['quartile_4']})
+                            worksheet4.insert_image(00, 00, "", {'image_data': img_dict['q1_percent']})
+                            worksheet4.insert_image(00, 10, "", {'image_data': img_dict['q2_percent']})
+                            worksheet4.insert_image(25, 00, "", {'image_data': img_dict['q3_percent']})
+                            worksheet4.insert_image(25, 10, "", {'image_data': img_dict['q4_percent']})
+                            worksheet5.insert_image(00, 00, "", {'image_data': plot3})
+                            writer2.close()
+
+                        except Exception as e:
+                            print("Oops on : {0}_{1}_{2}_{3}".format(a_type, c_type.replace(".", ""), rad_type, parameter) )
+                            print(str(e.__traceback__.tb_next.tb_lineno))
+                            continue
                     else:
-                        filtDict = {}
-                        continue
-            except IndexError:
-                continue
-            except KeyError:
-                continue
-        for patient in patient_list:
-            try:
-                check_condition1 = master[patient]['q1_percent'] == 0.0 and master[patient]['q2_percent'] == 0.0 and master[patient]['q3_percent'] == 0.0 and master[patient]['q4_percent'] == 0.0
-                check_condition2 = master[patient]['q1_percent'] == '' and master[patient]['q2_percent'] == '' and master[patient]['q3_percent'] == '' and master[patient]['q4_percent'] == ''
-                check_condition3 = check_for_threshold(master, patient)
-                check_condition4 = math.isnan(master[patient]['q1_percent']) and math.isnan(master[patient]['q2_percent']) and math.isnan(master[patient]['q3_percent']) and math.isnan(master[patient]['q4_percent'])
-                if check_condition1 or check_condition2 or check_condition3 or check_condition4:
-                    del master[patient]
-            except KeyError:
-                continue
-        # try:
-        df2 = pd.DataFrame(master).transpose()
-        df2.index.name = "Patient"
-        df3 = pd.DataFrame()
-        above = [master[patient]['all'] for patient in master.keys() if master[patient]['threshold'] == ">=0.1"]
-        below = [master[patient]['all'] for patient in master.keys() if master[patient]['threshold'] == "<0.1"]
-        plot1, plot2 = make_boxplot(master, parameter)
-        plot3 = make_rank_chart(master, parameter)
-        img_dict = make_quartile_plot(master, parameter)
-        writer2 = pd.ExcelWriter(os.path.join(os.path.expanduser("~"), "Documents/Lab/Quon Project", "{}_quartiles.xlsx".format(parameter)))
-
-        df2.to_excel(writer2, sheet_name="master", engine='xlsxwriter')
-        workbook = writer2.book
-        worksheet1 = writer2.sheets["master"]
-        worksheet2 = workbook.add_worksheet("flattened")
-        worksheet3 = workbook.add_worksheet("quartiles_raw")
-        worksheet4 = workbook.add_worksheet("quartiles_percentage")
-        worksheet5 = workbook.add_worksheet("swarm")
-        if plot1 != None:
-            worksheet1.insert_image(0, 9, "", {'image_data': plot1})
-        worksheet2.insert_image(00, 00, "", {'image_data': plot2})
-        worksheet3.insert_image(00, 00, "", {'image_data': img_dict['quartile_1']})
-        worksheet3.insert_image(00, 10, "", {'image_data': img_dict['quartile_2']})
-        worksheet3.insert_image(25, 00, "", {'image_data': img_dict['quartile_3']})
-        worksheet3.insert_image(25, 10, "", {'image_data': img_dict['quartile_4']})
-        worksheet4.insert_image(00, 00, "", {'image_data': img_dict['q1_percent']})
-        worksheet4.insert_image(00, 10, "", {'image_data': img_dict['q2_percent']})
-        worksheet4.insert_image(25, 00, "", {'image_data': img_dict['q3_percent']})
-        worksheet4.insert_image(25, 10, "", {'image_data': img_dict['q4_percent']})
-        worksheet5.insert_image(00, 00, "", {'image_data': plot3})
-        writer2.close()
-
-        # except:
-        #     continue
+                        print("File {} exists, skipping.".format(file_name))
 
 
 if __name__ == "__main__":
