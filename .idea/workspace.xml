@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Created psa vs. parameter graph maker.">
-      <change afterPath="$PROJECT_DIR$/Scripts/quon_kmeans.py" afterDir="false" />
+    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added in k-means for Quon prostateproject.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/kmeans.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/quon_kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/quon_kmeans.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,10 +23,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Flask/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="827">
+            <state relative-caret-position="3116">
               <caret line="191" column="140" selection-start-line="191" selection-start-column="140" selection-end-line="191" selection-end-column="140" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Flask/resources.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="14" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/quon_kmeans.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-380">
-              <caret line="75" column="26" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
+            <state relative-caret-position="836">
+              <caret line="56" column="6" selection-start-line="56" selection-end-line="57" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -72,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="69" column="104" selection-start-line="69" selection-start-column="89" selection-end-line="69" selection-end-column="104" />
+            <state relative-caret-position="3154">
+              <caret line="174" column="36" selection-start-line="174" selection-start-column="36" selection-end-line="174" selection-end-column="36" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -191,9 +202,9 @@
         <option value="$PROJECT_DIR$/Flask/routes.py" />
         <option value="$PROJECT_DIR$/Flask/templates/all.html" />
         <option value="$PROJECT_DIR$/DB_DIR/mongo.py" />
-        <option value="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" />
         <option value="$PROJECT_DIR$/Scripts/kmeans.py" />
         <option value="$PROJECT_DIR$/Scripts/quon_kmeans.py" />
+        <option value="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" />
       </list>
     </option>
   </component>
@@ -207,7 +218,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -223,16 +233,23 @@
             <path>
               <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
+              <item name="Flask" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
               <item name="Scripts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="telo&#9;null&#9;null" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/Flask/static/js/node_modules/jquery-ui/build/release.js&#10;/home/landon/Documents/PycharmProjects/PreciseDB/Logs/QP.log&#10;/home/landon/Documents/PycharmProjects/PreciseDB/Logs/precise.log&#10;true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
@@ -267,7 +284,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.quon_kmeans">
+  <component name="RunManager" selected="Python.PSA_telomere_counts">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -437,16 +454,16 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.sloper_2" />
-      <item itemvalue="Python.wsgi" />
       <item itemvalue="Python.PSA_intensities" />
       <item itemvalue="Python.PSA_telomere_counts" />
       <item itemvalue="Python.quon_kmeans" />
+      <item itemvalue="Python.sloper_2" />
+      <item itemvalue="Python.wsgi" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.quon_kmeans" />
         <item itemvalue="Python.PSA_telomere_counts" />
+        <item itemvalue="Python.quon_kmeans" />
         <item itemvalue="Python.wsgi" />
         <item itemvalue="Python.PSA_intensities" />
         <item itemvalue="Python.sloper_2" />
@@ -463,13 +480,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488374743015</updated>
-    </task>
-    <task id="LOCAL-00054" summary="reverted relpath--again">
-      <created>1538068594294</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1538068594294</updated>
     </task>
     <task id="LOCAL-00055" summary="Added email support.">
       <created>1539735263868</created>
@@ -807,7 +817,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552503400854</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="Added in k-means for Quon prostateproject.">
+      <created>1552577057613</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1552577057614</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -828,12 +845,12 @@
     <frame x="0" y="31" width="1920" height="1049" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21063718" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21063718" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3267974" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49447078" visible="true" weight="0.32026145" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49447078" weight="0.32026145" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39945835" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -929,7 +946,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added in scraping for excel files Janine sends." />
     <MESSAGE value="Added in scraping for excel files Janine sends with manual error correction." />
     <MESSAGE value="Added in page to show all data in json format." />
     <MESSAGE value="Added ajax to render json of all patients as collapsible tree." />
@@ -954,7 +970,8 @@
     <MESSAGE value="updating requirements" />
     <MESSAGE value="Updating requirements." />
     <MESSAGE value="Created psa vs. parameter graph maker." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created psa vs. parameter graph maker." />
+    <MESSAGE value="Added in k-means for Quon prostateproject." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added in k-means for Quon prostateproject." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -971,7 +988,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Flask/static/js/package-lock.json" />
     <entry file="file://$PROJECT_DIR$/Flask/static/js/package.json" />
     <entry file="file://$PROJECT_DIR$/Flask/static/js/node_modules/jquery/dist/jquery.js" />
     <entry file="file://$PROJECT_DIR$/Flask/static/js/node_modules/jquery-ui/build/release.js" />
@@ -1068,12 +1084,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Logs/precise.log">
+      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="7429">
           <caret line="391" column="62" selection-start-line="391" selection-start-column="58" selection-end-line="391" selection-end-column="62" />
         </state>
       </provider>
-      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Flask/templates/addsample.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1254,12 +1270,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/resources.py">
+    <entry file="file://$PROJECT_DIR$/Scripts/kmeans.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="14" />
+        <state relative-caret-position="200">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
           <folding>
-            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///opt/anaconda/envs/precise/lib/python3.7/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="513" selection-start-line="513" selection-end-line="513" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3116">
+          <caret line="191" column="140" selection-start-line="191" selection-start-column="140" selection-end-line="191" selection-end-column="140" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1284,42 +1317,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/kmeans.py">
+    <entry file="file://$PROJECT_DIR$/Scripts/quon_kmeans.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="836">
+          <caret line="56" column="6" selection-start-line="56" selection-end-line="57" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="827">
-          <caret line="191" column="140" selection-start-line="191" selection-start-column="140" selection-end-line="191" selection-end-column="140" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="69" column="104" selection-start-line="69" selection-start-column="89" selection-end-line="69" selection-end-column="104" />
+        <state relative-caret-position="3154">
+          <caret line="174" column="36" selection-start-line="174" selection-start-column="36" selection-end-line="174" selection-end-column="36" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/quon_kmeans.py">
+    <entry file="file://$PROJECT_DIR$/Flask/resources.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-380">
-          <caret line="75" column="26" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
+        <state relative-caret-position="171">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="14" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>

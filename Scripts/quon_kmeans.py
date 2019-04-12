@@ -8,6 +8,7 @@ from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import normalize as norm
 from numpy.random import rand, randint
 from numpy.core import ndarray
+import numpy as np
 import pandas as pd
 import pymongo as mng
 
@@ -15,6 +16,10 @@ import pymongo as mng
 # check to make certain data and data labels have same length
 def check_length(data_array, label_array):
     assert len(data_array) == len(label_array)
+
+
+def reject_outliers(data, m=2):
+    return data[abs(data - np.mean(data)) < m * np.std(data)]
 
 
 def get_optimal_number_clusters(X: ndarray) -> int:
