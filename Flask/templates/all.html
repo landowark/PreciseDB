@@ -2,7 +2,7 @@
 
 {% block head %}
     {{ super() }}
-    <script src="{{ url_for('static', filename='js/renderjson.js') }}"></script>
+
 {% endblock %}
 
 {% block content %}
@@ -18,7 +18,9 @@
         </div>
 	</main>
     {% block javascript %}
+        {{ super() }}
         {# this script creates a tree view from data gleaned from the api #}
+        <script src="{{ url_for('static', filename='node_modules/renderjson/renderjson.js') }}"></script>
         <script>
             $.ajax({dataType: 'json', url: "/api/all", success: function(data){
                 $("#result").html(renderjson(data));

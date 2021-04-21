@@ -4,7 +4,6 @@ from bokeh.embed import components
 from flask import Flask, render_template, session, redirect, url_for, request, flash
 #from flask.json import jsonify
 from flask_admin import Admin
-from flask_bootstrap import Bootstrap
 from flask_restful import Api
 from flask_security import SQLAlchemyUserDatastore, Security, login_required
 from werkzeug.utils import secure_filename
@@ -26,12 +25,12 @@ import platform
 #import json
 from .navbar import nav
 from DB_DIR import mongo as mng
+import json
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 app.config.from_object(config)
 api = Api(app)
-Bootstrap(app)
 # Must be done before db.init
 app.logger = logging.getLogger("Flask.routers")
 device = platform.node()
@@ -69,6 +68,9 @@ def chart(patient_number, parameter_name):
 @login_required
 def addsample(num_filters=1):
     form = AddSampleForm()
+    with open("credentials.json", "r") as f:
+        creds = json.load(f)
+        institutes = [institute for institute in creds['emails'].keys()]
     for iii in range(1, num_filters):
         form.filterNumber.append_entry()
     if request.method == "POST":
@@ -93,7 +95,7 @@ def addsample(num_filters=1):
                     app.logger.info("{} has added sample {}, {}".format(user, patientNumber, filterNumber))
             return redirect(url_for("addsample"))
     elif request.method == "GET":
-        return render_template("addsample.html", form=form)
+        return render_template("addsample.html", form=form, institutes=institutes)
 
 @app.route("/janinescrape", methods=["GET", "POST"])
 @login_required
@@ -205,3 +207,7 @@ def uploadFile(file):
     app.logger.info("{} uploaded a {}kb file".format(user, upsize))
     newFile = os.path.abspath(upload_file)
     return newFile
+
+@app.route('/sw.js', methods=['GET'])
+def sw():
+    return app.send_static_file('sw.js')

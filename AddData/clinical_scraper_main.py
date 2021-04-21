@@ -7,6 +7,7 @@ from Classes import namer
 from DB_DIR import mongo as mng
 import datetime
 import logging
+import os
 
 logger = logging.getLogger("Flask.ClinicalScraper")
 
@@ -101,4 +102,6 @@ def scrape_clinical(filepath_clinical):
         mng.shoveDoc(patientDoc)
 
 if __name__ == '__main__':
-    scrape_clinical()
+    my_path = os.path.join(os.path.expanduser("~/Downloads"), "CTC_RT_14Feb17 updating JUNE 7 2019 for Landon.xlsx")
+    print(my_path)
+    scrape_clinical(my_path)

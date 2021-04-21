@@ -1,0 +1,25 @@
+div.section-content {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    background-color: #ccc;
+    border-radius: 3px;
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+h1 {
+    text-align:center;
+}
+
+input {
+  height: 25px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+select {
+  height: 50px;
+  padding-left: 10px;
+}

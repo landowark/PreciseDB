@@ -19,8 +19,10 @@ import os
 from matplotlib import dates as mdates
 
 logger = logging.getLogger("Flask.mongo")
+db_name = "quon_actual"
 
 def getSecrets():
+
     file = os.path.abspath(os.path.relpath("keys.json"))
     with open(file, 'r') as f:
         secrets = json.load(f)
@@ -28,22 +30,28 @@ def getSecrets():
 
 def getPatientDB(user="", pwd=""):
     if user == "":
-        db = mng.MongoClient().precise_actual.patient
+        db = mng.MongoClient()[db_name].patient
     else:
-        db = mng.MongoClient('mongodb://%s:%s@127.0.0.1' % (
-            user, pwd)).precise_actual.patient
+        try:
+            db = mng.MongoClient('mongodb://%s:%s@127.0.0.1' % (
+                user, pwd))[db_name].patient
+        except OperationFailure:
+            print("getPatientDB: Can't log in to mongo, attempting userless operation.")
+            logger.debug("getPatientDB: Can't log in to mongo, attempting userless operation.")
+            db = mng.MongoClient()[db_name].patient
     return db
 
 def getPatientList():
     # Get list of all patients in mongoDB
     secrets = getSecrets()
-    try:
-        db = mng.MongoClient('mongodb://%s:%s@127.0.0.1' % (secrets['MONGO_DB_USER'], secrets['MONGO_DB_PASSWORD'])).precise_actual
-        patient_list = [doc['_id'] for doc in db.patient.find().batch_size(10)]
-    except OperationFailure:
-        logger.debug("getPatientList: Can't log in to mongo, attempting userless operation.")
-        db = mng.MongoClient().precise_actual
-        patient_list = [doc['_id'] for doc in db.patient.find().batch_size(10)]
+    # try:
+    db = getPatientDB()
+    # db = mng.MongoClient('mongodb://%s:%s@127.0.0.1' % (secrets['MONGO_DB_USER'], secrets['MONGO_DB_PASSWORD'])).precise_actual
+    patient_list = [doc['_id'] for doc in db.find().batch_size(10)]
+    # except OperationFailure:
+    #     logger.debug("getPatientList: Can't log in to mongo, attempting userless operation.")
+    #     db = mng.MongoClient().precise_actual
+    #     patient_list = [doc['_id'] for doc in db.patient.find().batch_size(10)]
 
     return patient_list
 
@@ -127,7 +135,6 @@ def retrieveDoc(patientNumber):
     
 def shoveDoc(dicto):
     secrets = getSecrets()
-
     try:
         db = getPatientDB(user=secrets['MONGO_DB_USER'], pwd=secrets['MONGO_DB_PASSWORD'])
         doc = jsonpickle.encode(dicto, unpicklable=False)

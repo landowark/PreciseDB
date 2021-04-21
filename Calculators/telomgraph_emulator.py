@@ -161,14 +161,14 @@ def telomgraph(patient_number, filter_number, filePath):
         logger.error("Warning value error for: %s %s" % (os.path.basename(filePath), e))
 
 
-def combgraph(sample_list):
+def combgraph(sample_list, patient_number):
     # step 1 get patient and filter info
-    patient_number = list(set([item[0] for item in sample_list]))[0]
-    filePath = os.path.join(os.path.expanduser("~"), "Desktop\\Quon Prostate\\combgraphs", patient_number + "_combgraph.xlsx")
+    # patient_number = list(set([item[0] for item in sample_list]))[0]
+    filePath = os.path.join(os.path.expanduser("~"), "Desktop/Quon Prostate/combgraphs", patient_number + "_combgraph.xlsx")
     all_int_data = pd.DataFrame()
     all_bin_data = pd.DataFrame()
     for sample in sample_list:
-        filter_number = sample[1]
+        filter_number = sample
         filter = mng.get_filter_by_number(patient_number, filter_number)
 
         timePoint = filter['tPoint']

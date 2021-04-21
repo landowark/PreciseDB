@@ -7,21 +7,32 @@ timepoint info from the filepath selected by the user.
 """
 import os
 import logging
+import re
+from DB_DIR.mongo import db_name
 
 logger = logging.getLogger("mainUI.namer")
 
 def parsePatient(input_string):
-    import re
-    # compile regular expression to match
-    patient_ex = re.compile(r'P0\d{3}|\d{3}?')
-    # search input string for pattern
-    patientNumber = patient_ex.search(input_string).group()
-    if len(patientNumber) == 3:
-        patientNumber = 'P0' + patientNumber
-    return(patientNumber)    
+    print(db_name)
+    if db_name == 'precise_actual':
+        # compile regular expression to match
+        patient_ex = re.compile(r'P0\d{3}|\d{3}?')
+        # search input string for pattern
+        patientNumber = patient_ex.search(input_string).group()
+        if len(patientNumber) == 3:
+            patientNumber = 'P0' + patientNumber
+    elif db_name == 'quon_actual':
+        patient_ex = re.compile(r'MB0\d{3}PR|\d{3}?')
+        # search input string for pattern
+        patientNumber = patient_ex.search(input_string).group()
+        if len(patientNumber) == 3:
+            patientNumber = 'MB0' + patientNumber + "PR"
+    else:
+        raise KeyError()
+    return(patientNumber)
+
     
 def parseFilter(input_string):
-    import re
     filter_ex = re.compile(r'-\d{4}|1\dAA\d{4}')
     filterNumber = filter_ex.search(input_string).group()
     if len(filterNumber) == 5:
@@ -40,7 +51,6 @@ def parseImage(file_path):
     return os.path.splitext(os.path.basename(file_path))[0]
     
 def time_pointer(file_path):
-    import re
     tpRegex = re.compile(r'(\+\d?\dm)')
     timePoint = tpRegex.search(file_path)
     new = timePoint.group() 

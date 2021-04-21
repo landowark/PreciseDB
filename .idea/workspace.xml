@@ -1,310 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="Added in k-means for Quon prostateproject.">
+    <list default="true" id="60632e5f-efaa-465a-9e28-4987c985449a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Calculators/IntCalcs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Calculators/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChartMakers/make_treatment_psa_chart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Flask/static/css/page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Flask/static/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Flask/static/js/addsample.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Flask/static/js/db_stores.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Flask/static/js/swLoader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Flask/static/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Flask/static/sw.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/Aline_table_maker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Prostate_Database.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Prostate_Database.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddData/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/AddData/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddData/clinical_scraper_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/AddData/clinical_scraper_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddData/janine_scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/AddData/janine_scraper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddData/sample_adder.py" beforeDir="false" afterPath="$PROJECT_DIR$/AddData/sample_adder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddData/telo_scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/AddData/telo_scraper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calculators/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculators/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calculators/telomgraph_emulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculators/telomgraph_emulator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChartMakers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChartMakers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChartMakers/bokeh_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChartMakers/bokeh_maker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChartMakers/chart_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChartMakers/chart_maker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/filterizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/filterizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/imagizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/imagizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/namer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/namer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/patientizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/patientizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB_DIR/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/DB_DIR/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB_DIR/menu_items.py" beforeDir="false" afterPath="$PROJECT_DIR$/DB_DIR/menu_items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB_DIR/mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/DB_DIR/mongo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/email.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/email.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/navbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/navbar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/resources.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/static/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/static/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/static/img/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/static/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/static/js/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/static/js/renderjson.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/addsample.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/addsample.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/all.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/chart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/corrections.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/corrections.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/fileupload.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/fileupload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flask/templates/zip_upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/Flask/templates/zip_upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/HarveyFinder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/HarveyFinder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/PSA_intensities.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PSA_intensities.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/create_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/create_user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/extended_nadir.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/extended_nadir.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/find_nadir.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/find_nadir.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/kmeans.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/prostate_summarizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/prostate_summarizer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/quon_kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/quon_kmeans.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/sloper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/sloper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/sloper2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/sloper2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/zip_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/zip_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/precise.ini" beforeDir="false" afterPath="$PROJECT_DIR$/precise.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/wsgi.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="Prostate_Database" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Flask/routes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3116">
-              <caret line="191" column="140" selection-start-line="191" selection-start-column="140" selection-end-line="191" selection-end-column="140" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Flask/resources.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2204">
-              <caret line="125" column="15" selection-start-line="116" selection-end-line="125" selection-end-column="15" />
-              <folding>
-                <element signature="e#161#182#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scripts/HarveyFinder.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1045">
-              <caret line="63" column="17" selection-start-line="59" selection-start-column="4" selection-end-line="63" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scripts/quon_kmeans.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="56" column="6" selection-start-line="56" selection-end-line="57" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3154">
-              <caret line="174" column="36" selection-start-line="174" selection-start-column="36" selection-end-line="174" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Filter_</find>
-      <find>size</find>
-      <find>makedirs</find>
-      <find>568</find>
-      <find>telolo</find>
-      <find>telol</find>
-      <find>add</find>
-      <find>Parsing</find>
-      <find>parse</find>
-      <find>ValueError: NaTType does not support timetuple</find>
-      <find>Parse</find>
-      <find>662</find>
-      <find>iterate</find>
-      <find>Par</find>
-      <find>actionTelomgraph</find>
-      <find>treeWidget</find>
-      <find>mongo</find>
-      <find>fg</find>
-      <find>prostate_actual</find>
-      <find>.conta</find>
-      <find>conta</find>
-      <find>print</find>
-      <find>mapping</find>
-      <find>ALLOWED_EXTENSIONS</find>
-      <find>uploadFile</find>
-      <find>openFileAndParse</find>
-      <find>btn</find>
-      <find>navbar-toggle</find>
-      <find>adtrad</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>precise_actual</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="PREVIOUS_COMMIT_AUTHORS">
-      <list>
-        <option value="Landon Wark &lt;lando.wark@gmail.com&gt;" />
-      </list>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="PreciseDB" />
-      </map>
-    </option>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Flask/templates/chart.html" />
-        <option value="$PROJECT_DIR$/Classes/user.py" />
-        <option value="$PROJECT_DIR$/Scripts/__init__.py" />
-        <option value="$PROJECT_DIR$/Scripts/extended_nadir.py" />
-        <option value="$PROJECT_DIR$/Scripts/find_nadir.py" />
-        <option value="$PROJECT_DIR$/Scripts/HarveyFinder.py" />
-        <option value="$PROJECT_DIR$/Calculators/telomgraph_emulator.py" />
-        <option value="$PROJECT_DIR$/ChartMakers/bokeh_maker.py" />
-        <option value="$PROJECT_DIR$/Flask/templates/home.html" />
-        <option value="$PROJECT_DIR$/wsgi.py" />
-        <option value="$PROJECT_DIR$/precise.ini" />
-        <option value="$PROJECT_DIR$/Classes/filterizer.py" />
-        <option value="$PROJECT_DIR$/keys.json" />
-        <option value="$PROJECT_DIR$/credentials.json" />
-        <option value="$PROJECT_DIR$/Classes/patientizer.py" />
-        <option value="$PROJECT_DIR$/Flask/email.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/Flask/templates/fileupload.html" />
-        <option value="$PROJECT_DIR$/Flask/templates/corrections.html" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/Flask/templates/vanilla.html" />
-        <option value="$PROJECT_DIR$/Flask/static/js/renderjson.js" />
-        <option value="$PROJECT_DIR$/Flask/templates/addsample.html" />
-        <option value="$PROJECT_DIR$/Flask/templates/login.html" />
-        <option value="$PROJECT_DIR$/Classes/models.py" />
-        <option value="$PROJECT_DIR$/Flask/admin.py" />
-        <option value="$PROJECT_DIR$/AddData/janine_scraper.py" />
-        <option value="$PROJECT_DIR$/Scripts/data_parser.py" />
-        <option value="$PROJECT_DIR$/Flask/templates/zip_upload.html" />
-        <option value="$PROJECT_DIR$/Flask/forms.py" />
-        <option value="$PROJECT_DIR$/Scripts/zip_parser.py" />
-        <option value="$PROJECT_DIR$/AddData/clinical_scraper_main.py" />
-        <option value="$PROJECT_DIR$/AddData/sample_adder.py" />
-        <option value="$PROJECT_DIR$/Classes/namer.py" />
-        <option value="$PROJECT_DIR$/AddData/telo_scraper.py" />
-        <option value="$PROJECT_DIR$/Scripts/create_user.py" />
-        <option value="$PROJECT_DIR$/Flask/resources.py" />
-        <option value="$PROJECT_DIR$/Flask/config.py" />
-        <option value="$PROJECT_DIR$/Flask/static/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/Flask/navbar.py" />
-        <option value="$PROJECT_DIR$/Flask/templates/layout.html" />
-        <option value="$PROJECT_DIR$/Scripts/sloper.py" />
-        <option value="$PROJECT_DIR$/Scripts/sloper_2.py" />
-        <option value="$PROJECT_DIR$/Scripts/PSA_intensities.py" />
-        <option value="$PROJECT_DIR$/Scripts/analysis_summary.py" />
-        <option value="$PROJECT_DIR$/Flask/routes.py" />
-        <option value="$PROJECT_DIR$/Flask/templates/all.html" />
-        <option value="$PROJECT_DIR$/DB_DIR/mongo.py" />
-        <option value="$PROJECT_DIR$/Scripts/kmeans.py" />
-        <option value="$PROJECT_DIR$/Scripts/quon_kmeans.py" />
-        <option value="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="2864" />
-    <option name="height" value="1732" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
-              <item name="DB_DIR" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
-              <item name="Flask" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PreciseDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PreciseDB" type="462c0819:PsiDirectoryNode" />
-              <item name="Scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectId" id="1OVyOx7AcYyMwFNs4xKs8EiPBGF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="telo&#9;null&#9;null" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/Flask/static/js/node_modules/jquery-ui/build/release.js&#10;/home/landon/Documents/PycharmProjects/PreciseDB/Logs/QP.log&#10;/home/landon/Documents/PycharmProjects/PreciseDB/Logs/precise.log&#10;true" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Calculators" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Scripts" />
-      <recent name="$PROJECT_DIR$/Flask/static/img" />
-      <recent name="$PROJECT_DIR$/Flask/static/js" />
-      <recent name="$PROJECT_DIR$/Flask/static/css" />
-      <recent name="$PROJECT_DIR$/Flask/templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\static\css" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\Flask\templates" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\ChartMakers" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\AddData" />
-      <recent name="C:\Users\Landon\Dropbox\Documents\PycharmProjects\Prostate_Database\UI" />
+      <recent name="$PROJECT_DIR$/Calculators" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.PSA_telomere_counts">
-    <configuration default="true" type="tests" factoryName="Attests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Prostate_Database" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method />
-    </configuration>
-    <configuration name="PSA_intensities" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager">
+    <configuration name="IntCalcs" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Prostate_Database" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -312,11 +111,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scripts" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Calculators" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/PSA_intensities.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Calculators/IntCalcs.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -325,1027 +124,36 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PSA_telomere_counts" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Prostate_Database" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/PSA_telomere_counts.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="quon_kmeans" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Prostate_Database" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/quon_kmeans.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="sloper_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Prostate_Database" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/sloper2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="wsgi" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Prostate_Database" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wsgi.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <module name="Prostate_Database" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <module name="Prostate_Database" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
-      <module name="Prostate_Database" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Python.PSA_intensities" />
-      <item itemvalue="Python.PSA_telomere_counts" />
-      <item itemvalue="Python.quon_kmeans" />
-      <item itemvalue="Python.sloper_2" />
-      <item itemvalue="Python.wsgi" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.PSA_telomere_counts" />
-        <item itemvalue="Python.quon_kmeans" />
-        <item itemvalue="Python.wsgi" />
-        <item itemvalue="Python.PSA_intensities" />
-        <item itemvalue="Python.sloper_2" />
+        <item itemvalue="Python.IntCalcs" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c9bd7882-39c3-4de7-b561-b73e5749464b" name="Default" comment="" />
-      <created>1488374743015</created>
+      <changelist id="60632e5f-efaa-465a-9e28-4987c985449a" name="Default Changelist" comment="" />
+      <created>1564077030201</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1488374743015</updated>
+      <updated>1564077030201</updated>
     </task>
-    <task id="LOCAL-00055" summary="Added email support.">
-      <created>1539735263868</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1539735263869</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Added email support - 2.">
-      <created>1539735385229</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1539735385229</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Added in institutes seperations for email and forms.">
-      <created>1539815728397</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1539815728398</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Get institutes from list in creds.">
-      <created>1539873926863</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1539873926864</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Fixed json load error in forms.py">
-      <created>1540401789519</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1540401789519</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Fixed bug in institutes form.">
-      <created>1540471375316</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1540471375317</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Removed excess database.">
-      <created>1540471564760</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1540471564760</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Fixed institute bug in routes.py">
-      <created>1540497672067</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1540497672067</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Added Aline's stupid patient numbers to DB.">
-      <created>1541532066284</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1541532066284</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Fixed error with returning new patient number if it doesn't exist.">
-      <created>1541532755468</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1541532755468</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Added in multiple filter per sample option.">
-      <created>1541793371077</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1541793371078</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Added in multiple filter per sample option - restored email.">
-      <created>1541798687880</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1541798687881</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Added in scraping for excel files Janine sends.">
-      <created>1542212284049</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1542212284049</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Added in scraping for excel files Janine sends with manual error correction.">
-      <created>1542378607368</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1542378607368</updated>
-    </task>
-    <task id="LOCAL-00069" summary="Added in page to show all data in json format.">
-      <created>1542400099907</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1542400099908</updated>
-    </task>
-    <task id="LOCAL-00070" summary="Added ajax to render json of all patients as collapsible tree.">
-      <created>1542734556262</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1542734556263</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Fixes for the server refactor.">
-      <created>1542744039725</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1542744039726</updated>
-    </task>
-    <task id="LOCAL-00072" summary="upgrade of create_user">
-      <created>1542749216571</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1542749216571</updated>
-    </task>
-    <task id="LOCAL-00073" summary="Fixed 'action' bug in addsample.html">
-      <created>1542831350874</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1542831350875</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Fixed bug in keyerror scraping Janine results.">
-      <created>1543848044486</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1543848044487</updated>
-    </task>
-    <task id="LOCAL-00075" summary="Removed patient numbers that Janine inputs in her excel sheet for brevity.">
-      <created>1543848571223</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1543848571223</updated>
-    </task>
-    <task id="LOCAL-00076" summary="Updated teloscraper to process uploaded zip files.">
-      <created>1547830888365</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1547830888366</updated>
-    </task>
-    <task id="LOCAL-00077" summary="Updated teloscraper to process uploaded zip files.">
-      <created>1548171966956</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1548171966957</updated>
-    </task>
-    <task id="LOCAL-00078" summary="minor changes to teloscraper">
-      <created>1548173184656</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1548173184656</updated>
-    </task>
-    <task id="LOCAL-00079" summary="minor changes to teloscraper">
-      <created>1548173675738</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1548173675738</updated>
-    </task>
-    <task id="LOCAL-00080" summary="minor changes to teloscraper">
-      <created>1548175588113</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1548175588114</updated>
-    </task>
-    <task id="LOCAL-00081" summary="minor changes to teloscraper">
-      <created>1548175677374</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1548175677374</updated>
-    </task>
-    <task id="LOCAL-00082" summary="changes to debug mongo.py">
-      <created>1548175926228</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1548175926228</updated>
-    </task>
-    <task id="LOCAL-00083" summary="changes to debug mongo.py">
-      <created>1548176489611</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1548176489612</updated>
-    </task>
-    <task id="LOCAL-00084" summary="changes to debug mongo.py">
-      <created>1548176763149</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1548176763150</updated>
-    </task>
-    <task id="LOCAL-00085" summary="changes to debug mongo.py">
-      <created>1548177059626</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1548177059626</updated>
-    </task>
-    <task id="LOCAL-00086" summary="Changed parseimage to strip out file extension...doy!">
-      <created>1548177441697</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1548177441697</updated>
-    </task>
-    <task id="LOCAL-00087" summary="Changed teloscraper to name using filelist[0]">
-      <created>1548180111075</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1548180111075</updated>
-    </task>
-    <task id="LOCAL-00088" summary="Added flash messages for zip-upload.">
-      <created>1548180430944</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1548180430944</updated>
-    </task>
-    <task id="LOCAL-00089" summary="Keyerror debug in teloscrape line 68.">
-      <created>1548181046789</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1548181046789</updated>
-    </task>
-    <task id="LOCAL-00090" summary="removed levels below 'images' in tree view.">
-      <created>1548185623242</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1548185623242</updated>
-    </task>
-    <task id="LOCAL-00091" summary="removed levels below 'images' in tree view.">
-      <created>1548186771609</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1548186771610</updated>
-    </task>
-    <task id="LOCAL-00092" summary="create user script debugging.">
-      <created>1548187241488</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1548187241488</updated>
-    </task>
-    <task id="LOCAL-00093" summary="create user script debugging.">
-      <created>1548187246790</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1548187246790</updated>
-    </task>
-    <task id="LOCAL-00094" summary="Proper redirecting of root page... I hope.">
-      <created>1548188412210</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1548188412210</updated>
-    </task>
-    <task id="LOCAL-00095" summary="Rudimentary navbar added.">
-      <created>1548451800124</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1548451800125</updated>
-    </task>
-    <task id="LOCAL-00096" summary="Rudimentary navbar added.">
-      <created>1549291912279</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1549291912280</updated>
-    </task>
-    <task id="LOCAL-00097" summary="Added summary of progress to home page.">
-      <created>1549292035820</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1549292035820</updated>
-    </task>
-    <task id="LOCAL-00098" summary="Added summary of progress to home page.">
-      <created>1549292273636</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1549292273636</updated>
-    </task>
-    <task id="LOCAL-00099" summary="minor troubleshooting.">
-      <created>1549292815648</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1549292815648</updated>
-    </task>
-    <task id="LOCAL-00100" summary="updating requirements">
-      <created>1550691031178</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1550691031179</updated>
-    </task>
-    <task id="LOCAL-00101" summary="Updating requirements.">
-      <created>1550693698611</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1550693698611</updated>
-    </task>
-    <task id="LOCAL-00102" summary="Created psa vs. parameter graph maker.">
-      <created>1552503400853</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1552503400854</updated>
-    </task>
-    <task id="LOCAL-00103" summary="Added in k-means for Quon prostateproject.">
-      <created>1552577057613</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1552577057614</updated>
-    </task>
-    <option name="localTasksCounter" value="104" />
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="Unittests_in_testbox - 2017.03.01 at 12h 03m 04s.xml">
-      <configuration name="Unittests in testbox" configurationId="tests" />
-    </history-entry>
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="31" width="1920" height="1049" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21063718" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3267974" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49447078" weight="0.32026145" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39945835" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49357328" weight="0.32974428" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5050026" side_tool="true" weight="0.37037036" />
-      <window_info anchor="bottom" id="Messages" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49499735" weight="0.37037036" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49904883" weight="0.3242655" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49552396" weight="0.32752994" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="3" weight="0.32969153" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17639594" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3297224" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4974293" visible="true" weight="0.3283683" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49357328" weight="0.32974428" />
-      <window_info anchor="bottom" id="Messages" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50642675" side_tool="true" weight="0.32975152" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.380501" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32974428" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3297224" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="3" weight="0.32969153" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="api-hacking" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="api-hacking" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added in scraping for excel files Janine sends with manual error correction." />
-    <MESSAGE value="Added in page to show all data in json format." />
-    <MESSAGE value="Added ajax to render json of all patients as collapsible tree." />
-    <MESSAGE value="Fixes for the server refactor." />
-    <MESSAGE value="upgrade of create_user" />
-    <MESSAGE value="Fixed 'action' bug in addsample.html" />
-    <MESSAGE value="Fixed bug in keyerror scraping Janine results." />
-    <MESSAGE value="Removed patient numbers that Janine inputs in her excel sheet for brevity." />
-    <MESSAGE value="Updated teloscraper to process uploaded zip files." />
-    <MESSAGE value="minor changes to teloscraper" />
-    <MESSAGE value="changes to debug mongo.py" />
-    <MESSAGE value="Changed parseimage to strip out file extension...doy!" />
-    <MESSAGE value="Changed teloscraper to name using filelist[0]" />
-    <MESSAGE value="Added flash messages for zip-upload." />
-    <MESSAGE value="Keyerror debug in teloscrape line 68." />
-    <MESSAGE value="removed levels below 'images' in tree view." />
-    <MESSAGE value="create user script debugging." />
-    <MESSAGE value="Proper redirecting of root page... I hope." />
-    <MESSAGE value="Rudimentary navbar added." />
-    <MESSAGE value="Added summary of progress to home page." />
-    <MESSAGE value="minor troubleshooting." />
-    <MESSAGE value="updating requirements" />
-    <MESSAGE value="Updating requirements." />
-    <MESSAGE value="Created psa vs. parameter graph maker." />
-    <MESSAGE value="Added in k-means for Quon prostateproject." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added in k-means for Quon prostateproject." />
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="setValue">
-      <expression>
-        <expression-string>{'MB0224PR': {'ACRatio': 9.480891173180702, 'CTCNum': 0, 'DateRec': '2014-04-25', 'images': {'Image0002': {'ACRatio': 5.1718911547771365, 'meanDist': 75.87229578483092, 'meanIntAll': 15036.785714285714, 'meanIntNorm': 15036.785714285714, 'nucDia': 8.863225070935588, 'nucVol': 364.564147, 'nucX': 55.392306506761344, 'nucY': 85.58087072670918, 'nucZ': 71.89542032228418, 'prcAgg': 0, 'sigNum': 14, 'sigPerVol': 0.03840202092061456, 'telomeres': {'001': {'X': 47, 'Y': 50, 'Z': 75, 'agg': 0, 'dist': 77.51937984496084, 'int': 35721, 'x1': -7, 'y1': -35, 'z1': 4}, '002': {'X': 39, 'Y': 85, 'Z': 78, 'agg': 0, 'dist': 60.60606060606077, 'int': 40058, 'x1': -15, 'y1': 0, 'z1': 7}, '003': {'X': 55, 'Y': 96, 'Z': 77, 'agg': 0, 'dist': 28.735632183907732, 'int': 21417, 'x1': 0, 'y1': 10, 'z1': 5}, '004': {'X': 47, 'Y': 78, 'Z': 79, 'agg': 0, 'dist': 47.16981132075486, 'int': 29766, 'x1': -8, 'y1': -7, 'z1': 7}, '005': {'X': 64, 'Y': 39, 'Z': 78, 'agg': 0, 'dist': 81.3008130081302, 'int': 8423,...</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>'Asymmetric'</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Flask/static/js/package.json" />
-    <entry file="file://$PROJECT_DIR$/Flask/static/js/node_modules/jquery/dist/jquery.js" />
-    <entry file="file://$PROJECT_DIR$/Flask/static/js/node_modules/jquery-ui/build/release.js" />
-    <entry file="file://$PROJECT_DIR$/Flask/static/js/bootstrap-treeview.min.js" />
-    <entry file="file://$PROJECT_DIR$/Flask/static/js/bootstrap-treeview.js" />
-    <entry file="file://$PROJECT_DIR$/Flask/templates/vanilla.html" />
-    <entry file="file://$PROJECT_DIR$/Flask/static/js/renderjson.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2964">
-          <caret line="216" lean-forward="true" selection-start-line="216" selection-end-line="216" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/chart.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="27" column="72" selection-start-line="27" selection-start-column="72" selection-end-line="27" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/corrections.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="114" selection-start-line="7" selection-start-column="114" selection-end-line="7" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/fileupload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AddData/janine_scraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding>
-            <element signature="e#1#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Logs/QP.log" />
-    <entry file="file://$PROJECT_DIR$/AddData/clinical_scraper_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-          <folding>
-            <element signature="e#54#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/zip_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/patientizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Logs/precise.log">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="7429">
-          <caret line="391" column="62" selection-start-line="391" selection-start-column="58" selection-end-line="391" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/addsample.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="37" column="22" selection-start-line="35" selection-start-column="16" selection-end-line="37" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/email.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AddData/sample_adder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="33" column="73" selection-start-line="33" selection-start-column="73" selection-end-line="33" selection-end-column="73" />
-          <folding>
-            <element signature="e#24#202#1" />
-            <element signature="e#204#235#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/keys.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/imagizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/create_user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="20" column="74" selection-start-line="20" selection-start-column="74" selection-end-line="20" selection-end-column="74" />
-          <folding>
-            <element signature="e#37#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="25" selection-start-line="12" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/static/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170487">
-          <caret line="8973" selection-start-line="8973" selection-end-line="8973" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/zip_upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/navbar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/PSA_intensity.py" />
-    <entry file="file://$PROJECT_DIR$/Scripts/sloper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2679">
-          <caret line="147" column="62" selection-start-line="147" selection-start-column="62" selection-end-line="147" selection-end-column="62" />
-          <folding>
-            <element signature="e#257#275#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/sloper2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1577">
-          <caret line="89" column="112" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="112" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AddData/telo_scraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1159">
-          <caret line="66" column="31" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
-          <folding>
-            <element signature="e#164#245#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/namer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DB_DIR/menu_items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
-          <folding>
-            <element signature="e#24#157#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/analysis_summary.py" />
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/templates/all.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/PSA_intensities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="15" column="75" selection-start-line="14" selection-start-column="4" selection-end-line="15" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/filterizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="77" column="66" selection-start-line="74" selection-start-column="8" selection-end-line="77" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/kmeans.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///opt/anaconda/envs/precise/lib/python3.7/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="513" selection-start-line="513" selection-end-line="513" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3116">
-          <caret line="191" column="140" selection-start-line="191" selection-start-column="140" selection-end-line="191" selection-end-column="140" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DB_DIR/mongo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2204">
-          <caret line="125" column="15" selection-start-line="116" selection-end-line="125" selection-end-column="15" />
-          <folding>
-            <element signature="e#161#182#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/HarveyFinder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="63" column="17" selection-start-line="59" selection-start-column="4" selection-end-line="63" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/quon_kmeans.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="56" column="6" selection-start-line="56" selection-end-line="57" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/PSA_telomere_counts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3154">
-          <caret line="174" column="36" selection-start-line="174" selection-start-column="36" selection-end-line="174" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Flask/resources.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

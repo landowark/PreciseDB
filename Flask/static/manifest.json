@@ -1,0 +1,18 @@
+{
+  "name": "Precise-PWA",
+  "short_name": "Precise-PWA",
+  "description": "A progressive webapp built with Flask",
+  "theme_color": "transparent",
+  "background_color": "transparent",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/static/img/logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}
